@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button";
-
 const Nav = () => {
   let Links = [
     { name: "HOME", link: "/" },
     { name: "ABOUT", link: "/" },
     { name: "BUY COFFEE", link: "/product" },
-    { name: "WALLET", link: "/" },
+    { name: "WALLET", link: "/wallet" },
   ];
   let [open, setOpen] = useState(false);
   let [scrolled, setScrolled] = useState(false);
@@ -47,8 +46,9 @@ const Nav = () => {
 
         <div
           onClick={() => setOpen(!open)}
-          className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden bg-#ECE4CF"
+          className="text-3xl block absolute right-8 top-6 cursor-pointer md:hidden bg-#ECE4CF"
         >
+          {/* <div name={open ? "close" : "menu"}>hi</div> */}
           <ion-icon name={open ? "close" : "menu"}></ion-icon>
         </div>
 

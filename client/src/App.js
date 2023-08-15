@@ -8,28 +8,32 @@ import Feature from "./components/Feature";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Product from "./components/Product";
+import Home from "./components/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   return (
     <>
       <header className="App-head">
         <Navbar />
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <div>
-                  <Hero />
-                  <Feature />
-                  <Banner />
-                  <WalletConnect />
-                </div>
-              }
-            />
-            <Route path="/product" element={<Product />} />
-          </Routes>
-        </BrowserRouter>
+        <div className="pt-16">
+          <BrowserRouter>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <div>
+                    <Hero />
+                    <Feature />
+                    <Banner />
+                    <WalletConnect />
+                  </div>
+                }
+              />
+              <Route path="/product" element={<Product />} />
+              <Route path="/wallet" element={<Home />} />
+            </Routes>
+          </BrowserRouter>
+        </div>
       </header>
     </>
   );

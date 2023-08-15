@@ -87,7 +87,7 @@ const WalletConnect = () => {
               <h3 className="connected-account">Connected Account: </h3>
               {account}
               <button className="transactions" onClick={transactionHandle}>
-                <Home />
+                {/* <Home /> */}
               </button>
             </>
           </>
