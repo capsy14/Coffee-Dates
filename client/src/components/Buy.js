@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import { ethers } from 'ethers';
 import '../styles/buy.css'; // Import the CSS file
 

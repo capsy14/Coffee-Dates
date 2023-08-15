@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
-contract coffeekachakkar{
-    struct Memo{
+
+contract coffeekachakkar {
+    struct Memo {
         string name;
         string message;
         uint timestamp;
@@ -9,15 +10,24 @@ contract coffeekachakkar{
     }
     Memo[] memos;
     address payable owner;
-    constructor(){
-        owner=payable(msg.sender);
+
+    constructor() {
+        owner = payable(msg.sender);
     }
-    function buyCoffee (string memory name, string memory message) public payable {
-        require(msg.value>0,"Please pay the desired amount");
+
+
+    function buyCoffee(
+        string memory coffeeName,
+        string memory coffeeMessage
+    ) public payable {
+        require(msg.value > 0, "Please pay the desired amount");
         owner.transfer(msg.value);
-        memos.push(Memo(name,message,block.timestamp,msg.sender));
+        memos.push(
+            Memo(coffeeName, coffeeMessage, block.timestamp, msg.sender)
+        );
     }
-    function getMemos() public view returns(Memo[] memory){
+
+    function getMemos() public view returns (Memo[] memory) {
         return memos;
     }
 }
