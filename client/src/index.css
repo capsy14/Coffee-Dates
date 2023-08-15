@@ -9,7 +9,8 @@
   justify-content: center;
   overflow-x: hidden;
   font-size: 26px;
-  background-position: top 30% ;
+  margin-top: -60px;
+  /* background-position: ; */
 
 
 
@@ -170,7 +171,7 @@
   width: 100%;
   background-size: cover;
   background-position: center;
-  background-position: top 23% right 30%;
+  background-position: top 30% right 30%;
  height: 36vh;
 
 }
