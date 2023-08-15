@@ -39,9 +39,9 @@ const Home = () => {
   console.log(state);
   return (
     <div className="App">
-      {/* <h1 className="lovmatch">Koffee ka Chakkar❤️</h1> */}
-      {/* <Buy state={state} /> */}
-      {/* <Memos state={state} /> */}
+      <h1 className="lovmatch">Koffee ka Chakkar❤️</h1>
+      <Buy state={state} />
+      <Memos state={state} />
     </div>
   );
 };

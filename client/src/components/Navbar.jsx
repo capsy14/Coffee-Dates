@@ -6,7 +6,7 @@ const Nav = () => {
     { name: "HOME", link: "/" },
     { name: "ABOUT", link: "/" },
     { name: "BUY COFFEE", link: "/product" },
-    { name: "CONTACT", link: "/" },
+    { name: "WALLET", link: "/" },
   ];
   let [open, setOpen] = useState(false);
   let [scrolled, setScrolled] = useState(false);

@@ -13,7 +13,6 @@ function App() {
   return (
     <>
       <header className="App-head">
-        {/* <WalletConnect /> */}
         <Navbar />
         <BrowserRouter>
           <Routes>
@@ -24,6 +23,7 @@ function App() {
                   <Hero />
                   <Feature />
                   <Banner />
+                  <WalletConnect />
                 </div>
               }
             />
