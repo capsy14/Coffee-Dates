@@ -1,13 +1,211 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.hero {
+  background-image: url("../public/assets/front.jpg");
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-x: hidden;
+  font-size: 26px;
+  background-position: top 30% ;
+
+
+
+}
+#nav{
+  color: rgb(99, 215, 99);
+}
+.hero_text {
+  margin-left: 50px;
+  font-size: 25px;
+  size: 20px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.super {
+  color: green;
+  font-size: 48px;
+}
+
+.on {
+  color:burlywood;
+  font-size: 48px;
+
+}
+#nav1{
+  /* background-color: rgb(131, 102, 102); */
+  background-color: #ECE4CF;
+}
+.shop{
+  color: white;
+  margin-left: 150px;
+  color: burlywood;
+}
+
+/* ---------------------------------------------product --------------- */
+.product1 {
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  gap:50px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.product1 .pro {
+  width: 20%;
+  min-width: 250px;
+  margin-top: 2rem;
+  padding: 10px 12px;
+  border: 1px solid #cce7d0;
+  border-radius: 10%;
+  cursor: pointer;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+  transition: 0.3s ease;
+  /* height: max-content; */
+
+
+}
+
+.product1 .pro:hover {
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+
+}
+
+.product1 .pro img {
+  width: 100%;
+  border-radius: 10%;
+ height: 220px;
+  
+}
+
+.product1 .pro .des {
+  text-align: start;
+  padding-top: 1px;
+  position: relative;
+
+}
+
+.product1 h2 {
+  font-size: 3rem;
+  color: var(--theme-color);
+}
+
+.product1 p {
+  font-size: large;
+  font-weight: 700;
+}
+
+.product1 .pro .des span {
+  font-size: 0.8rem;
+  margin: 3px;
+}
+
+.product1 .pro h5 {
+  font-size: large;
+  color: #1a1a1a;
+  font-weight: 700;
+  margin: 5px;
+
+}
+
+.product1 .pro .star i {
+  color: rgb(239, 203, 1);
+  margin: 5px;
+
+}
+
+.product1 .pro h4 {
+  color: #088178;
+  font-size: 1.5rem;
+  display: flex;
+  margin: 5px;
+
+  /* font-weight: 900; */
+
+}
+
+.product1 .pro .des .cart {
+  width: 48px;
+  height: 38px;
+  padding-top: 16px;
+  font-size: large;
+  color: #44aca5;
+  background-color: #c8ecea;
+  border-radius: 100%;
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  align-items: center;
+}
+
+.product1 a {
+  text-decoration: none;
+
+}
+
+.pro-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* ---------------------------------------------------------- */
+#feature{
+  font-size: 3rem;
+  text-align: center;
+  color: burlywood;
+}
+
+/* ------------------------------------------banner--------- */
+#banner {
+  /* align-items: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-image: url(../public/assets/banner.jpg);
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-position: top 23% right 30%;
+ height: 36vh;
+
+}
+
+#banner h4 {
+  color: white;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+#banner h2 {
+  color: white;
+  margin-top: 1.5rem;
+  margin-right: 23rem;
+  font-size: 2.5rem;
+}
+
+#banner button,
+.normal {
+  width: 7.5rem;
+  height: 3rem;
+  margin: auto;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  border-radius: 3.3rem;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.3s ease;
+
+}
+
+#banner button:hover,
+.normal:hover {
+  background-color: #088178;
+  color: white;
+  /* transition: 1.2; */
+  transform: scale(1.2);
 }
