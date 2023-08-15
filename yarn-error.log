@@ -33,7 +33,7 @@ npm manifest:
       "hardhat": "^2.17.1"
     },
     "dependencies": {
-      "ethers": "^6.7.2"
+      "ethers": "^5.7.2"
     }
   }
 
