@@ -1,11 +1,21 @@
 /* Buy.css */
+.buy-buy-container{
+  width: 100%;
+  
+  border: 1px solid #c34d4d;
+  margin-top: -50px;
+  background-image: url('../../public/assets/Love\ Brews\ Here\ \(1\).jpg');
+  background-position: top -200%;
+  background-size: cover;
 
+}
 .buy-container {
     width: 300px;
-    margin: 0 auto;
+   margin-left: 60px;
     padding: 20px;
-    border: 1px solid #9c9c9c;
+    /* border: 1px solid #c34d4d; */
     border-radius: 5px;
+    margin-top: 30px;
   }
   
   .buy-form label {
@@ -14,7 +24,7 @@
   }
   
   .buy-form input {
-    width: 92%;
+    width: 102%;
     padding: 8px;
     outline: none;
     /* border-top: 0px; */
@@ -22,6 +32,7 @@
     /* border: 0px 10px 0px 0px; */
     margin-bottom: 10px;
     border-top: none;
+    border-radius: 15px;
     border-right: none;
     border-left: none;
     border-color: black;
@@ -30,17 +41,26 @@
   }
   
   .buy-form button {
-    background-color: #007bff;
+    background-color: burlywood;
     color: white;
-    border: none;
+   
+    border-radius: 15px;
     padding: 10px 19px;
-    border-radius: 3px;
+  
     cursor: pointer;
+    margin-top: 10px;
   }
   
   .buy-form button:hover {
-    background-color: #0056b3;
+    background-color: green;
   }
 .inputbuy{
     margin-right: 40px;
 }  
+
+.lovmatch{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  color:burlywood ;
+}

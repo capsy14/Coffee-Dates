@@ -41,7 +41,7 @@ const Home = () => {
   return (
     <div className="App mt-10">
       <WalletConnect />
-      <h1 className="lovmatch">Koffee ka Chakkar❤️</h1>
+      {/* <h1 className="lovmatch">Koffee ka Chakkar❤️</h1> */}
       <Buy state={state} />
       <Memos state={state} />
     </div>

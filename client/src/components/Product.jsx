@@ -20,23 +20,26 @@ import products from "./data.json";
 
 const Product = () => {
   return (
-    <div className="product1">
-      {products.map((product, index) => (
-        <div className="pro" key={index}>
-          <img src={product.imgSrc} alt={product.name} />
-          <div className="des">
-            <h5>{product.name}</h5>
-            <div className="star">{renderStars(product.rating)}</div>
-            <h4>₹{product.price}</h4>
-            <button>
-              <a href="#">
-                <ion-icon name="cart"></ion-icon>
-              </a>
-            </button>
+    <>
+      <div className="catalog"></div>
+      <div className="product1">
+        {products.map((product, index) => (
+          <div className="pro" key={index}>
+            <img src={product.imgSrc} alt={product.name} />
+            <div className="des">
+              <h5>{product.name}</h5>
+              <div className="star">{renderStars(product.rating)}</div>
+              <h4>₹{product.price}</h4>
+              <button>
+                <a href="#">
+                  <ion-icon name="cart"></ion-icon>
+                </a>
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 };
 

@@ -72,7 +72,7 @@ const Nav = () => {
               </a>
             </li>
           ))}
-          <Button>Get Started</Button>
+          <Button>Login</Button>
         </ul>
       </div>
     </div>

@@ -46,6 +46,14 @@
 }
 
 /* ---------------------------------------------product --------------- */
+.catalog{
+  height: 49vh;
+  width: 100%;
+  background-image: url(.././public/assets/catalog2.jpg);
+  background-size: cover;
+  margin-top: -30px;
+  /* background-position: top  20%; */
+}
 .product1 {
   text-align: center;
   padding: 10px;
@@ -171,7 +179,7 @@
   width: 100%;
   background-size: cover;
   background-position: center;
-  background-position: top 30% right 30%;
+  background-position: top 24% right 30%;
  height: 36vh;
 
 }
