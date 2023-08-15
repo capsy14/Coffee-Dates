@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import React from "react";
 import { ethers } from "ethers";
 import "../styles/buy.css"; // Import the CSS file
+=======
+  import React from 'react';
+import { ethers } from 'ethers';
+import '../styles/buy.css'; // Import the CSS file
+>>>>>>> 7c4e2c34a4917dfdb50688d034d3e3b6c0a23622
 
 const Buy = ({ state }) => {
   const buycofee = async (e) => {

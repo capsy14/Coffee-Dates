@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Kartik\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add ethers
+  C:\Program Files\nodejs\node.exe C:\Users\Kartik\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add --dev hardhat @nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers ethers
 
 PATH: 
   C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\Kartik\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\Kartik\AppData\Local\Programs\Python\Python311\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\MinGW\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-20\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\Kartik\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.6.10-hotspot\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Kartik\AppData\Local\Microsoft\WindowsApps;C:\Users\Kartik\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Kartik\AppData\Roaming\npm
