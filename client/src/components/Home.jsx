@@ -6,7 +6,7 @@ import { ethers } from "ethers";
 import Buy from "./Buy";
 import Memos from "./Memos";
 import WalletConnect from "./WalletConnect";
-const Home = () => {
+const Home = ({ account, setAccount }) => {
   const [state, setState] = useState({
     provider: null,
     signer: null,
@@ -40,7 +40,7 @@ const Home = () => {
   console.log(state);
   return (
     <div className="App mt-10">
-      <WalletConnect />
+      <WalletConnect account={account} setAccount={setAccount} />
       {/* <h1 className="lovmatch">Koffee ka Chakkar❤️</h1> */}
       <Buy state={state} />
       <Memos state={state} />

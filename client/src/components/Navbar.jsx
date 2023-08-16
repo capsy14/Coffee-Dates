@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from "./Button";
+// import Button from "./Button";
 import { Link } from "react-router-dom";
 const Nav = () => {
   let Links = [
@@ -59,7 +59,24 @@ const Nav = () => {
             open ? "top-20 " : "top-[-490px]"
           }`}
         >
-          {Links.map((link) => (
+          {/* starting here */}
+          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <Link to="/">HOME</Link>
+          </li>
+          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <Link to="/chat">CHAT</Link>
+          </li>
+          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <Link to="/wallet">WALLET</Link>
+          </li>
+          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <Link to="/product">PRODUCT</Link>
+          </li>
+          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <Link to="/form">REGISTER</Link>
+          </li>
+
+          {/* {Links.map((link) => (
             <li
               key={link.name}
               className="md:ml-8 text-green md:my-0 my-7"
@@ -73,7 +90,7 @@ const Nav = () => {
                 {link.name}
               </a>
             </li>
-          ))}
+          ))} */}
           {/* <Link to=""></Link> */}
           {/* <Button>Register</Button> */}
         </ul>

@@ -3,15 +3,14 @@ import { ethers } from "ethers";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import abi from "../contracts/coffeekachakkar.json"; // Update the path to your JSON file
-import Home from "../components/Home";
 
-const WalletConnect = () => {
+const WalletConnect = ({ account, setAccount }) => {
   const [state, setState] = useState({
     provider: null,
     signer: null,
     contract: null,
   });
-  const [account, setAccount] = useState("Account not connected");
+
   const [connected, setConnected] = useState(false);
 
   useEffect(() => {
@@ -76,7 +75,7 @@ const WalletConnect = () => {
       alert(error.message);
     }
   };
-  const transactionHandle = () => {};
+
   const success = () => {
     toast.success(`Connected Account: ${account} `, {
       position: "top-right",
@@ -90,28 +89,6 @@ const WalletConnect = () => {
     });
   };
 
-  //   return (
-  //     <div className="App">
-  //       <header className="App-header">
-  //         {connected ? (
-  //           <>
-  //             <p>Thanks for connecting to MetaMask!</p>
-  //             <ToastContainer />
-  //             <>
-  //               <h3 className="connected-account">Connected Account: </h3>
-  //               {account}
-  //               <button className="transactions" onClick={transactionHandle}>
-  //                 {/* <Home /> */}
-  //               </button>
-  //             </>
-  //           </>
-  //         ) : (
-  //           <button onClick={requestAccount}>Connect Wallet</button>
-  //         )}
-  //       </header>
-  //     </div>
-  //   );
-  // };
   return (
     <div className="App">
       <header className="App-header">
@@ -130,3 +107,8 @@ const WalletConnect = () => {
 };
 
 export default WalletConnect;
+
+// export function Account() {
+//   return <h1 className="connected">{acc}</h1>;
+// }
+// module.exports = { Account };

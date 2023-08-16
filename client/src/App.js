@@ -1,5 +1,5 @@
 // App.js
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import WalletConnect from "./components/WalletConnect"; // Update the path accordingly
 import Banner from "./components/Banner";
@@ -14,12 +14,13 @@ import Footer from "./components/Footer";
 import Chat from "./components/Chat";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
+  const [account, setAccount] = useState("Account not connected");
   return (
     <>
       <header className="App-head">
-        <Navbar />
         <div className="pt-16">
           <BrowserRouter>
+            <Navbar />
             <Routes>
               <Route
                 path="/"
@@ -28,14 +29,20 @@ function App() {
                     <Hero />
                     <Feature />
                     <Banner />
-                    <WalletConnect />
+                    <WalletConnect account={account} setAccount={setAccount} />
                   </div>
                 }
               />
               <Route path="/product" element={<Product />} />
-              <Route path="/wallet" element={<Home />} />
+              <Route
+                path="/wallet"
+                element={<Home account={account} setAccount={setAccount} />}
+              />
               <Route path="/form" element={<CoffeeForm />} />
-              <Route path="/chat" element={<Chat />} />
+              <Route
+                path="/chat"
+                element={<Chat account={account} setAccount={setAccount} />}
+              />
             </Routes>
           </BrowserRouter>
         </div>
