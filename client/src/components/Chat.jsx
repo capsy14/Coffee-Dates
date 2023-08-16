@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useEffect, useState, useReducer, useCallback } from "react";
 import Gun from "gun";
 import "../styles/chat.css";
-import WalletConnect from "./WalletConnect";
+
 const gun = Gun({
   peers: ["https://localhost:3030/gun"],
 });
@@ -19,7 +19,7 @@ function reducer(state, action) {
   return state;
 }
 
-const Chat = ({ setAccount, account }) => {
+const Chat = ({ account }) => {
   const [formState, setForm] = useState({
     name: "",
     message: "",
@@ -44,11 +44,11 @@ const Chat = ({ setAccount, account }) => {
     };
   }, []);
 
-  function onChange(e) {
+  const onChange = (e) => {
     setForm({ ...formState, [e.target.name]: e.target.value });
-  }
+  };
 
-  function saveMessage() {
+  const saveMessage = useCallback(() => {
     const messages = gun.get("messages");
     messages.set({
       name: formState.name,
@@ -59,50 +59,55 @@ const Chat = ({ setAccount, account }) => {
       name: "",
       message: "",
     });
-  }
+  }, [formState]);
 
   return (
-    <div className="container">
-      <h1>Decentralized Chat App using Gun js </h1>
-      <h1>Connected Account is {account}</h1>
-      {/* <WalletConnect account={account} setAccount={setAccount} /> */}
-      <div className="input-container">
-        <input
-          className="input-field"
-          onChange={onChange}
-          placeholder="Name"
-          name="name"
-          value={formState.name}
-        />
-        <br />
-        <input
-          className="input-field"
-          onChange={onChange}
-          placeholder="Message"
-          name="message"
-          value={formState.message}
-        />
-        <br />
-        <button className="send-button" onClick={saveMessage}>
-          Send Message
-        </button>
-      </div>
-      <div className="message-container">
-        {state.messages.map((message) => (
-          <div className="message" key={message.createdAt}>
-            <div className="message-content">
-              <h3 className="message-sender">
-                {message.name} Address:{account}
-              </h3>
-              <p className="message-text">{message.message}</p>
-              <p className="message-time">
-                {new Date(message.createdAt).toLocaleString()}
-              </p>
+    <>
+      <div className="container">
+        <div className="dil"></div>
+        <h1>Decentralized Chat App using Gun js</h1>
+
+        <h1>Connected Account is {account}</h1>
+        <div className="input-container">
+          <input
+            className="input-field"
+            onChange={onChange}
+            placeholder="Name"
+            name="name"
+            value={formState.name}
+          />
+          <br />
+          <br />
+          <input
+            className="input-field"
+            onChange={onChange}
+            placeholder="Message"
+            name="message"
+            value={formState.message}
+          />
+          <br />
+          <br />
+          <button className="send-button" onClick={saveMessage}>
+            Send Message
+          </button>
+        </div>
+        <div className="message-container">
+          {state.messages.map((message) => (
+            <div className="message" key={message.createdAt}>
+              <div className="message-content">
+                <h3 className="message-sender">
+                  {message.name} Address: {account}
+                </h3>
+                <p className="message-text">{message.message}</p>
+                <p className="message-time">
+                  {new Date(message.createdAt).toLocaleString()}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
