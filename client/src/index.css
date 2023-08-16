@@ -241,3 +241,52 @@
   margin-top: 10px;
 }
 /* ----------------------------------------ending of Wallet Section----------- */
+
+/* -----------------------------------coffee form section----------------------------------- */
+.form-container {
+  /* max-width: 400px; */
+  width: 100%;
+  /* margin-left: 30px; */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  height: 90vh;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.form-container input,
+.form-container select {
+  width: 30%;
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-container button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+/* --------------------------------------------ending of coffee form section---------------------- */

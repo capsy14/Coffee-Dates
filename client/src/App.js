@@ -9,6 +9,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Product from "./components/Product";
 import Home from "./components/Home";
+import CoffeeForm from "./components/CoffeeForm";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
               />
               <Route path="/product" element={<Product />} />
               <Route path="/wallet" element={<Home />} />
+              <Route path="/form" element={<CoffeeForm />} />
             </Routes>
           </BrowserRouter>
         </div>

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 const Nav = () => {
   let Links = [
     { name: "HOME", link: "/" },
-    { name: "ABOUT", link: "/" },
+    { name: "ABOUT", link: "/form" },
     { name: "BUY COFFEE", link: "/product" },
     { name: "WALLET", link: "/wallet" },
   ];
@@ -72,6 +73,7 @@ const Nav = () => {
               </a>
             </li>
           ))}
+          {/* <Link to=""></Link> */}
           <Button>Login</Button>
         </ul>
       </div>
