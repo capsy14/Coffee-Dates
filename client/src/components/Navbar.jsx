@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   let Links = [
     { name: "HOME", link: "/" },
-    { name: "CHAT", link: "/form" },
+    { name: "CHAT", link: "/chat" },
     { name: "BUY COFFEE", link: "/product" },
     { name: "WALLET", link: "/wallet" },
     { name: "REGISTER", link: "/form" },

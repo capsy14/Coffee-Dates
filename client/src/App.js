@@ -11,6 +11,7 @@ import Product from "./components/Product";
 import Home from "./components/Home";
 import CoffeeForm from "./components/CoffeeForm";
 import Footer from "./components/Footer";
+import Chat from "./components/Chat";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
               <Route path="/product" element={<Product />} />
               <Route path="/wallet" element={<Home />} />
               <Route path="/form" element={<CoffeeForm />} />
+              <Route path="/chat" element={<Chat />} />
             </Routes>
           </BrowserRouter>
         </div>
