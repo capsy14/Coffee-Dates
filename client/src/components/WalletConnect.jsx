@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import abi from "../contracts/coffeekachakkar.json"; // Update the path to your JSON file
 import Home from "../components/Home";
 
@@ -75,21 +77,49 @@ const WalletConnect = () => {
     }
   };
   const transactionHandle = () => {};
+  const success = () => {
+    toast.success(`Connected Account: ${account} `, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
 
+  //   return (
+  //     <div className="App">
+  //       <header className="App-header">
+  //         {connected ? (
+  //           <>
+  //             <p>Thanks for connecting to MetaMask!</p>
+  //             <ToastContainer />
+  //             <>
+  //               <h3 className="connected-account">Connected Account: </h3>
+  //               {account}
+  //               <button className="transactions" onClick={transactionHandle}>
+  //                 {/* <Home /> */}
+  //               </button>
+  //             </>
+  //           </>
+  //         ) : (
+  //           <button onClick={requestAccount}>Connect Wallet</button>
+  //         )}
+  //       </header>
+  //     </div>
+  //   );
+  // };
   return (
     <div className="App">
       <header className="App-header">
         {connected ? (
           <>
-            <p>Thanks for connecting to MetaMask!</p>
-
-            <>
-              <h3 className="connected-account">Connected Account: </h3>
-              {account}
-              <button className="transactions" onClick={transactionHandle}>
-                {/* <Home /> */}
-              </button>
-            </>
+            {" "}
+            <button onClick={success}>Connected to Metamask</button>
+            <ToastContainer className="mt-14" />
           </>
         ) : (
           <button onClick={requestAccount}>Connect Wallet</button>
