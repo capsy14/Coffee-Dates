@@ -12,7 +12,9 @@ export default function Hero() {
           <br />
           {/* <p>Save more with coupons & up to 70% off!</p> */}
           <br />
-          <button className="shop">Shop Now</button>
+          <button className="shop">
+            <a href="/product">Buy Now</a>
+          </button>
         </div>
       </div>
     </>

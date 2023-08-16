@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   let Links = [
     { name: "HOME", link: "/" },
-    { name: "ABOUT", link: "/form" },
+    { name: "CHAT", link: "/form" },
     { name: "BUY COFFEE", link: "/product" },
     { name: "WALLET", link: "/wallet" },
+    { name: "REGISTER", link: "/form" },
   ];
   let [open, setOpen] = useState(false);
   let [scrolled, setScrolled] = useState(false);
@@ -66,7 +67,7 @@ const Nav = () => {
             >
               <a
                 href={link.link}
-                className="text-green-800 hover:text-gray-400 text-white duration-500 text-lg" // Add the text size class
+                className="text-green-800 hover:text-gray-400 hover:bg-burlywood-600 text-white duration-500 text-lg" // Add the text size class
                 id="nav"
               >
                 {link.name}
@@ -74,7 +75,7 @@ const Nav = () => {
             </li>
           ))}
           {/* <Link to=""></Link> */}
-          <Button>Login</Button>
+          {/* <Button>Register</Button> */}
         </ul>
       </div>
     </div>

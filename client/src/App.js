@@ -10,7 +10,7 @@ import Navbar from "./components/Navbar";
 import Product from "./components/Product";
 import Home from "./components/Home";
 import CoffeeForm from "./components/CoffeeForm";
-
+import Footer from "./components/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   return (
@@ -38,6 +38,7 @@ function App() {
           </BrowserRouter>
         </div>
       </header>
+      <Footer />
     </>
   );
 }

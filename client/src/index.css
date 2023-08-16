@@ -1,3 +1,5 @@
+/* color #ECE4CF */
+/* #DEB887 */
 .hero {
   background-image: url("../public/assets/front.jpg");
   height: 100vh;
@@ -17,6 +19,11 @@
 }
 #nav{
   color: rgb(99, 215, 99);
+}
+#nav:hover{
+  background-color: rgb(219, 205, 189);
+  /* font-size: 20px; */
+  border-radius: 6px;
 }
 .hero_text {
   margin-left: 50px;
@@ -180,7 +187,7 @@
   background-size: cover;
   background-position: center;
   background-position: top 24% right 30%;
- height: 36vh;
+ /* height: 36vh; */
 
 }
 
@@ -196,13 +203,25 @@
   margin-right: 23rem;
   font-size: 2.5rem;
 }
+@media(max-width:780px){
+  #banner h2 {
+   
+    font-size: 1.6rem;
+    margin-left: 50px;
+  }
+  .hero {
+   background-position: left;
+   height: 77vh;
+}
+  
+}
 
 #banner button,
 .normal {
   width: 7.5rem;
   height: 3rem;
   margin: auto;
-  margin-bottom: 15px;
+  margin-bottom: 35px;
   font-size: 1rem;
   border-radius: 3.3rem;
   cursor: pointer;
@@ -245,7 +264,7 @@
 /* -----------------------------------coffee form section----------------------------------- */
 .form-form-container{
   background-color:  #ECE4CF;
-  margin-top: -17px;
+  margin-top: -25px;
   height: 100vh;
 }
 .form-container {
@@ -293,3 +312,11 @@
 
 
 /* --------------------------------------------ending of coffee form section---------------------- */
+
+
+/* ---------------------------------------starting of footer section------------------------------- */
+#footer{
+  background-image: url('../public/assets/footer.jpg');
+  background-size: cover ;
+  margin-top: 100px;
+}
