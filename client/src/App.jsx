@@ -15,6 +15,7 @@ import Chat from "./components/Chat";
 import Home2 from "./pages/Home/Home-d";
 import Rec from "./pages/Rec/Rec"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Ipfssave from "./IPFSsave";
 function App() {
   const [account, setAccount] = useState("Account not connected");
   return (
@@ -38,6 +39,7 @@ function App() {
               <Route path="/product" element={<Product />} />
               <Route path="/chatvideo" element={<Home2 />} />
               <Route path="/rec/:roomId" element={<Rec />} />
+              <Route path="/ipfsphotoshare" element={<Ipfssave />} />
               <Route
                 path="/wallet"
                 element={<Home account={account} setAccount={setAccount} />}

@@ -1,0 +1,31 @@
+.headingdapp {
+    font-size: 50px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .myAccount {
+    font-size: 1.2em;
+    color: #120968;
+    text-align: center;
+    margin-top: 10px;
+  
+  }
+  .photoipfs{
+    height: 60px;
+    width: 140px;
+    margin-top: 26px;
+    /* position: absolute; */
+  }
+  .toporder{
+    display: flex;
+    margin-left: 540px;
+    gap: 30px;
+  }
+  
+  .middleliners {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

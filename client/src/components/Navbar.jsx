@@ -9,6 +9,7 @@ const Nav = () => {
     { name: "WALLET", link: "/wallet" },
     { name: "REGISTER", link: "/form" },
     { name: "VIDEOCHAT", link: "/chatvideo" },
+    { name: "IPFSSAVE", link: "/ipfsphotoshare" },
   ];
   let [open, setOpen] = useState(false);
   let [scrolled, setScrolled] = useState(false);
@@ -78,6 +79,9 @@ const Nav = () => {
           </li>
           <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
             <Link to="/chatvideo">VIDEOCHAT</Link>
+          </li>
+          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <Link to="/ipfsphotoshare">MEMORIES</Link>
           </li>
 
           {/* {Links.map((link) => (

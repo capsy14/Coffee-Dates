@@ -32,7 +32,7 @@ const WalletConnect = ({ account, setAccount }) => {
           setConnected(true);
           provider = new ethers.providers.Web3Provider(window.ethereum);
           const signer = provider.getSigner();
-          const contractAddress = "0xC0C2118A92DdcA2382d92066FA404f13251b0090";
+          const contractAddress = "0x7d8C6208909BD7cfDaDd7a185A9DC9B66Eaf9ff5";
           const contractABI = abi.abi;
 
           const contract = new ethers.Contract(
