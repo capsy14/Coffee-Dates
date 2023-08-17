@@ -12,6 +12,8 @@ import Home from "./components/Home";
 import CoffeeForm from "./components/CoffeeForm";
 import Footer from "./components/Footer";
 import Chat from "./components/Chat";
+import Home2 from "./pages/Home/Home-d";
+import Rec from "./pages/Rec/Rec"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   const [account, setAccount] = useState("Account not connected");
@@ -34,6 +36,8 @@ function App() {
                 }
               />
               <Route path="/product" element={<Product />} />
+              <Route path="/chatvideo" element={<Home2 />} />
+              <Route path="/rec/:roomId" element={<Rec />} />
               <Route
                 path="/wallet"
                 element={<Home account={account} setAccount={setAccount} />}
