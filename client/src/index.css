@@ -344,3 +344,60 @@
   background-size: cover ;
   margin-top: 100px;
 }
+
+/* --------------------------------------video section-------------------------- */
+.video{
+  background-image: url('../public/assets/video_chat.jpg');
+  height: 40vh;
+  margin-top: -7px;
+  background-size: cover;
+}
+
+.video-stream{
+  height: 45vh;
+  width: 30vw;
+  /* border: 1px solid rgb(63, 93, 239); */
+  border-radius: 14%;
+  background-image: url('../public/assets/cam2.png');
+  background-size: contain;
+  background-position: bottom;
+  margin-left: 40px;
+  /* padding: 15px; */
+}
+
+.grid{
+      justify-content: space-around;
+      margin-left: 113px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.text-red-500 {
+  color: #ff0000;
+}
+.room{
+  width: 450px;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 3%;
+  overflow: hidden;
+}
+.room h3{
+   background-color: rgb(222, 214, 214);
+   border: 1px solid rgb(241, 238, 238);
+   padding: 7px;
+}
