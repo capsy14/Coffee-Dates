@@ -65,24 +65,21 @@
   text-align: center;
   padding: 10px;
   display: flex;
-  gap:50px;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: center; /* Center items horizontally */
+  gap: 20px;
 }
 
 .product1 .pro {
-  width: 20%;
-  min-width: 250px;
-  margin-top: 2rem;
+  flex: 1;
+  max-width: 276px; /* Adjust this value as needed */
+  margin: 1rem;
   padding: 10px 12px;
   border: 1px solid #cce7d0;
   border-radius: 10%;
   cursor: pointer;
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
   transition: 0.3s ease;
-  /* height: max-content; */
-
-
 }
 
 .product1 .pro:hover {
@@ -113,7 +110,11 @@
   font-size: large;
   font-weight: 700;
 }
-
+.product1 p {
+  font-size: 15px;
+  font-weight: 400;
+  color: grey;
+}
 .product1 .pro .des span {
   font-size: 0.8rem;
   margin: 3px;
