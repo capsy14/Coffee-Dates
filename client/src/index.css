@@ -26,7 +26,7 @@
   border-radius: 6px;
 }
 .hero_text {
-  margin-left: 50px;
+  margin-left: 158px;
   font-size: 25px;
   size: 20px;
 }
@@ -34,7 +34,7 @@
 
 .super {
   color: green;
-  font-size: 48px;
+  font-size: 70px;
 }
 
 .on {
@@ -48,7 +48,9 @@
 }
 .shop{
   color: white;
-  margin-left: 150px;
+  margin-left: 4px;
+  font-size: 21px;
+  background-color: transparent;
   color: burlywood;
 }
 
@@ -90,7 +92,12 @@
 .product1 .pro img {
   width: 100%;
   border-radius: 10%;
- height: 220px;
+ height: 220px;.hero_text {
+  margin-left: 158px;
+  font-size: 25px;
+  size: 20px;
+}
+ /* min-width: 250px; */
   
 }
 
@@ -224,7 +231,13 @@
   width: 77vw;
  
 }
-  
+.super {
+
+  font-size: 49px;
+}
+.on {
+  font-size: 39px;
+}
 }
 
 #banner button,
