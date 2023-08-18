@@ -1,7 +1,7 @@
 // App.js
 import React, { useState } from "react";
 import "./App.css";
-import WalletConnect from "./components/WalletConnect"; // Update the path accordingly
+import WalletConnect from "./components/WalletConnect";
 import Banner from "./components/Banner";
 import Button from "./components/Button";
 import Feature from "./components/Feature";
@@ -13,7 +13,8 @@ import CoffeeForm from "./components/CoffeeForm";
 import Footer from "./components/Footer";
 import Chat from "./components/Chat";
 import Home2 from "./pages/Home/Home-d";
-import Rec from "./pages/Rec/Rec"
+import Rec from "./pages/Rec/Rec";
+import OurTeam from "./components/OurTeam";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Ipfssave from "./IPFSsave";
 function App() {
@@ -32,6 +33,7 @@ function App() {
                     <Hero />
                     <Feature />
                     <Banner />
+                    <OurTeam />
                     <WalletConnect account={account} setAccount={setAccount} />
                   </div>
                 }

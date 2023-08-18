@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
-
-import { useHuddle01Web } from '@huddle01/react/hooks';
+import React, { useEffect, useRef } from "react";
+import { useHuddle01Web } from "@huddle01/react/hooks";
+import Button from "./Button"; // Import the Button component from the same directory
 
 const Video = ({ peerId, track }) => {
   const { state } = useHuddle01Web();
 
-  const getStream = _track => {
+  const getStream = (_track) => {
     const stream = new MediaStream();
     stream.addTrack(_track);
     return stream;
@@ -19,7 +19,7 @@ const Video = ({ peerId, track }) => {
     if (videoObj) {
       videoObj.srcObject = getStream(track);
       videoObj.onloadedmetadata = async () => {
-        console.warn('videoCard() | Metadata loaded...');
+        console.warn("videoCard() | Metadata loaded...");
         try {
           await videoObj.play();
         } catch (error) {
@@ -27,7 +27,7 @@ const Video = ({ peerId, track }) => {
         }
       };
       videoObj.onerror = () => {
-        console.error('videoCard() | Error is hapenning...');
+        console.error("videoCard() | Error is happening...");
       };
     }
   }, [state.context.consumers]);
