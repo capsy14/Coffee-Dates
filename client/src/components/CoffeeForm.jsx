@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const CoffeeForm = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ const CoffeeForm = () => {
     gender: "",
     status: "single",
     email: "",
+    cadd:"",
     photo: null,
   });
 
@@ -26,10 +28,55 @@ const CoffeeForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     // Here you can add your logic to send the form data to the backend
+    try {
+      let imgHash
+          
+    //formdata for image upload to pinata
+    try {
+      const formImg = new FormData();
+      formImg.append("file",formData.photo)
+
+      //sending img to ipfs and getting imgHash
+      const resFile = await axios({
+        method: "post",
+        url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+        data: formImg,
+        headers: {
+          pinata_api_key: "f6209c7522c5f1ba012d",
+          pinata_secret_api_key: "05b5cea650867bd644a64809b1ee8777d4094f5c4dd4e2b828376fcaec43c33f",
+          "Content-Type": "multipart/form-data",
+        },
+    });
+
+    imgHash = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
+    console.log(imgHash)
+    } catch (error) {
+      console.log("Error in ipfs");
+    }
+    console.log(imgHash)
+
+    const formDataToSend = {
+      userName:formData.userName,
+      age:formData.age,
+      gender:formData.gender,
+      status:formData.status,
+      email:formData.email,
+      cadd:formData.cadd,
+      photo:imgHash
+    }
+    console.log(formDataToSend)
+
+    const response = await axios.post('http://localhost:8000/form',formDataToSend);
+    console.log(response)
+    alert("Data sent successfully...")
+    } catch (error) {
+      console.log("error in sending data to backend");
+      console.log(error);
+    }
   };
 
   return (
@@ -89,6 +136,16 @@ const CoffeeForm = () => {
             id="email"
             name="email"
             value={formData.email}
+            onChange={handleInputChange}
+            required
+          />
+
+          <label htmlFor="cadd">Contract Address</label>
+          <input
+            type="text"
+            id="cadd"
+            name="cadd"
+            value={formData.cadd}
             onChange={handleInputChange}
             required
           />

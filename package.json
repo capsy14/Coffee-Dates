@@ -14,8 +14,12 @@
     "hardhat": "^2.17.1"
   },
   "dependencies": {
+    "@vitejs/plugin-react": "^4.0.4",
+    "cors": "^2.8.5",
     "ethers": "^5.7.2",
-    "@vitejs/plugin-react": "^4.0.4"
+    "express": "^4.18.2",
+    "gun": "^0.2020.1239",
+    "mongoose": "^7.4.3"
   },
   "directories": {
     "test": "test"
