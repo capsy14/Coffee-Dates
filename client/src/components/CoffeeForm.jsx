@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const CoffeeForm = ({
   sex,
   setSex,
@@ -89,7 +91,8 @@ const CoffeeForm = ({
         formDataToSend
       );
       console.log(response);
-      alert("Data sent successfully...");
+      // alert("Data sent successfully...");
+      toast.success("Registered Successfully");
       setIsSubmitted(true);
     } catch (error) {
       console.log("error in sending data to backend");

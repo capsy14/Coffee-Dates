@@ -6,7 +6,7 @@ import { ethers } from "ethers";
 import Buy from "./Buy";
 import Memos from "./Memos";
 import WalletConnect from "./WalletConnect";
-const Home = ({ account, setAccount }) => {
+const Home = ({ account, setAccount, paid, setPaid }) => {
   const [state, setState] = useState({
     provider: null,
     signer: null,
@@ -31,6 +31,7 @@ const Home = ({ account, setAccount }) => {
           signer
         );
         setState({ provider, signer, contract });
+        setPaid(true);
       } catch (e) {
         console.log(e);
       }

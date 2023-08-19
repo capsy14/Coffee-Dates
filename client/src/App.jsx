@@ -27,7 +27,7 @@ function App() {
   const [seEmail, setSeEmail] = useState("");
   const [reName, setReName] = useState("");
   const [reEmail, setReEmail] = useState("");
-
+  const [paid, setPaid] = useState(false);
   return (
     <>
       <header className="App-head">
@@ -50,7 +50,7 @@ function App() {
                 }
               />
               <Route path="/product" element={<Product />} />
-              <Route path="/chatvideo" element={<Home2 />} />
+              <Route path="/chatvideo" element={<Home2 paid={paid} />} />
               <Route
                 path="/opposite"
                 element={
@@ -76,10 +76,20 @@ function App() {
                 }
               />
               <Route path="/rec/:roomId" element={<Rec />} />
-              <Route path="/ipfsphotoshare" element={<Ipfssave />} />
+              <Route
+                path="/ipfsphotoshare"
+                element={<Ipfssave paid={paid} />}
+              />
               <Route
                 path="/wallet"
-                element={<Home account={account} setAccount={setAccount} />}
+                element={
+                  <Home
+                    account={account}
+                    setAccount={setAccount}
+                    paid={paid}
+                    setPaid={setPaid}
+                  />
+                }
               />
               <Route
                 path="/form"
