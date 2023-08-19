@@ -16,12 +16,18 @@ import Home2 from "./pages/Home/Home-d";
 import Rec from "./pages/Rec/Rec";
 import OurTeam from "./components/OurTeam";
 import UserList from "./components/UserList ";
+import Email from "./components/Email";
 import OppositeGenderProfiles from "./components/OppositeGender";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Ipfssave from "./IPFSsave";
 function App() {
   const [account, setAccount] = useState("Account not connected");
   const [sex, setSex] = useState("");
+  const [seName, setSeName] = useState("");
+  const [seEmail, setSeEmail] = useState("");
+  const [reName, setReName] = useState("");
+  const [reEmail, setReEmail] = useState("");
+
   return (
     <>
       <header className="App-head">
@@ -37,7 +43,7 @@ function App() {
                     <Feature />
                     <Banner />
                     {/* <OppositeGenderProfiles sex={sex} setSex={setSex} /> */}
-                    <UserList />
+                    {/* <UserList /> */}
                     <OurTeam />
                     <WalletConnect account={account} setAccount={setAccount} />
                   </div>
@@ -47,7 +53,27 @@ function App() {
               <Route path="/chatvideo" element={<Home2 />} />
               <Route
                 path="/opposite"
-                element={<OppositeGenderProfiles sex={sex} setSex={setSex} />}
+                element={
+                  <OppositeGenderProfiles
+                    sex={sex}
+                    setSex={setSex}
+                    reName={reName}
+                    setReName={setReName}
+                    reEmail={reEmail}
+                    setReEmail={setReEmail}
+                  />
+                }
+              />
+              <Route
+                path="/opposite/email"
+                element={
+                  <Email
+                    seName={seName}
+                    seEmail={seEmail}
+                    reName={reName}
+                    reEmail={reEmail}
+                  />
+                }
               />
               <Route path="/rec/:roomId" element={<Rec />} />
               <Route path="/ipfsphotoshare" element={<Ipfssave />} />
@@ -57,7 +83,16 @@ function App() {
               />
               <Route
                 path="/form"
-                element={<CoffeeForm sex={sex} setSex={setSex} />}
+                element={
+                  <CoffeeForm
+                    sex={sex}
+                    setSex={setSex}
+                    seName={seName}
+                    setSeName={setSeName}
+                    seEmail={seEmail}
+                    setSeEmail={setSeEmail}
+                  />
+                }
               />
               <Route
                 path="/chat"

@@ -1,5 +1,7 @@
-/* color #ECE4CF */
-/* #DEB887 */
+:root {
+  --back-color: #ECE4CF;
+  --theme-color: #DEB887;
+}
 .hero {
   background-image: url("../public/assets/front.jpg");
   height: 100vh;
@@ -450,4 +452,51 @@ th {
   margin: 5px 0;
 }
 
-/* ----------------------------------------------------------------- */
+/* ----------------------------------email section------------------------------- */
+/* email.css */
+
+.send-button {
+  background-color: #007bff; /* Blue color, you can change this */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}
+/* email.css */
+
+.email-container {
+  border: 2px solid #cccccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: var(--back-color);
+  margin: 20px auto;
+  width: 80%;
+  max-width: 500px;
+}
+
+.email-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.email-table th,
+.email-table td {
+  padding: 10px;
+  border: 1px solid #b3ce80;
+  background-color: var(--back-color);
+  text-align: left;
+}
+.email-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+

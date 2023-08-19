@@ -2,19 +2,19 @@ export default () => {
   const team = [
     {
       avatar:
-        "https://media.licdn.com/dms/image/D4D03AQHlVKMu_PJhIQ/profile-displayphoto-shrink_400_400/0/1685900503917?e=1697673600&v=beta&t=K3htv_4-YMPlEDoF-1zGRMwK2nekB5Fq-QQ0GlpeOIw",
-      name: "Bikram Narayan Dhanraj",
-      title: "Frontend Developer",
-      desc: "Creative Designer, User Experience Guru, Aesthetic Visionary, Frontend Design Maestro.",
+        "https://media.licdn.com/dms/image/D5603AQGIGapy-hYhtg/profile-displayphoto-shrink_400_400/0/1684462806428?e=1697673600&v=beta&t=8LqO86gqTU5f1C7iTvlnnhjwMJE1wGXgGvbbddGKPnk",
+      name: "Kartik Bhatt",
+      title: "Blockchain Developer",
+      desc: "Blockchain Innovator, Tech Enthusiast, Distributed Ledger",
       linkedin: "javascript:void(0)",
       twitter: "javascript:void(0)",
     },
     {
       avatar:
-        "https://media.licdn.com/dms/image/D5603AQGIGapy-hYhtg/profile-displayphoto-shrink_400_400/0/1684462806428?e=1697673600&v=beta&t=8LqO86gqTU5f1C7iTvlnnhjwMJE1wGXgGvbbddGKPnk",
-      name: "Kartik Bhatt",
-      title: "Blockchain Developer",
-      desc: "Blockchain Innovator, Tech Enthusiast, Distributed Ledger",
+        "https://media.licdn.com/dms/image/D4D03AQHlVKMu_PJhIQ/profile-displayphoto-shrink_400_400/0/1685900503917?e=1697673600&v=beta&t=K3htv_4-YMPlEDoF-1zGRMwK2nekB5Fq-QQ0GlpeOIw",
+      name: "Bikram Narayan Dhanraj",
+      title: "Frontend and Backend Developer",
+      desc: "Creative Designer of User Experiences,  Maestro of Frontend and Backend Design",
       linkedin: "javascript:void(0)",
       twitter: "javascript:void(0)",
     },

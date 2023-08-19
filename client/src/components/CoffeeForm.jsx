@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-const CoffeeForm = ({ sex, setSex }) => {
+const CoffeeForm = ({
+  sex,
+  setSex,
+  seName,
+  setSeName,
+  seEmail,
+  setSeEmail,
+}) => {
   const [formData, setFormData] = useState({
     userName: "",
     age: "",
@@ -31,7 +38,10 @@ const CoffeeForm = ({ sex, setSex }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSex(e.target[2].value);
-    console.log(e.target[2].value);
+    setSeName(e.target[0].value);
+    setSeEmail(e.target[4].value);
+    // console.log(e.target[2].value);
+    // console.log(e.target[2].value, e.target[0].value, e.target[4].value);
     // toast.warning(sex);
     // // console.log(formData);
     // // Here you can add your logic to send the form data to the backend
@@ -175,7 +185,7 @@ const CoffeeForm = ({ sex, setSex }) => {
 
         {isSubmitted && (
           <Link to="/opposite">
-            <button className="ml-3">Browse</button>
+            <button className="ml-3 mg-1">Browse</button>
           </Link>
         )}
 
