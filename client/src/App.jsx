@@ -15,10 +15,13 @@ import Chat from "./components/Chat";
 import Home2 from "./pages/Home/Home-d";
 import Rec from "./pages/Rec/Rec";
 import OurTeam from "./components/OurTeam";
+import UserList from "./components/UserList ";
+import OppositeGenderProfiles from "./components/OppositeGender";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Ipfssave from "./IPFSsave";
 function App() {
   const [account, setAccount] = useState("Account not connected");
+  const [sex, setSex] = useState("");
   return (
     <>
       <header className="App-head">
@@ -33,6 +36,8 @@ function App() {
                     <Hero />
                     <Feature />
                     <Banner />
+                    {/* <OppositeGenderProfiles sex={sex} setSex={setSex} /> */}
+                    <UserList />
                     <OurTeam />
                     <WalletConnect account={account} setAccount={setAccount} />
                   </div>
@@ -40,13 +45,20 @@ function App() {
               />
               <Route path="/product" element={<Product />} />
               <Route path="/chatvideo" element={<Home2 />} />
+              <Route
+                path="/opposite"
+                element={<OppositeGenderProfiles sex={sex} setSex={setSex} />}
+              />
               <Route path="/rec/:roomId" element={<Rec />} />
               <Route path="/ipfsphotoshare" element={<Ipfssave />} />
               <Route
                 path="/wallet"
                 element={<Home account={account} setAccount={setAccount} />}
               />
-              <Route path="/form" element={<CoffeeForm />} />
+              <Route
+                path="/form"
+                element={<CoffeeForm sex={sex} setSex={setSex} />}
+              />
               <Route
                 path="/chat"
                 element={<Chat account={account} setAccount={setAccount} />}

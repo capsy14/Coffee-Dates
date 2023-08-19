@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
-
-const CoffeeForm = () => {
+import { Link } from "react-router-dom";
+const CoffeeForm = ({ sex, setSex }) => {
   const [formData, setFormData] = useState({
     userName: "",
     age: "",
     gender: "",
     status: "single",
     email: "",
-    cadd:"",
+    cadd: "",
     photo: null,
   });
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -30,49 +30,57 @@ const CoffeeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(formData);
-    // Here you can add your logic to send the form data to the backend
+    setSex(e.target[2].value);
+    console.log(e.target[2].value);
+    // toast.warning(sex);
+    // // console.log(formData);
+    // // Here you can add your logic to send the form data to the backend
     try {
-      let imgHash
-          
-    //formdata for image upload to pinata
-    try {
-      const formImg = new FormData();
-      formImg.append("file",formData.photo)
+      let imgHash;
 
-      //sending img to ipfs and getting imgHash
-      const resFile = await axios({
-        method: "post",
-        url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
-        data: formImg,
-        headers: {
-          pinata_api_key: "f6209c7522c5f1ba012d",
-          pinata_secret_api_key: "05b5cea650867bd644a64809b1ee8777d4094f5c4dd4e2b828376fcaec43c33f",
-          "Content-Type": "multipart/form-data",
-        },
-    });
+      //formdata for image upload to pinata
+      try {
+        const formImg = new FormData();
+        formImg.append("file", formData.photo);
 
-    imgHash = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
-    console.log(imgHash)
-    } catch (error) {
-      console.log("Error in ipfs");
-    }
-    console.log(imgHash)
+        //sending img to ipfs and getting imgHash
+        const resFile = await axios({
+          method: "post",
+          url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+          data: formImg,
+          headers: {
+            pinata_api_key: "f6209c7522c5f1ba012d",
+            pinata_secret_api_key:
+              "05b5cea650867bd644a64809b1ee8777d4094f5c4dd4e2b828376fcaec43c33f",
+            "Content-Type": "multipart/form-data",
+          },
+        });
 
-    const formDataToSend = {
-      userName:formData.userName,
-      age:formData.age,
-      gender:formData.gender,
-      status:formData.status,
-      email:formData.email,
-      cadd:formData.cadd,
-      photo:imgHash
-    }
-    console.log(formDataToSend)
+        imgHash = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
+        console.log(imgHash);
+      } catch (error) {
+        console.log("Error in ipfs");
+      }
+      console.log(imgHash);
 
-    const response = await axios.post('http://localhost:8000/form',formDataToSend);
-    console.log(response)
-    alert("Data sent successfully...")
+      const formDataToSend = {
+        userName: formData.userName,
+        age: formData.age,
+        gender: formData.gender,
+        status: formData.status,
+        email: formData.email,
+        cadd: formData.cadd,
+        photo: imgHash,
+      };
+      console.log(formDataToSend);
+
+      const response = await axios.post(
+        "http://localhost:8000/form",
+        formDataToSend
+      );
+      console.log(response);
+      alert("Data sent successfully...");
+      setIsSubmitted(true);
     } catch (error) {
       console.log("error in sending data to backend");
       console.log(error);
@@ -115,7 +123,6 @@ const CoffeeForm = () => {
             <option value="">Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
-            <option value="other">Other</option>
           </select>
 
           <label htmlFor="status">Status</label>
@@ -163,7 +170,16 @@ const CoffeeForm = () => {
             Submit
           </button>
         </form>
+
         {/* <div className="form-container2"></div> */}
+
+        {isSubmitted && (
+          <Link to="/opposite">
+            <button className="ml-3">Browse</button>
+          </Link>
+        )}
+
+        <Link to="/opposite">View</Link>
       </div>
     </div>
   );

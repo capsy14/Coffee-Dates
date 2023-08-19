@@ -11,7 +11,12 @@ const Display = ({ contract, account }) => {
 
       if (dataArray.length > 0) {
         const images = dataArray.map((item, i) => (
-          <a href={`https://gateway.pinata.cloud/ipfs/${item.substring(6)}`} key={i} target="_blank" rel="noopener noreferrer">
+          <a
+            href={`https://gateway.pinata.cloud/ipfs/${item.substring(6)}`}
+            key={i}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src={`${item}`} alt="new" className="image-list" />
           </a>
         ));
@@ -39,7 +44,7 @@ const Display = ({ contract, account }) => {
         value={addressInput}
         onChange={handleAddressChange}
       ></input>
-      <button className="center button" onClick={getdata}>
+      <button className="center button" id="get-data" onClick={getdata}>
         Get Data
       </button>
     </>

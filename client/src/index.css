@@ -401,3 +401,53 @@ th {
    border: 1px solid rgb(241, 238, 238);
    padding: 7px;
 }
+
+.image-list{
+  width: 80vw;
+}
+
+
+/* --------------------------------file upload--------------------------------- */
+
+.address{
+  width: 39%;
+}
+.get-data{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+/* ----------------------------------------------------------------- */
+
+/* ---------------------------------------oppostie gender-------------------------- */
+ 
+/* Styles for the profile card container */
+.opposite-gender-profiles {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: space-around;
+}
+
+/* Styles for the individual profile card */
+.profile-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile-card p {
+  margin: 5px 0;
+}
+
+/* ----------------------------------------------------------------- */
