@@ -61,15 +61,15 @@ const CoffeeForm = ({
           url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
           data: formImg,
           headers: {
-            pinata_api_key: "f6209c7522c5f1ba012d",
-            pinata_secret_api_key:
-              "05b5cea650867bd644a64809b1ee8777d4094f5c4dd4e2b828376fcaec43c33f",
+            pinata_api_key: import.meta.env.VITE_PINATA_API_KEY_COFFEEFORM,
+            pinata_secret_api_key: import.meta.env
+              .VITE_PINATA_SECRET_API_KEY_COFFEEFORM,
             "Content-Type": "multipart/form-data",
           },
         });
 
         imgHash = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
-        console.log(imgHash);
+        //console.log(imgHash);
       } catch (error) {
         console.log("Error in ipfs");
       }
@@ -84,14 +84,18 @@ const CoffeeForm = ({
         cadd: formData.cadd,
         photo: imgHash,
       };
-      localStorage.setItem("myData", JSON.stringify(formDataToSend));
+      //localStorage.setItem("myData", JSON.stringify(formDataToSend));
       var x = JSON.parse(localStorage.getItem("myData"));
       console.log(x);
       // console.log(formDataToSend);
       const response = await axios.post(
-        "http://localhost:8000/form",
+        `${import.meta.env.BASE_URL}/form`,
         formDataToSend
       );
+
+      if (response.error) {
+        console.log(response.error);
+      }
       if (res.status === 201) {
         setIsSubmitted(true);
         alert("Data sent successfully...");
@@ -102,7 +106,7 @@ const CoffeeForm = ({
       }
     } catch (error) {
       console.log("error in sending data to backend");
-      console.log(error);
+      //console.log(error);
     }
   };
 
