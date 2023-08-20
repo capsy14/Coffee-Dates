@@ -148,7 +148,7 @@ const userController = () => {
             const { userName, cadd } = req.body
     
             if (!userName || !cadd) {
-                return res.status(400).json({ msg: "Pls provide all the feilds.." })
+                return res.status(400).json({ error: "Pls provide all the feilds.." })
             }
     
             const user = await User.findOne({ cadd: cadd })

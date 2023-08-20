@@ -86,9 +86,13 @@ const CoffeeForm = ({
       //console.log(formDataToSend);
 
       const response = await axios.post(
-        "http://localhost:8000/form",
+        `${import.meta.env.BASE_URL}/form`,
         formDataToSend
       );
+
+      if(response.error){
+        console.log(response.error);
+      }
       //console.log(response);
       // alert("Data sent successfully...");
       toast.success("Registered Successfully");

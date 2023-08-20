@@ -3,6 +3,21 @@ import products from "./data.json";
 import { Link } from "react-router-dom";
 
 const Product = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.BASE_URL}/menu`);
+        setProducts(response.data.items);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const renderStars = (rating) => {
     const filledStars = Math.floor(rating);
     const halfStar = rating - filledStars >= 0.5;
