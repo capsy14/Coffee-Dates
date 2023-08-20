@@ -5,7 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require("dotenv").config()
 
-const port = process.env.PORT;
+const port = process.env.PORT || 8000;
 
 //database connection
 // const MONGO_CONNECTION_URL = process.env.MONGO_CONNECTION_URL;
