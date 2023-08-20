@@ -1,5 +1,5 @@
 const { index } = require('../app/http/controllers/menuController')()
-const { getUsers,saveUsers } = require('../app/http/controllers/userController')()
+const { getUsers,saveUsers,login } = require('../app/http/controllers/userController')()
 
 const initRoutes = (app) => {
 
@@ -11,6 +11,9 @@ const initRoutes = (app) => {
 
     //to save users to database
     app.post('/form', saveUsers)
+
+    //login route
+    app.post('/login', login)
 
 }                                          
 
