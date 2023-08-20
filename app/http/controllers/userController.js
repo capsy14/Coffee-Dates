@@ -154,7 +154,7 @@ const userController = () => {
             const user = await User.findOne({ cadd: cadd })
     
             if (user.userName === userName) {
-                return res.status(201).json({ msg: "User Logged in successfully.." })
+                return res.status(201).json({ msg: "User Logged in successfully..", data:user })
             }
             return res.json({ error: "UserName not registered.." })
         }
