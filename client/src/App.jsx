@@ -21,6 +21,7 @@ import Buy from "./components/Buy";
 import OppositeGenderProfiles from "./components/OppositeGender";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Ipfssave from "./IPFSsave";
+import Login from "./components/Login";
 function App() {
   const [account, setAccount] = useState("Account not connected");
   const [sex, setSex] = useState("");
@@ -43,6 +44,7 @@ function App() {
                     <Hero />
                     <Feature />
                     <Banner />
+                    {/* <Login /> */}
                     {/* <OppositeGenderProfiles sex={sex} setSex={setSex} /> */}
                     {/* <UserList /> */}
                     <OurTeam />
@@ -73,6 +75,10 @@ function App() {
                     seEmail={seEmail}
                     reName={reName}
                     reEmail={reEmail}
+                    setReEmail={setReEmail}
+                    setReName={setReName}
+                    setSeEmail={setSeEmail}
+                    setSeName={setSeName}
                   />
                 }
               />
@@ -113,6 +119,7 @@ function App() {
                 path="/chat"
                 element={<Chat account={account} setAccount={setAccount} />}
               />
+              <Route path="/login" element={<Login />} />
             </Routes>
           </BrowserRouter>
         </div>

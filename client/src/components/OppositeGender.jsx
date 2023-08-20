@@ -20,12 +20,24 @@ const OppositeGenderProfiles = ({
         // Change the API endpoint accordingly
         // console.log(response);
         // toast.success(`${sex}`);
-        console.log(res.data.allUsers);
+        // console.log(res.data.allUsers);
+        var x = JSON.parse(localStorage.getItem("myData"));
+        console.log("Opposite");
+        // console.log(x);
+
+        if (x) {
+          setSex(x.gender);
+          setReName(x.userName);
+          setReEmail(x.email);
+          // console.log(x.gender);
+          // console.log(x.userName);
+        }
+
         const oppositeProfiles = res.data.allUsers.filter(
           (profile) => profile.gender != sex
         );
         setOppositeGenderProfiles(oppositeProfiles);
-        console.log(oppositeGenderProfiles);
+        // console.log(oppositeGenderProfiles);
       } catch (error) {
         console.error("Error fetching profiles:", error);
       }

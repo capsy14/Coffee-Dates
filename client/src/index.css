@@ -507,3 +507,48 @@ th {
   color: #333;
 }
 /* ----------------------------------------------------------------- */
+
+/* -------------------------------Login Form---------------------------------- */
+.login-container {
+  width: 40%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  margin-bottom: 15px;
+}
+
+.input-field {
+  padding: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  width: 71%px;
+}
+
+.submit-button {
+  padding: 10px;
+  background-color: rgb(123, 110, 237);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #cf84d6;
+}
+
+.response-container {
+  margin-top: 20px;
+}
+
+/* ----------------------------------------------------------------- */

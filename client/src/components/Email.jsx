@@ -1,7 +1,27 @@
 import React, { useState, useEffect } from "react";
 
-const Email = ({ seName, seEmail, reName, reEmail }) => {
+const Email = ({
+  seName,
+  seEmail,
+  reName,
+  reEmail,
+  setReEmail,
+  setReName,
+  setSeEmail,
+  setSeName,
+}) => {
   // State to store selected date and time
+  var x = JSON.parse(localStorage.getItem("myData"));
+  console.log("Opposite");
+  // console.log(x);
+
+  if (x) {
+    setSeName(x.userName);
+    setSeEmail(x.email);
+
+    // console.log(x.gender);
+    // console.log(x.userName);
+  }
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [senderExists, setSenderExists] = useState(!!seEmail);
@@ -49,11 +69,9 @@ const Email = ({ seName, seEmail, reName, reEmail }) => {
 
   return (
     <div className="email-container">
-      {!senderExists && (
-        <h1 className="text-red-500">Please Register Yourself to Send Email</h1>
-      )}
-
       <h2>Select Date and Time for Coffee</h2>
+      {!senderExists && <h1 className="text-red-500"></h1>}
+
       <table className="email-table">
         <tbody>
           <tr>
