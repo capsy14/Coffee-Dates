@@ -1,8 +1,9 @@
 import React from "react";
 import { ethers } from "ethers";
 import "../styles/buy.css"; // Import the CSS file
-
-const Buy = ({ state }) => {
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+const Buy = ({ state, paid, setPaid }) => {
   const buycofee = async (e) => {
     e.preventDefault();
     const { contract } = state;
@@ -14,7 +15,9 @@ const Buy = ({ state }) => {
     const transaction = await contract.buyCoffee(name, message, amount);
     await transaction.wait();
     console.log("Transaction is done");
-    alert("Transaction is done");
+    // alert("Transaction is done");
+    toast.success("Transaction is Successfull ");
+    setPaid(true);
   };
 
   return (

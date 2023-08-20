@@ -17,6 +17,7 @@ import Rec from "./pages/Rec/Rec";
 import OurTeam from "./components/OurTeam";
 import UserList from "./components/UserList ";
 import Email from "./components/Email";
+import Buy from "./components/Buy";
 import OppositeGenderProfiles from "./components/OppositeGender";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Ipfssave from "./IPFSsave";
@@ -86,10 +87,14 @@ function App() {
                   <Home
                     account={account}
                     setAccount={setAccount}
-                    paid={paid}
                     setPaid={setPaid}
+                    paid={paid}
                   />
                 }
+              />
+              <Route
+                path="/buy"
+                element={<Buy setPaid={setPaid} paid={paid} />}
               />
               <Route
                 path="/form"

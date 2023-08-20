@@ -42,6 +42,7 @@ const OppositeGenderProfiles = ({
   return (
     <>
       <h2>Opposite Gender Profiles</h2>
+      <h2></h2>
       <div className="opposite-gender-profiles">
         {oppositeGenderProfiles.map((profile) => (
           <Link

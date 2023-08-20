@@ -66,17 +66,18 @@ const Nav = () => {
             <Link to="/">HOME</Link>
           </li>
           <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
-            <Link to="/chat">CHAT</Link>
+            <Link to="/product">COFFEE</Link>
+          </li>
+          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <Link to="/form">REGISTER</Link>
           </li>
           <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
             <Link to="/wallet">WALLET</Link>
           </li>
           <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
-            <Link to="/product">PRODUCT</Link>
+            <Link to="/chat">CHAT</Link>
           </li>
-          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
-            <Link to="/form">REGISTER</Link>
-          </li>
+
           <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
             <Link to="/chatvideo">VIDEOCHAT</Link>
           </li>
