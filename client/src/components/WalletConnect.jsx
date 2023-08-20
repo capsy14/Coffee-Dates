@@ -32,7 +32,9 @@ const WalletConnect = ({ account, setAccount }) => {
           setConnected(true);
           provider = new ethers.providers.Web3Provider(window.ethereum);
           const signer = provider.getSigner();
-          const contractAddress = import.meta.env.VITE_CONTRACT_ADDRESS_WALLETCONNECT;
+          const contractAddress = import.meta.env
+            .VITE_CONTRACT_ADDRESS_WALLETCONNECT;
+          console.log(contractAddress + " hello");
           const contractABI = abi.abi;
 
           const contract = new ethers.Contract(
