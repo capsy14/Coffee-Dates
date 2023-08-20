@@ -113,6 +113,7 @@ To run the Koffee Ka Chakkar project, follow these steps:
 
 2. **Navigate to the Project Directory:**
    ```sh
+   git clone https://github.com/capsy14/Koffee-Ka-Chakkar.git
    cd Koffee-Ka-Chakkar
    cd client
    npm i 
