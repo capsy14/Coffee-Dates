@@ -14,7 +14,7 @@ const Home = ({ account, setAccount, paid, setPaid }) => {
   });
   useEffect(() => {
     const connectWallet = async () => {
-      const contractAddress = "0x97b5e9162C94d9E0448fAc1DE2084084675fc5A4";
+      const contractAddress = import.meta.env.VITE_CONTRACT_ADDRESS_HOME;
       const contractAbi = abi.abi;
       try {
         const { ethereum } = window;

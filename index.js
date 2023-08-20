@@ -2,15 +2,17 @@ const express = require("express");
 const Gun = require("gun");
 const app = express();
 const cors = require('cors');
-const port = 8000;
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+require("dotenv").config()
+
+const port = process.env.PORT;
 
 //database connection
-const MONGO_CONNECTION_URL = 'mongodb+srv://Rahul:vyE7UaJPPADluwBK@cluster0.al2l3ze.mongodb.net/Coffee-shop'
+// const MONGO_CONNECTION_URL = process.env.MONGO_CONNECTION_URL;
 
 function connectDB() {
     // Database connection 
-    mongoose.connect(MONGO_CONNECTION_URL, { 
+    mongoose.connect(process.env.MONGO_CONNECTION_URL, { 
         useNewUrlParser: true, 
         useUnifiedTopology: true, 
     });

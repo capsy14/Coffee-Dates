@@ -10,9 +10,9 @@ const Email = ({ seName, seEmail, reName, reEmail }) => {
     e.preventDefault();
 
     const data = {
-      service_id: "service_p4m24no",
-      template_id: "template_77atf8a",
-      user_id: "sNJSJaVemORijVXIS",
+      service_id: import.meta.env.VITE_EMAIL_SERVICE_ID,
+      template_id: import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+      user_id: import.meta.env.VITE_EMAIL_USER_ID,
       template_params: {
         from_name: seName,
         to_name: reName,
