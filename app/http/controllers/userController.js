@@ -8,7 +8,7 @@ const userController = () => {
             res.json({ allUsers:allUsers })
         },
         async saveUsers(req,res){
-            console.log(req.body)
+            //console.log(req.body)
             // Set up IPFS
             //const ipfs = await IPFS.create();
             const { userName,email,age,gender,cadd,status,photo } = req.body
@@ -131,7 +131,7 @@ const userController = () => {
                 })
             }
     
-            console.log(user)
+            //console.log(user)
             // return res.status(201).json({ msg:"User Registered Successfully..."})
     
             user.save().then(user =>{
@@ -140,9 +140,23 @@ const userController = () => {
                 return res.status(404).json({ error:"Some error occured..."})
             })            
             } catch (error) {
-                console.log(error);
+                //console.log(error);
                 return res.json({ msg:"Error occured"})
             }
+        },
+        async login(req, res){
+            const { userName, cadd } = req.body
+    
+            if (!userName || !cadd) {
+                return res.status(400).json({ msg: "Pls provide all the feilds.." })
+            }
+    
+            const user = await User.findOne({ cadd: cadd })
+    
+            if (user.userName === userName) {
+                return res.status(201).json({ msg: "User Logged in successfully..", data:user })
+            }
+            return res.json({ error: "UserName not registered.." })
         }
     }
 }
