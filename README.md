@@ -150,8 +150,8 @@ To run the Koffee Ka Chakkar project, follow these steps:
 2. **Navigate to the Project Directory:**
    ```sh
    git clone https://github.com/capsy14/Koffee-Ka-Chakkar.git
-   node index.js    #To start Backend server
    cd Koffee-Ka-Chakkar
+   node index.js    #To start Backend server
    cd client
    npm i 
    npm run start
