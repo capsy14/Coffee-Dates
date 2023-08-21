@@ -23,7 +23,7 @@ Koffee-Ka-Chakkar is a unique application that combines the pleasure of discover
 
 ## Buy Coffee
 ![Buy Coffee Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/69048852-4baf-4bf0-b070-c7051d15b851.png)
-After selecting the coffee, you will be redirected to the Payment Page.
+After selecting the coffee, you will be redirected to the Registration  Page.
 
 ## Registration Page
 ![Payment Page Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/b3b13e92-4003-4212-8c46-dc684e783000.png)
@@ -40,8 +40,7 @@ You will be redirected to opposite gender profiles.
 
 ## Send Email to Your Crush
 ![Send Email Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/64200742-54ab-4727-b6ca-00ceb7088d76.png)
-You can send an email to your crush for Coffee Data.
-
+Select the time and date. You can send an email to your crush for a coffee date. The project and room ID will also be sent to your email.
 ## Chat Functionality
 ![Chat Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/77558495-c88f-48a4-8b35-865fdf4fe912.png)
 You can also chat with others.
