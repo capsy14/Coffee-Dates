@@ -1,6 +1,7 @@
 
 # Coffee Dating Dapp: Koffee-Ka-Chakkar
 
+### Deployed Link(Currently of frontend) - https://koffee-ka-chakkar-frontend.vercel.app/
 Welcome to the Coffee Dating DApp, where your love for coffee meets the magic of blockchain technology! The innovative app that brings together the world of coffee and the excitement of online dating on a secure and transparent decentralized platform. Whether you're a coffee connoisseur looking for a delightful brew or someone seeking meaningful connections, Koffee-Ka-Chakkar has something special for you.
 
 ## What is Koffee-Ka-Chakkar?
@@ -17,9 +18,44 @@ Koffee-Ka-Chakkar is a unique application that combines the pleasure of discover
 
 - **Privacy First:** Our decentralized approach ensures that your personal information remains private and secure. You have control over what you share and with whom.
 
+## Home Page
+![Home Page Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/0e32ed6c-3161-4e7e-bb25-515330bd4129.png)
+
+## Buy Coffee
+![Buy Coffee Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/69048852-4baf-4bf0-b070-c7051d15b851.png)
+After selecting the coffee, you will be redirected to the Registration  Page.
+
+## Registration Page
+![Payment Page Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/b3b13e92-4003-4212-8c46-dc684e783000.png)
+
+## Login (If Already Registered)
+![Login Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/48e04e3d-f554-4043-a1bd-fd6c6da82830.png)
+
+## Payment Page
+![Payment Page Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/23145382-5e04-4e72-93b9-12871ca1a82a.png)
+
+## Opposite Gender Profiles
+![Opposite Gender Profiles Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/1dd7f468-24e9-4e75-89f2-77bb4d4bb24c.png)
+You will be redirected to opposite gender profiles.
+
+## Send Email to Your Crush
+![Send Email Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/64200742-54ab-4727-b6ca-00ceb7088d76.png)
+Select the time and date. You can send an email to your crush for a coffee date. The project and room ID will also be sent to your email.
+## Chat Functionality
+![Chat Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/77558495-c88f-48a4-8b35-865fdf4fe912.png)
+You can also chat with others.
+
+## Video Call Feature
+![Video Call Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/3b7f2f48-af9f-4a47-9ce3-0bf05022f52b.png)
+You can do video calls.
+
+## Share Memories
+![Share Memories Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/bfeee264-c195-456f-a53e-b6164d508f75.png)
+You can upload memories with your crush.
 
 
 ## About the App
+
 
 The Coffee Dating DApp is a unique and exciting platform that combines the pleasures of enjoying a wide variety of coffees with the thrill of meeting new people and potentially finding your perfect match. Whether you're a coffee connoisseur or just someone looking for a great cup of coffee and good company, this app has something special for you.
 
@@ -124,7 +160,7 @@ To run the Koffee Ka Chakkar project, follow these steps:
 
 | Name          | Username              | Work                                                      |
 |---------------|-----------------------|-----------------------------------------------------------|
-| Bikram Dhanraj| @BikramNarayan       | FRONTEND : Vite, Tailwind CSS, Canva (Frontend)                     |
-| Jenil Jain    | @jeniljain2811        | BACKEND : Node.js, Express, Mongoose, MongoDB, Email.js, REST API   |
+| Bikram Dhanraj| @BikramNarayan       | FRONTEND : Vite, Tailwind CSS, Canva (Frontend), Email.js, Node.js,Mongoose |
+| Jenil Jain    | @jeniljain2811        | BACKEND : Node.js, Express, Mongoose, MongoDB, , REST API   |
 | Kartik Bhatt  | @capsy14              | BLOCKCHAIN : Solidity, Hardhat, Ethers.js, Gun.js, Huddle01, Pinata IPFS   |
 
