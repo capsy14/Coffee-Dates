@@ -7,7 +7,7 @@ const UserList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.BASE_URL}/users`);
+        const response = await axios.get('/users');
         setUsers(response.data.allUsers);
       } catch (error) {
         console.error("Error fetching data:", error);

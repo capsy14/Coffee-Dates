@@ -16,7 +16,7 @@ const OppositeGenderProfiles = ({
   useEffect(() => {
     const fetchOppositeGenderProfiles = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/users");
+        const res = await axios.get('http://localhost:8000/users');
         // Change the API endpoint accordingly
         // console.log(response);
         // toast.success(`${sex}`);

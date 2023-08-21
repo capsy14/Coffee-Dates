@@ -4,16 +4,16 @@ const { getUsers,saveUsers,login } = require('../app/http/controllers/userContro
 const initRoutes = (app) => {
 
     //to get all menu items
-    app.get(`${process.env.BASE_URL}/menu`, index)
+    app.get('/menu', index)
 
     //to get all users
-    app.get(`${process.env.BASE_URL}/users`, getUsers)
+    app.get('/users', getUsers)
 
     //to save users to database
-    app.post(`${process.env.BASE_URL}/form`, saveUsers)
+    app.post('/form', saveUsers)
 
     //login route
-    app.post(`${process.env.BASE_URL}/login`, login)
+    app.post('/login', login)
 
 }                                          
 

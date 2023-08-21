@@ -88,10 +88,7 @@ const CoffeeForm = ({
       var x = JSON.parse(localStorage.getItem("myData"));
       console.log(x);
       // console.log(formDataToSend);
-      const response = await axios.post(
-        `${import.meta.env.BASE_URL}/form`,
-        formDataToSend
-      );
+      const response = await axios.post('http://localhost:8000/form',formDataToSend);
 
       if (response.error) {
         console.log(response.error);

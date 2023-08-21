@@ -10,6 +10,8 @@ const port = process.env.PORT || 8000;
 //database connection
 // const MONGO_CONNECTION_URL = process.env.MONGO_CONNECTION_URL;
 
+console.log(process.env.PORT);
+
 function connectDB() {
     // Database connection 
     mongoose.connect(process.env.MONGO_CONNECTION_URL, { 
@@ -39,7 +41,7 @@ initRoutes(app);
 app.use(Gun.serve);
 
 const server = app.listen(port,()=>{
-    console.log(`example app listening at https://localhost:${port}`);
+    console.log(`example app listening at http://localhost:${port}`);
 })
 
 
