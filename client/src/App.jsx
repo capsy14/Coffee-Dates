@@ -20,7 +20,7 @@ import Email from "./components/Email";
 import Buy from "./components/Buy";
 import OppositeGenderProfiles from "./components/OppositeGender";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Ipfssave from "./IPFSsave";
+import Ipfssave from "./components/Ipfssave";
 import Login from "./components/Login";
 function App() {
   const [account, setAccount] = useState("Account not connected");
