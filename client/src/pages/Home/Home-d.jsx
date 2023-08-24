@@ -73,11 +73,7 @@ const Home2 = ({ paid }) => {
   return (
     <div>
       <div className="video"></div>
-      {!paid ? (
-        <>
-          <h1 className="pls-pay">Please pay to access this content.</h1>
-        </>
-      ) : (
+       
         <>
           <div className="room">
             <h3>Your Project id: 2hHNjpYUlb9boxKto2Rw4p0RdcsA0PVl </h3>
@@ -340,7 +336,7 @@ const Home2 = ({ paid }) => {
             </div>
           </div>
         </>
-      )}
+    
     </div>
   );
 };
