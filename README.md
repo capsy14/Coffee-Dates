@@ -1,7 +1,6 @@
 
 # Coffee Dating Dapp: Koffee-Ka-Chakkar
 
-### Deployed Link(Currently of frontend) - https://koffee-ka-chakkar-frontend.vercel.app/
 Welcome to the Coffee Dating DApp, where your love for coffee meets the magic of blockchain technology! The innovative app that brings together the world of coffee and the excitement of online dating on a secure and transparent decentralized platform. Whether you're a coffee connoisseur looking for a delightful brew or someone seeking meaningful connections, Koffee-Ka-Chakkar has something special for you.
 
 ## What is Koffee-Ka-Chakkar?
@@ -160,7 +159,7 @@ To run the Koffee Ka Chakkar project, follow these steps:
 
 | Name          | Username              | Work                                                      |
 |---------------|-----------------------|-----------------------------------------------------------|
-| Bikram Dhanraj| @BikramNarayan       | FRONTEND : Vite, Tailwind CSS, Canva (Frontend), Email.js, Node.js,Mongoose |
-| Jenil Jain    | @jeniljain2811        | BACKEND : Node.js, Express, Mongoose, MongoDB, , REST API   |
-| Kartik Bhatt  | @capsy14              | BLOCKCHAIN : Solidity, Hardhat, Ethers.js, Gun.js, Huddle01, Pinata IPFS   |
+| Bikram Dhanraj| @BikramNarayan        | Vite, Tailwind CSS, Canva (Frontend), Email.js, Node.js,Mongoose |
+| Jenil Jain    | @jeniljain2811        | Node.js, Express, Mongoose, MongoDB, , REST API   |
+| Kartik Bhatt  | @capsy14              | Solidity, Hardhat, Ethers.js, Gun.js, Huddle01, Pinata IPFS   |
 
