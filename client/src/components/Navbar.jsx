@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 // import Button from "./Button";
+import IconSvg from "../../public/assets/user_icon.svg";
 import { Link } from "react-router-dom";
+import { ShowOnLogin, ShowOnLogout } from "../protect/HiddenLink";
+import { logOut } from "../services/services";
 const Nav = () => {
   let Links = [
     { name: "HOME", link: "/" },
     { name: "CHAT", link: "/chat" },
     { name: "BUY COFFEE", link: "/product" },
     { name: "WALLET", link: "/wallet" },
-    { name: "REGISTER", link: "/form" },
+    { name: "REGISTER", link: "/register" },
     { name: "VIDEOCHAT", link: "/chatvideo" },
     { name: "IPFSSAVE", link: "/ipfsphotoshare" },
   ];
@@ -28,6 +31,16 @@ const Nav = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const logOutUser = async () => {
+    try {
+      localStorage.setItem("isLoggedIn", false);
+      const res = await logOut();
+      console.log(res);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div
@@ -65,25 +78,53 @@ const Nav = () => {
           <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
             <Link to="/">HOME</Link>
           </li>
-          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
-            <Link to="/product">COFFEE</Link>
-          </li>
-          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
-            <Link to="/form">REGISTER</Link>
-          </li>
-          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
-            <Link to="/wallet">WALLET</Link>
-          </li>
-          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
-            <Link to="/chat">CHAT</Link>
-          </li>
-
-          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
-            <Link to="/chatvideo">VIDEOCHAT</Link>
-          </li>
-          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
-            <Link to="/ipfsphotoshare">MEMORIES</Link>
-          </li>
+          <ShowOnLogin>
+            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+              <Link to="/product">COFFEE</Link>
+            </li>
+          </ShowOnLogin>
+          <ShowOnLogout>
+            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+              <Link to="/register">REGISTER</Link>
+            </li>
+          </ShowOnLogout>
+          <ShowOnLogout>
+            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+              <Link to="/login">LOGIN</Link>
+            </li>
+          </ShowOnLogout>
+          <ShowOnLogin>
+            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+              <Link to="/wallet">WALLET</Link>
+            </li>
+          </ShowOnLogin>
+          <ShowOnLogin>
+            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+              <Link to="/opposite">PROFILES</Link>
+            </li>
+          </ShowOnLogin>
+          <ShowOnLogin>
+            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+              <Link to="/chat">CHAT</Link>
+            </li>
+          </ShowOnLogin>
+          <ShowOnLogin>
+            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+              <Link to="/chatvideo">VIDEOCHAT</Link>
+            </li>
+          </ShowOnLogin>
+          <ShowOnLogin>
+            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+              <Link to="/ipfsphotoshare">MEMORIES</Link>
+            </li>
+          </ShowOnLogin>
+          <ShowOnLogin>
+            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+              <Link to="/profile">
+                <img src={IconSvg} alt="" />
+              </Link>
+            </li>
+          </ShowOnLogin>
 
           {/* {Links.map((link) => (
             <li

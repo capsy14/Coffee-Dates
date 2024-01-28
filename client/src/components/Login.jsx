@@ -1,79 +1,129 @@
-import React, { useState, useContext } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-// import { UserContext } from "./UserProvider";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-const Login = () => {
-  const [userName, setUserName] = useState("");
-  const [cadd, setCadd] = useState("");
-  const [response, setResponse] = useState(null);
-  const [logged, setLogg] = useState(false);
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../services/services";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { SET_LOGIN, SET_NAME, SET_USER } from "../redux/slice/userSlice";
+
+const initialState = {
+  email: "",
+  password: "",
+};
+export default function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState(initialState);
+  const { email, password } = formData;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const inputData = {
-      userName: userName,
-      cadd: cadd,
+    if (!email || !password) {
+      return toast.error("All fields are required");
+    }
+    const userData = {
+      email,
+      password,
     };
-
     try {
-      const res = await axios.post("http://localhost:8000/login", inputData);
-      // setResponse(res.data);
-      localStorage.setItem("myData", JSON.stringify(res.data.data));
-      var x = JSON.parse(localStorage.getItem("myData"));
-      console.log(x);
-      toast.success("Login Successfull");
-      window.alert("Login Successfull");
-      setLogg(true);
-      // console.log(x);
+      const response = await loginUser(userData);
+      if (response) {
+        // console.log(response.user);
+        await dispatch(SET_LOGIN(true));
+        await dispatch(SET_NAME(response.user.name));
+        await dispatch(SET_USER(response.user));
+
+        navigate("/product");
+        window.location.reload();
+      }
     } catch (error) {
-      console.error("Error logging in:", error);
+      console.error(error);
     }
   };
 
   return (
-    <>
-      <div className="login-container">
-        <h2>Login Form</h2>
-        <form onSubmit={handleSubmit} className="login-form">
-          <div className="input-container">
-            <label>Username:</label>
-            <input
-              type="text"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-              className="input-field"
-            />
-          </div>
-          <div className="input-container">
-            <label>CADD:</label>
-            <input
-              type="text"
-              value={cadd}
-              onChange={(e) => setCadd(e.target.value)}
-              className="input-field"
-            />
-          </div>
-          <button type="submit" className="submit-button">
-            Login
-          </button>
-        </form>
-        {response && (
-          <div className="response-container">
-            <h3>Response from Server:</h3>
-            <p>{response.msg}</p>
-            <pre>{JSON.stringify(response.data, null, 2)}</pre>
-          </div>
-        )}
-      </div>
-      {logged && (
-        <Link to="/opposite">
-          <button className="ml-3 mg-1">Browse</button>
-        </Link>
-      )}
-    </>
-  );
-};
+    <div>
+      <div className=" flex justify-center pt-24 bg-gray-800 h-full flex-wrap p-12 gap-5">
+        <div className="mb-12 md:mb-0  lg:max-w-md">
+          <img
+            src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+            className="w-full h-full"
+            alt="Phone image"
+          />
+        </div>
+        <div className="bg-white shadow-md  rounded flex-[1]  max-w-lg p-4 sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+              Sign in to our platform
+            </h3>
 
-export default Login;
+            <div>
+              <label
+                htmlFor="email"
+                className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
+              >
+                Your email
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+                id="email"
+                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="name@company.com"
+                required=""
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="password"
+                className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
+              >
+                Your password
+              </label>
+              <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={handleChange}
+                id="password"
+                placeholder="••••••••"
+                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                required=""
+              />
+            </div>
+            <div className="flex items-start">
+              <div className="flex items-start">
+                <div className="flex items-center h-5"></div>
+              </div>
+              <a
+                href="#"
+                className="text-sm text-blue-700 hover:underline ml-auto dark:text-blue-500"
+              >
+                Lost Password?
+              </a>
+            </div>
+            <button
+              type="submit"
+              className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Login to your account
+            </button>
+            <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
+              Not registered?{" "}
+              <a
+                href="/register"
+                className="text-blue-700 hover:underline dark:text-blue-500"
+              >
+                Create account
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}

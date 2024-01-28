@@ -3,22 +3,8 @@ import { ethers } from "ethers";
 import "../styles/buy.css"; // Import the CSS file
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const Buy = ({ state, paid, setPaid }) => {
-  const buycofee = async (e) => {
-    e.preventDefault();
-    const { contract } = state;
-    const name = document.querySelector("#name").value;
-    const message = document.querySelector("#message").value;
-    console.log(name, message, contract);
-    const amount = { value: ethers.utils.parseEther("0.002") };
-
-    const transaction = await contract.buyCoffee(name, message, amount);
-    await transaction.wait();
-    console.log("Transaction is done");
-    // alert("Transaction is done");
-    toast.success("Transaction is Successfull ");
-    setPaid(true);
-  };
+const Buy = () => {
+  const buycofee = async (e) => {};
 
   return (
     <div className="buy-buy-container ">

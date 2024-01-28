@@ -3,64 +3,36 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const OppositeGenderProfiles = ({
-  sex,
-  setSex,
-  reName,
-  setReName,
-  reEmail,
-  setReEmail,
-}) => {
-  const [oppositeGenderProfiles, setOppositeGenderProfiles] = useState([]);
 
-  useEffect(() => {
-    const fetchOppositeGenderProfiles = async () => {
-      try {
-        const res = await axios.get('http://localhost:8000/users');
-        // Change the API endpoint accordingly
-        // console.log(response);
-        // toast.success(`${sex}`);
-        // console.log(res.data.allUsers);
-        var x = JSON.parse(localStorage.getItem("myData"));
-        console.log("Opposite");
-        // console.log(x);
+const OppositeGenderProfiles = () => {
+  // Assuming you have some dummy data for testing
+  const dummyData = [
+    {
+      _id: 1,
+      userName: "John Doe",
+      gender: "Male",
+      age: 25,
+      photo: "john.jpg",
+      email: "john@example.com",
+    },
+    // Add more dummy data as needed
+  ];
 
-        if (x) {
-          setSex(x.gender);
-          setReName(x.userName);
-          setReEmail(x.email);
-          // console.log(x.gender);
-          // console.log(x.userName);
-        }
+  const [oppositeGenderProfiles, setOppositeGenderProfiles] =
+    useState(dummyData);
 
-        const oppositeProfiles = res.data.allUsers.filter(
-          (profile) => profile.gender != sex
-        );
-        setOppositeGenderProfiles(oppositeProfiles);
-        // console.log(oppositeGenderProfiles);
-      } catch (error) {
-        console.error("Error fetching profiles:", error);
-      }
-    };
-
-    fetchOppositeGenderProfiles();
-  }, [sex]);
-  const emailBhejo = (p) => {
-    // console.log(p.userName);
-    // console.log(p.email);
-    setReName(p.userName);
-    setReEmail(p.email);
+  // Function to handle sending email (assuming you have an emailBhejo function)
+  const emailBhejo = (profile) => {
+    // Implement your email sending logic here
+    console.log("Sending email to: ", profile.email);
   };
+
   return (
     <>
       <h2>Opposite Gender Profiles</h2>
-      <h2></h2>
       <div className="opposite-gender-profiles">
         {oppositeGenderProfiles.map((profile) => (
-          <Link
-            to="/opposite/email" // Navigate to the email page
-            key={profile._id}
-          >
+          <Link to="/opposite/email" key={profile._id}>
             <div
               className="profile-card"
               key={profile._id}

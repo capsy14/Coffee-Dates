@@ -3,14 +3,16 @@ import { ethers } from "ethers";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import abi from "../contracts/coffeekachakkar.json"; // Update the path to your JSON file
+import { useDispatch, useSelector } from "react-redux";
+import { SET_ACCOUNT, selectAccount } from "../redux/slice/userSlice";
 
-const WalletConnect = ({ account, setAccount }) => {
+const WalletConnect = () => {
   const [state, setState] = useState({
     provider: null,
     signer: null,
     contract: null,
   });
-
+  const dispatch = useDispatch();
   const [connected, setConnected] = useState(false);
 
   useEffect(() => {
@@ -28,7 +30,6 @@ const WalletConnect = ({ account, setAccount }) => {
           });
 
           const account = accounts[0];
-          setAccount(account);
           setConnected(true);
           provider = new ethers.providers.Web3Provider(window.ethereum);
           const signer = provider.getSigner();
@@ -45,7 +46,7 @@ const WalletConnect = ({ account, setAccount }) => {
 
           setState({ provider, signer, contract });
         } else {
-          alert("Please install MetaMask to use this app.");
+          toast.success("Please install MetaMask to use this app.");
         }
       } catch (error) {
         alert(error.message);
@@ -69,9 +70,11 @@ const WalletConnect = ({ account, setAccount }) => {
         });
 
         const account = accounts[0];
-        setAccount(account);
+        dispatch(SET_ACCOUNT(account));
+        localStorage.setItem("account", account);
+        toast.success(`Successfully connected ${account}`);
       } else {
-        alert("Please install MetaMask to use this app.");
+        toast.error("Please install MetaMask to use this app.");
       }
     } catch (error) {
       alert(error.message);
@@ -79,16 +82,8 @@ const WalletConnect = ({ account, setAccount }) => {
   };
 
   const success = () => {
-    toast.success(`Connected Account: ${account} `, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    const account_data = localStorage.getItem("account");
+    toast.info(`Metamask is connected`);
   };
 
   return (
