@@ -22,6 +22,7 @@ import EditProfile from "./components/EditProfile";
 import UserProfile from "./components/UserProfile";
 import axios from "axios";
 import Opposite from "./components/Opposite";
+import Email from "./components/Email";
 axios.defaults.withCredentials = true;
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
               <Route path="/profile" element={<UserProfile />} />
               <Route path="/profile/edit" element={<EditProfile />} />
               <Route path="/opposite" element={<Opposite />} />
+              <Route path="/opposite/:id" element={<Email />} />
             </Routes>
           </BrowserRouter>
         </div>

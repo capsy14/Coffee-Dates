@@ -12,6 +12,7 @@ const {
   forgotPassword,
   resetPassword,
   oppositeGender,
+  oppositeProfile,
 } = require("../controller/userController");
 const { authMiddleWare } = require("../Middleware/authMiddleWare");
 
@@ -25,5 +26,6 @@ router.patch("/changepass", authMiddleWare, changePasssword);
 router.post("/forgotpass", forgotPassword);
 router.post("/resetpassword/:token", resetPassword);
 router.get("/opposite", authMiddleWare, oppositeGender);
+router.post("/opposite/profile", oppositeProfile);
 
 module.exports = router;
