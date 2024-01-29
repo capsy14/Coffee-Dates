@@ -2,6 +2,10 @@ import React from "react";
 import { toast } from "react-toastify";
 
 const ImageIcon = (props) => {
+  const cloudinary_url = import.meta.env.VITE_APP_CLOUDINARY;
+  const cloud_name = import.meta.env.VITE_APP_CLOUDINARY_CLOUD;
+  const preset_name = import.meta.env.VITE_APP_CLOUDINARY_PRESET;
+
   const handleFileChange = async (e) => {
     const profileImage = e.target.files[0];
     // Do something with the selected file
@@ -16,14 +20,14 @@ const ImageIcon = (props) => {
     ) {
       const image = new FormData();
       image.append("file", profileImage);
-      image.append("cloud_name", "dgcmq62on");
-      image.append("upload_preset", "fboxgfph");
+      image.append("cloud_name", cloud_name);
+      image.append("upload_preset", preset_name);
 
       // First save image to cloudinary
-      const response = await fetch(
-        "https://api.cloudinary.com/v1_1/dgcmq62on/image/upload",
-        { method: "post", body: image }
-      );
+      const response = await fetch(`${cloudinary_url}`, {
+        method: "post",
+        body: image,
+      });
       if (!response) {
         toast.error("Image not uploaded");
         return;
