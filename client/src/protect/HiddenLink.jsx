@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const isLoggedIn = localStorage.getItem("isLoggedIn");
 
 export const ShowOnLogin = ({ children }) => {
-  if (isLoggedIn === "true") {
+  if (isLoggedIn == "true") {
     return <>{children}</>;
   }
 
@@ -12,7 +12,7 @@ export const ShowOnLogin = ({ children }) => {
 };
 
 export const ShowOnLogout = ({ children }) => {
-  if (isLoggedIn === "false") {
+  if (isLoggedIn != "true") {
     return <>{children}</>;
   }
   return <></>;
