@@ -263,6 +263,17 @@ const oppositeGender = asyncHandler(async (req, res) => {
   }
 });
 
+const oppositeProfile = asyncHandler(async (req, res) => {
+  const { id } = req.body;
+  const user = await User.findById(id);
+  if (user) {
+    res.status(200).send(user);
+  } else {
+    res.status(401);
+    throw new Error("Some thing wrong");
+  }
+});
+
 module.exports = {
   registerUser,
   loginUser,
@@ -274,4 +285,5 @@ module.exports = {
   forgotPassword,
   resetPassword,
   oppositeGender,
+  oppositeProfile,
 };

@@ -30,7 +30,7 @@ export default function Opposite() {
           <h2>Opposite Gender Profiles</h2>
           <div className="opposite-gender-profiles">
             {oppositeGender.map((profile) => (
-              <Link to="/opposite/email" key={profile._id}>
+              <Link to={`/opposite/${profile._id}`} key={profile._id}>
                 <div
                   className="profile-card"
                   key={profile._id}
@@ -42,6 +42,7 @@ export default function Opposite() {
                   <p>Age: {profile.age}</p>
                   <p>Id: {profile._id}</p>
                   <p>Email: {profile.email}</p>
+                  <p>Bio: {profile.bio}</p>
                   {/* Add more profile information here */}
                 </div>
               </Link>

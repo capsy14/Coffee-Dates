@@ -111,3 +111,18 @@ export const oppositeGenderProfile = async () => {
     toast.error(message);
   }
 };
+
+export const oppositeGenderEmail = async (data) => {
+  try {
+    // console.log(data);
+    // console.log(data + " hello ");
+    const response = await axios.post(`${BACKEND_URL}/opposite/profile`, data);
+    return response.data;
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString();
+    toast.error(message);
+  }
+};

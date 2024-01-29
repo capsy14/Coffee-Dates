@@ -1,30 +1,43 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { getUser, oppositeGenderEmail } from "../services/services";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 
-const Email = ({
-  seName,
-  seEmail,
-  reName,
-  reEmail,
-  setReEmail,
-  setReName,
-  setSeEmail,
-  setSeName,
-}) => {
-  // State to store selected date and time
-  var x = JSON.parse(localStorage.getItem("myData"));
-  console.log("Opposite");
-  // console.log(x);
-
-  if (x) {
-    setSeName(x.userName);
-    setSeEmail(x.email);
-
-    // console.log(x.gender);
-    // console.log(x.userName);
-  }
+const seInitailState = {
+  seName: "",
+  seEmail: "",
+};
+const reInitialState = {
+  reName: "",
+  reEmail: "",
+};
+const Email = () => {
+  const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
-  const [senderExists, setSenderExists] = useState(!!seEmail);
+  const [seData, setSeData] = useState(seInitailState);
+  const [reData, setReData] = useState(reInitialState);
+  const { seName, seEmail } = seData;
+  const { reName, reEmail } = reData;
+  const id = useParams();
+  useEffect(() => {
+    const fetchSender = async () => {
+      const data = await getUser();
+      const res = { seName: data.name, seEmail: data.email };
+      setSeData(res);
+    };
+    fetchSender();
+  }, []);
+  useEffect(() => {
+    const fetchReciever = async () => {
+      const data = await oppositeGenderEmail(id);
+      const res = { reName: data.name, reEmail: data.email };
+      setReData(res);
+    };
+    fetchReciever();
+  }, []);
+
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,11 +69,13 @@ const Email = ({
       );
 
       if (response.ok) {
-        console.log("Your data has been sent successfully...");
+        toast.success("Email Sent Successfully");
+        navigate("/opposite");
       } else {
         console.log("Some error occurred");
         const errorData = await response.json();
         console.log(errorData);
+        toast.error(errorData);
       }
     } catch (error) {
       console.log("An error occurred while sending the request:", error);
@@ -70,8 +85,7 @@ const Email = ({
   return (
     <div className="email-container">
       <h2>Select Date and Time for Coffee</h2>
-      {!senderExists && <h1 className="text-red-500"></h1>}
-
+      <h1 className="text-red-500"></h1>
       <table className="email-table">
         <tbody>
           <tr>
