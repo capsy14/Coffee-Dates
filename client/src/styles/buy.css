@@ -4,7 +4,7 @@
   
   border: 1px solid #c34d4d;
   margin-top: -50px;
-  background-image: url('../../public/assets/Love\ Brews\ Here\ \(1\).jpg');
+  /* background-image: url('../../public/assets/Love\ Brews\ Here\ \(1\).jpg'); */
   background-position: top -200%;
   background-size: cover;
 
@@ -56,6 +56,7 @@
   }
 .inputbuy{
     margin-right: 40px;
+    padding: 15px;
 }  
 
 .lovmatch{

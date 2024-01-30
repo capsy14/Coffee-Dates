@@ -1,105 +1,105 @@
 [
   {
     "name": "Espresso",
-    "price": 260,
+    "price": 3.38,
     "rating": 4.5,
     "imgSrc": "https://tse4.mm.bing.net/th?id=OIP.sjkwtF6Q1tmhvrwu9VK8XwHaHa&pid=Api&P=0&h=180",
     "description": "A strong and bold coffee shot."
   },
   {
     "name": "Cappuccino",
-    "price": 290,
+    "price": 3.77,
     "rating": 4.7,
     "imgSrc": "https://tse4.mm.bing.net/th?id=OIP.3thd4i6u3PRBaSZjOuE-uQHaFJ&pid=Api&P=0&h=180",
     "description": "Rich espresso with frothy milk and a dusting of cocoa."
   },
   {
     "name": "Latte",
-    "price": 275,
+    "price": 3.57,
     "rating": 4.6,
     "imgSrc": "https://tse1.mm.bing.net/th?id=OIP.qjGgQhM3k_O8UYE3rOarKAHaE7&pid=Api&P=0&h=180",
     "description": "Smooth espresso with steamed milk."
   },
   {
     "name": "Mocha",
-    "price": 330,
+    "price": 4.29,
     "rating": 4.8,
     "imgSrc": "https://tse3.mm.bing.net/th?id=OIP.k6HrjsWU1C995rHH4dQVmAHaF1&pid=Api&P=0&h=180",
     "description": "A delightful blend of espresso, chocolate, and steamed milk."
   },
   {
     "name": "Americano",
-    "price": 260,
+    "price": 3.38,
     "rating": 4.4,
     "imgSrc": "https://tse1.mm.bing.net/th?id=OIP.jbkyjcieSo2YG_eT0q8OLQHaHa&pid=Api&P=0&h=180",
     "description": "A strong espresso diluted with hot water."
   },
   {
     "name": "Flat White",
-    "price": 305,
+    "price": 3.97,
     "rating": 4.6,
     "imgSrc": "https://tse2.mm.bing.net/th?id=OIP.VgIyWmhAJnNUfu7GhWaIJgHaEi&pid=Api&P=0&h=180",
     "description": "Smooth espresso with velvety steamed milk."
   },
   {
     "name": "Macchiato",
-    "price": 260,
+    "price": 3.38,
     "rating": 4.5,
     "imgSrc": "https://tse4.mm.bing.net/th?id=OIP.u4wG0sdTyR69TF11EG86tQHaE8&pid=Api&P=0&h=180",
     "description": "Espresso with a dollop of frothy milk."
   },
   {
     "name": "Iced Coffee",
-    "price": 290,
+    "price": 3.77,
     "rating": 4.7,
     "imgSrc": "https://tse4.mm.bing.net/th?id=OIP.2m86YwVZYHm4kb2zXVO19AHaKy&pid=Api&P=0&h=180",
     "description": "Chilled coffee served over ice."
   },
   {
     "name": "Cold Brew",
-    "price": 330,
+    "price": 4.29,
     "rating": 4.8,
     "imgSrc": "https://tse4.mm.bing.net/th?id=OIP.ENuX66asmzR4K6R5Z3N5cgHaE8&pid=Api&P=0&h=180",
     "description": "Smooth and refreshing coffee brewed with cold water."
   },
   {
     "name": "Turkish Coffee",
-    "price": 260,
+    "price": 3.38,
     "rating": 4.3,
     "imgSrc": "https://tse2.mm.bing.net/th?id=OIP.laA1GCSvvqV__rqWyFsBywHaE8&pid=Api&P=0&h=180",
     "description": "Strong coffee brewed with finely ground beans and spices."
   },
   {
     "name": "Irish Coffee",
-    "price": 380,
+    "price": 4.94,
     "rating": 4.9,
     "imgSrc": "https://tse4.mm.bing.net/th?id=OIP.iHyfJ_rVqKLrTFvJndlwwQHaLX&pid=Api&P=0&h=180",
     "description": "Whiskey-spiked coffee topped with cream."
   },
   {
     "name": "Caramel Macchiato",
-    "price": 305,
+    "price": 3.97,
     "rating": 4.6,
     "imgSrc": "https://tse1.mm.bing.net/th?id=OIP.UqStL2k2kTImA9BfibYnLgAAAA&pid=Api&P=0&h=180",
     "description": "Espresso with vanilla, caramel, and steamed milk."
   },
   {
     "name": "Hazelnut Latte",
-    "price": 290,
+    "price": 3.77,
     "rating": 4.5,
     "imgSrc": "https://tse3.mm.bing.net/th?id=OIP.b54GrCjdYAWgBtHGnRGHOAHaE7&pid=Api&P=0&h=180",
     "description": "Latte infused with rich hazelnut flavor."
   },
   {
     "name": "Vanilla Latte",
-    "price": 290,
+    "price": 3.77,
     "rating": 4.6,
     "imgSrc": "https://tse3.mm.bing.net/th?id=OIP.oryzdfwKjpWRwZzyOPT8cgHaE8&pid=Api&P=0&h=180",
     "description": "Latte with smooth vanilla essence."
   },
   {
     "name": "Pumpkin Spice Latte",
-    "price": 330,
+    "price": 4.29,
     "rating": 4.7,
     "imgSrc": "https://tse1.mm.bing.net/th?id=OIP.Aeu8IcORzo68K-mZf20VAgHaEL&pid=Api&P=0&h=180",
     "description": "Autumn-inspired latte with pumpkin and warm spices."

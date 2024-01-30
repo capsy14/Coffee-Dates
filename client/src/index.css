@@ -39,7 +39,6 @@
 
 .super {
   color: green;
-  font-size: 49px;
 }
 
 .on {
@@ -238,7 +237,7 @@
 }
 .super {
 
-  font-size: 49px;
+  /* font-size: 49px; */
 }
 .on {
   font-size: 39px;

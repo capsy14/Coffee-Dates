@@ -95,7 +95,7 @@ const Nav = () => {
           </ShowOnLogout>
           <ShowOnLogin>
             <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
-              <Link to="/wallet">WALLET</Link>
+              <Link to="/wallet/1">WALLET</Link>
             </li>
           </ShowOnLogin>
           <ShowOnLogin>

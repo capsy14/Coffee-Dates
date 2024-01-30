@@ -26,29 +26,53 @@ export default function Opposite() {
   return (
     <div>
       {oppositeGender && (
-        <>
-          <h2>Opposite Gender Profiles</h2>
-          <div className="opposite-gender-profiles">
+        <div className=" mt-3">
+          <div className="opposite-gender-profiles  ">
             {oppositeGender.map((profile) => (
               <Link to={`/opposite/${profile._id}`} key={profile._id}>
                 <div
-                  className="profile-card"
+                  className="profile-card bg-[#e9e5db] "
                   key={profile._id}
                   onClick={() => emailBhejo(profile)}
                 >
-                  <img src={profile.photo} alt={profile.userName} />
-                  <p>Name: {profile.name}</p>
-                  <p>Gender: {profile.gender}</p>
-                  <p>Age: {profile.age}</p>
-                  <p>Id: {profile._id}</p>
-                  <p>Email: {profile.email}</p>
-                  <p>Bio: {profile.bio}</p>
-                  {/* Add more profile information here */}
+                  <div className=" rounded-xl overflow-hidden border-collapse">
+                    <img src={profile.photo} alt={profile.userName} />
+                  </div>
+                  <table className="text-sm my-3 border-none border-collapse">
+                    <tbody>
+                      <tr>
+                        <td className="px-2 py-2 text-gray-500 font-semibold">
+                          Name
+                        </td>
+                        <td className="px-2 py-2 text-2xl">{profile.name}</td>
+                      </tr>
+                      <tr>
+                        <td className="px-2 py-2 text-gray-500 font-semibold">
+                          Gender
+                        </td>
+                        <td className="px-2 py-2 text-xl">{profile.gender}</td>
+                      </tr>
+
+                      {/* Add more profile information rows here */}
+                      <tr>
+                        <td className="px-2 py-2 text-gray-500 font-semibold">
+                          Email
+                        </td>
+                        <td className="px-2 py-2 text-xl">{profile.email}</td>
+                      </tr>
+                      <tr>
+                        <td className="px-2 py-2 text-gray-500 font-semibold">
+                          Bio
+                        </td>
+                        <td className="px-2 py-2 text-lg">{profile.bio}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </Link>
             ))}
           </div>
-        </>
+        </div>
       )}
     </div>
   );

@@ -27,21 +27,22 @@ const Product = () => {
 
   return (
     <>
-      <div className="catalog"></div>
+      <div className="catalog sm:bg-cover bg-right-toptop md:bg-left-top"></div>
       <div className="product1">
         {products.map((product, index) => (
-          <Link to="/wallet" key={index}>
+          <Link to={`/wallet/${index}`} key={index}>
             <div className="pro">
               <img src={product.imgSrc} alt={product.name} />
               <div className="des">
                 <h5>{product.name}</h5>
                 <p>{product.description}</p>
                 <div className="star">{renderStars(product.rating)}</div>
-                <h4>₹{product.price}</h4>
+                <h4>${product.price}</h4>
                 <button>
-                  <a href="#">
-                    <ion-icon name="cart"></ion-icon>
-                  </a>
+                  <Link to={`/product/${index}`}>
+                    Buy Now
+                    {/* <ion-icon name="cart"> Buy Now</ion-icon> */}
+                  </Link>
                 </button>
               </div>
             </div>
