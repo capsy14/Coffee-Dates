@@ -45,24 +45,24 @@ export default function Login() {
 
   return (
     <div>
-      <div className=" flex justify-center pt-24 bg-gray-800 h-full flex-wrap p-12 gap-5">
-        <div className="mb-12 md:mb-0  lg:max-w-md">
+      <div className=" flex justify-center pt-24 bg-[#f0ebdf] h-full flex-wrap p-12 gap-5">
+        <div className="mb-12 md:mb-0  lg:max-w-md hidden sm:block">
           <img
             src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
             className="w-full h-full"
             alt="Phone image"
           />
         </div>
-        <div className="bg-white shadow-md  rounded flex-[1]  max-w-lg p-4 sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div className="bg-white shadow-md  rounded flex-[1]  max-w-lg p-4 sm:p-6 lg:p-8 bg-[#efe5cb]">
           <form className="space-y-6" onSubmit={handleSubmit}>
-            <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+            <h3 className="text-xl font-medium text-green-400">
               Sign in to our platform
             </h3>
 
             <div>
               <label
                 htmlFor="email"
-                className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
+                className="text-sm font-medium text-gray-900 block mb-2"
               >
                 Your email
               </label>
@@ -72,7 +72,7 @@ export default function Login() {
                 value={email}
                 onChange={handleChange}
                 id="email"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="name@company.com"
                 required=""
               />
@@ -80,7 +80,7 @@ export default function Login() {
             <div>
               <label
                 htmlFor="password"
-                className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
+                className="text-sm font-medium text-gray-900 block mb-2"
               >
                 Your password
               </label>
@@ -91,7 +91,7 @@ export default function Login() {
                 onChange={handleChange}
                 id="password"
                 placeholder="••••••••"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 required=""
               />
             </div>
@@ -108,11 +108,11 @@ export default function Login() {
             </div>
             <button
               type="submit"
-              className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="w-full text-slate-600 bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
             >
               Login to your account
             </button>
-            <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
+            <div className="text-sm font-medium text-gray-500">
               Not registered?{" "}
               <a
                 href="/register"

@@ -126,3 +126,8 @@ export const oppositeGenderEmail = async (data) => {
     toast.error(message);
   }
 };
+
+export const getLoginStatus = async () => {
+  const res = await axios.get(`${BACKEND_URL}/loggedin`);
+  return res;
+};

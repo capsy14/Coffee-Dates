@@ -39,7 +39,7 @@ const Product = () => {
                 <div className="star">{renderStars(product.rating)}</div>
                 <h4>${product.price}</h4>
                 <button>
-                  <Link to={`/product/${index}`}>
+                  <Link to={`/wallet/${index}`}>
                     Buy Now
                     {/* <ion-icon name="cart"> Buy Now</ion-icon> */}
                   </Link>

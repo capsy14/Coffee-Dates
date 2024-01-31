@@ -29,7 +29,7 @@ export default function UserProfile() {
         if (!res) {
           toast.error("Some error occurred");
         } else {
-          console.log("checking ", res);
+          // console.log("checking ", res);
           setUserData(res);
         }
         // console.log(res);

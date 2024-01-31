@@ -16,7 +16,6 @@ const Nav = () => {
   ];
   let [open, setOpen] = useState(false);
   let [scrolled, setScrolled] = useState(false);
-
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setScrolled(true);
@@ -24,7 +23,6 @@ const Nav = () => {
       setScrolled(false);
     }
   };
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -41,7 +39,6 @@ const Nav = () => {
       console.log(error);
     }
   };
-
   return (
     <div
       className={`w-full fixed top-0 left-0 bg-white transition-all duration-300 ${
@@ -63,7 +60,7 @@ const Nav = () => {
 
         <div
           onClick={() => setOpen(!open)}
-          className="text-3xl block absolute right-8 top-6 cursor-pointer md:hidden bg-#ECE4CF"
+          className="text-3xl block absolute backdrop:opacity-80 right-8 top-6 cursor-pointer md:hidden bg-[#ECE4CF]"
         >
           {/* <div name={open ? "close" : "menu"}>hi</div> */}
           <ion-icon name={open ? "close" : "menu"}></ion-icon>
@@ -75,7 +72,11 @@ const Nav = () => {
           }`}
         >
           {/* starting here */}
-          <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+          <li
+            className="md:ml-8 text-green md:my-0 my-7"
+            onClick={() => setOpen(false)}
+            id="nav"
+          >
             <Link to="/">HOME</Link>
           </li>
           <ShowOnLogin>
@@ -84,42 +85,74 @@ const Nav = () => {
             </li>
           </ShowOnLogin>
           <ShowOnLogout>
-            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <li
+              className="md:ml-8 text-green md:my-0 my-7"
+              onClick={() => setOpen(false)}
+              id="nav"
+            >
               <Link to="/register">REGISTER</Link>
             </li>
           </ShowOnLogout>
           <ShowOnLogout>
-            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <li
+              className="md:ml-8 text-green md:my-0 my-7"
+              onClick={() => setOpen(false)}
+              id="nav"
+            >
               <Link to="/login">LOGIN</Link>
             </li>
           </ShowOnLogout>
           <ShowOnLogin>
-            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <li
+              className="md:ml-8 text-green md:my-0 my-7"
+              onClick={() => setOpen(false)}
+              id="nav"
+            >
               <Link to="/wallet/1">WALLET</Link>
             </li>
           </ShowOnLogin>
           <ShowOnLogin>
-            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <li
+              className="md:ml-8 text-green md:my-0 my-7"
+              onClick={() => setOpen(false)}
+              id="nav"
+            >
               <Link to="/opposite">PROFILES</Link>
             </li>
           </ShowOnLogin>
           <ShowOnLogin>
-            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <li
+              className="md:ml-8 text-green md:my-0 my-7"
+              onClick={() => setOpen(false)}
+              id="nav"
+            >
               <Link to="/chat">CHAT</Link>
             </li>
           </ShowOnLogin>
           <ShowOnLogin>
-            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <li
+              className="md:ml-8 text-green md:my-0 my-7"
+              onClick={() => setOpen(false)}
+              id="nav"
+            >
               <Link to="/chatvideo">VIDEOCHAT</Link>
             </li>
           </ShowOnLogin>
           <ShowOnLogin>
-            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <li
+              className="md:ml-8 text-green md:my-0 my-7"
+              onClick={() => setOpen(false)}
+              id="nav"
+            >
               <Link to="/ipfsphotoshare">MEMORIES</Link>
             </li>
           </ShowOnLogin>
           <ShowOnLogin>
-            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
+            <li
+              className="md:ml-8 text-green md:my-0 my-7"
+              onClick={() => setOpen(false)}
+              id="nav"
+            >
               <Link to="/profile">
                 <img src={IconSvg} alt="" />
               </Link>
