@@ -23,6 +23,7 @@ import UserProfile from "./components/UserProfile";
 import axios from "axios";
 import Opposite from "./components/Opposite";
 import Email from "./components/Email";
+import BuyCoffee from "./components/BuyCoffee";
 axios.defaults.withCredentials = true;
 function App() {
   return (
@@ -51,7 +52,8 @@ function App() {
               <Route path="/product" element={<Product />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/wallet" element={<Home />} />
+              <Route path="/product/:id" element={<BuyCoffee />} />
+              <Route path="/wallet/:id" element={<Home />} />
               <Route path="/chatvideo" element={<Home2 />} />
               <Route path="/chat" element={<Chat />} />
               <Route path="/ipfsphotoshare" element={<Ipfssave />} />

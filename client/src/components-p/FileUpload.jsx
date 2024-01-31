@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./fileUpload.css"
+import "./fileUpload.css";
 import axios from "axios";
 
 const FileUpload = ({ contract, account }) => {
@@ -8,7 +8,7 @@ const FileUpload = ({ contract, account }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!file) {
       alert("Please select an image to upload.");
       return;
@@ -55,7 +55,7 @@ const FileUpload = ({ contract, account }) => {
 
   return (
     <div className="top-container">
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form w-5/6 sm:w-3/4" onSubmit={handleSubmit}>
         <label htmlFor="file-upload" className="choose">
           Choose Image
         </label>
@@ -77,4 +77,3 @@ const FileUpload = ({ contract, account }) => {
 };
 
 export default FileUpload;
-
