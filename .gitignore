@@ -1,7 +1,6 @@
 node_modules
 coverage
 coverage.json
-.env
 typechain
 typechain-types
 
