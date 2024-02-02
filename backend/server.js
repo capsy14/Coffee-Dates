@@ -26,7 +26,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["https://koffee-ka-chakkar-frontend.vercel.app"],
+    origin: [
+      "https://koffee-ka-chakkar-frontend.vercel.app",
+      "http://localhost:3000/",
+    ],
     credentials: true,
   })
 );
