@@ -3,12 +3,25 @@ import { ethers } from "ethers";
 import "../styles/buy.css"; // Import the CSS file
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import Product from "./data.json";
-const Buy = (props) => {
-  const buycofee = async (e) => {};
-  const idd = props.id;
+const Buy = ({ state }) => {
+  const buycofee = async (e) => {
+    e.preventDefault();
+    const { contract } = state;
+    const name = document.querySelector("#name").value;
+    const message = document.querySelector("#message").value;
+    console.log(name, message, contract);
+    const amount = { value: ethers.utils.parseEther("0.002") };
+
+    const transaction = await contract.buyCoffee(name, message, amount);
+    await transaction.wait();
+    console.log("Transaction is done");
+    alert("Transaction is done");
+  };
   const [searchParams, setSearchParams] = useSearchParams();
+  const param = useParams();
+  const idd = param.id;
 
   return (
     <div className=" border-2 w-3/4 md:w-1/3 mt-25 align-middle items-center mx-auto p-5 bg-[#ECE4CF] rounded-lg drop-shadow-xl">
