@@ -28,7 +28,7 @@ app.use(
   cors({
     origin: [
       "https://koffee-ka-chakkar-frontend.vercel.app",
-      "http://localhost:3000/",
+      "http://localhost:3000",
     ],
     credentials: true,
   })
