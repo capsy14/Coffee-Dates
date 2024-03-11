@@ -55,7 +55,7 @@ const FileUpload = ({ contract, account }) => {
 
   return (
     <div className="top-container">
-      <form className="form w-5/6 sm:w-3/4" onSubmit={handleSubmit}>
+      <form className="form w-5/6 sm:w-3/4 mb-5" onSubmit={handleSubmit}>
         <label htmlFor="file-upload" className="choose">
           Choose Image
         </label>
@@ -72,6 +72,7 @@ const FileUpload = ({ contract, account }) => {
           Upload File
         </button>
       </form>
+
     </div>
   );
 };
