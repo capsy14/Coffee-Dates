@@ -16,6 +16,7 @@ const Display = ({ contract, account }) => {
             key={i}
             target="_blank"
             rel="noopener noreferrer"
+            className="image-link"
           >
             <img src={`${item}`} alt="new" className="image-list" />
           </a>
@@ -36,7 +37,7 @@ const Display = ({ contract, account }) => {
 
   return (
     <>
-      <div className=" w-1/2 mx-auto h-1/2 mt-6 ">{data}</div>
+      <div className="image-grid">{data}</div>
       <input
         type="text"
         placeholder="Enter Address"

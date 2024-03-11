@@ -6,8 +6,8 @@ export default () => {
       name: "Kartik Bhatt",
       title: "Blockchain Developer",
       desc: "Blockchain Innovator, Tech Enthusiast, Distributed Ledger",
-      linkedin: "javascript:void(0)",
-      twitter: "javascript:void(0)",
+      linkedin: "https://www.linkedin.com/in/kartik-bhatt-2b9b2b256/",
+      twitter: "https://twitter.com/0xkartik14",
     },
     {
       avatar:
@@ -15,7 +15,7 @@ export default () => {
       name: "Bikram Narayan Dhanraj",
       title: "Frontend and Backend Developer",
       desc: "Creative Designer of User Experiences,  Maestro of Frontend and Backend Design",
-      linkedin: "javascript:void(0)",
+      linkedin: "https://www.linkedin.com/in/bikram-narayan/",
       twitter: "javascript:void(0)",
     },
     {
@@ -24,7 +24,7 @@ export default () => {
       name: "Jenil Jain",
       title: "Frontend Developer",
       desc: "Frontend Architect , Frontend Development Prodigy.",
-      linkedin: "javascript:void(0)",
+      linkedin: "https://www.linkedin.com/in/jenil-jain-484095267/",
       twitter: "javascript:void(0)",
     },
   ];

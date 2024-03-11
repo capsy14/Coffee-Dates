@@ -37,7 +37,7 @@ const Product = () => {
                 <h5>{product.name}</h5>
                 <p>{product.description}</p>
                 <div className="star">{renderStars(product.rating)}</div>
-                <h4>${product.price}</h4>
+                <h4>₹{product.price}</h4>
                 <button>
                   <Link to={`/wallet/${index}`}>
                     Buy Now

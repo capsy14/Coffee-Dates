@@ -44,9 +44,10 @@ const Buy = ({ state }) => {
           type="text"
           className="inputbuy text-lg drop-shadow-md"
           id="message"
-          value={Product[idd].price}
+          value={`₹${Product[idd].price}`} 
           disabled
         />
+
         <label className=" ml-2 font-normal text-xl">Message</label>
         <input
           type="text"
@@ -55,7 +56,7 @@ const Buy = ({ state }) => {
           placeholder="Enter a love message"
         />
         <p className=" font-light">
-          Hey lover, your bill is {Product[idd].price}.
+          Hey lover, your bill is ₹{Product[idd].price}.
           <br /> Thanks a bunch!
         </p>
         <button type="submit">PAY</button>
