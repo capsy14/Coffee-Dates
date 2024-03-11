@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { oppositeGenderProfile } from "../services/services";
 import { Link } from "react-router-dom";
+import Loader from "./Loader";
 
 export default function Opposite() {
   const [oppositeGender, setOppositeGender] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         const res = await oppositeGenderProfile();
         setOppositeGender(res);
         console.log("Data from API:", res);
+        setLoading(false);
       } catch (error) {
         console.log(error);
+        setLoading(false);
       }
     };
 
@@ -25,7 +29,9 @@ export default function Opposite() {
 
   return (
     <div>
-      {oppositeGender && (
+      {loading ? (
+        <Loader />
+      ) : (
         <div className=" mt-3">
           <div className="opposite-gender-profiles  ">
             {oppositeGender.map((profile) => (

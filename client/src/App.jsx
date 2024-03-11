@@ -25,6 +25,7 @@ import Opposite from "./components/Opposite";
 import Email from "./components/Email";
 import BuyCoffee from "./components/BuyCoffee";
 import { getLoginStatus } from "./services/services";
+import Loader from "./components/Loader";
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
               <Route path="/wallet/:id" element={<Home />} />
               <Route path="/chatvideo" element={<Home2 />} />
               <Route path="/chat" element={<Chat />} />
+              <Route path="/loader" element={<Loader />} />
               <Route path="/ipfsphotoshare" element={<Ipfssave />} />
               <Route path="/profile" element={<UserProfile />} />
               <Route path="/profile/edit" element={<EditProfile />} />

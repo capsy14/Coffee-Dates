@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectName } from "../redux/slice/userSlice";
 import { toast } from "react-toastify";
+import Loader from "./Loader";
 
 export default function UserProfile() {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
@@ -19,22 +20,29 @@ export default function UserProfile() {
     photo: "",
     gender: "",
   });
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const res = await getUser();
         // console.log("this is res ", res);
         // console.log(res?.name); // Using optional chaining to avoid undefined errors
         if (!res) {
           toast.error("Some error occurred");
+          navigate("/login");
+          window.location.reload();
         } else {
           // console.log("checking ", res);
           setUserData(res);
+          setLoading(false);
         }
         // console.log(res);
       } catch (error) {
         console.error(error);
+        navigate("/login");
+        window.location.reload();
+        setLoading(true);
       }
     };
 
@@ -56,8 +64,8 @@ export default function UserProfile() {
 
   return (
     <section className="bg-gray-200 py-5 h-screen">
-      {!isLoggedIn ? (
-        <div> Please Login...</div>
+      {loading ? (
+        <Loader />
       ) : (
         <div className="container mx-auto flex items-center justify-center">
           <div className="bg-white p-8 rounded-lg shadow-md max-w-lg">
