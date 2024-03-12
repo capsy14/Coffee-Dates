@@ -35,7 +35,7 @@ export default function Login() {
         await dispatch(SET_NAME(response.user.name));
         await dispatch(SET_USER(response.user));
 
-        navigate("/product");
+        navigate("/");
         window.location.reload();
       }
     } catch (error) {
@@ -114,12 +114,12 @@ export default function Login() {
             </button>
             <div className="text-sm font-medium text-gray-500">
               Not registered?{" "}
-              <a
-                href="/register"
+              <Link
+                to="/register"
                 className="text-blue-700 hover:underline dark:text-blue-500"
               >
                 Create account
-              </a>
+              </Link>
             </div>
           </form>
         </div>
