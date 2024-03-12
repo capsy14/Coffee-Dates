@@ -34,7 +34,7 @@ export default function Opposite() {
       ) : (
         <div className=" mt-3">
           <div className="opposite-gender-profiles  ">
-            {oppositeGender.map((profile) => (
+            {oppositeGender && oppositeGender.map((profile) => (
               <Link to={`/opposite/${profile._id}`} key={profile._id}>
                 <div
                   className="profile-card bg-[#e9e5db] "
