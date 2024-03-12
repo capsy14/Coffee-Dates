@@ -256,6 +256,7 @@ const oppositeGender = asyncHandler(async (req, res) => {
     gender && gender.toLowerCase() === "male" ? "female" : "male";
   console.log(oppositeGender);
   const response = await User.find({ gender: oppositeGender }).exec();
+  console.log(response);
   if (response) {
     res.status(200).send(response);
   } else {
