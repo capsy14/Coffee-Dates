@@ -53,7 +53,7 @@ export default function UserProfile() {
     try {
       localStorage.setItem("isLoggedIn", false);
       await logOut();
-      navigate("/login");
+      navigate("/");
       window.location.reload();
     } catch (error) {
       console.log(error);
