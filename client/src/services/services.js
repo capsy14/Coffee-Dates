@@ -101,7 +101,7 @@ export const oppositeGenderProfile = async () => {
   try {
     // console.log(data + " hello ");
     const response = await axios.get(`${BACKEND_URL}/opposite`);
-    if (response.statusText === "OK") {
+    if (response.status == 200) {
       return response.data;
     }
   } catch (error) {
