@@ -249,6 +249,7 @@ const resetPassword = asyncHandler(async (req, res) => {
 });
 
 const oppositeGender = asyncHandler(async (req, res) => {
+  console.log("hitt");
   const user = await User.findById(req.user.id);
   console.log(user+" backend ");
   const { gender } = user;
