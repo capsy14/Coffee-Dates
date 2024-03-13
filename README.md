@@ -38,7 +38,7 @@ After selecting the coffee, you will be redirected to the Registration  Page.
 You will be redirected to opposite gender profiles.
 
 ## Send Email to Your Crush
-![Send Email Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/64200742-54ab-4727-b6ca-00ceb7088d76.png)
+![Send Email Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Email.jpg)
 Select the time and date. You can send an email to your crush for a coffee date. The project and room ID will also be sent to your email.
 ## Chat Functionality
 ![Chat Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Chat%20Page.jpg)
