@@ -250,11 +250,13 @@ const resetPassword = asyncHandler(async (req, res) => {
 
 const oppositeGender = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user.id);
+  console.log(user+" backend ");
   const { gender } = user;
   const oppositeGender =
     gender && gender.toLowerCase() === "male" ? "female" : "male";
-  // console.log(oppositeGender);
+  console.log(oppositeGender);
   const response = await User.find({ gender: oppositeGender }).exec();
+  console.log(response);
   if (response) {
     res.status(200).send(response);
   } else {

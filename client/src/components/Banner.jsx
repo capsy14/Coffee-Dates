@@ -6,10 +6,13 @@ export default function Banner() {
     <div>
       <section id="banner">
         <h4>Ab Apna Chakker Chalau</h4>
-        <h3>Seek a coffee mate, spark delightful conversations</h3>
+        <h3 className=" text-xl ml-4 sm:text-4xl">
+          Seek a coffee mate, spark delightful conversations
+        </h3>
         <Link to="/product">
           <button>Explore More</button>
-        </Link>      </section>
+        </Link>{" "}
+      </section>
     </div>
   );
 }
