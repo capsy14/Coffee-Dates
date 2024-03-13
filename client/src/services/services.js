@@ -99,13 +99,9 @@ export const passwordChange = async (data) => {
 };
 export const oppositeGenderProfile = async () => {
   try {
-    // console.log("object");
-    const response = await axios.get(
-      `https://coffee-dates.onrender.com/api/users/opposite`
-    );
-    // console.log(response);
-    // console.log(`${BACKEND_URL}/opposite`);
-    if (response.status === 200) {
+    // console.log(data + " hello ");
+    const response = await axios.get(`${BACKEND_URL}/opposite`);
+    if (response.statusText === "OK") {
       return response.data;
     }
   } catch (error) {

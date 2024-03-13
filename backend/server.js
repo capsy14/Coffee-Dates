@@ -27,7 +27,9 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin: [
-      "https://koffee-ka-chakkar-frontend.vercel.app",
+      "https://koffee-ka-chakkar01.vercel.app",
+      "https://koffee-ka-chakkar01-git-main-capsy14.vercel.app",
+      "https://koffee-ka-chakkar01-capsy14.vercel.app",
       "http://localhost:3000",
     ],
     credentials: true,

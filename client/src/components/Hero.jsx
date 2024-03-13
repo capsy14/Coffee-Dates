@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -14,12 +15,12 @@ export default function Hero() {
         {/* <p>Save more with coupons & up to 70% off!</p> */}
         <br />
         <button className="shop bottom-2 ">
-          <a
-            href="/product"
+          <Link
+            to="/product"
             className="sm:text-4xl text-2xl ml-10 text-[#008000] sm:text-[#DEB887] drop-shadow-xl rounded-md "
           >
             Grab Your Coffee
-          </a>
+          </Link>
         </button>
       </div>
     </div>
