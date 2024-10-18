@@ -43,21 +43,26 @@ function Ipfssave({ paid }) {
   }, []);
   return (
     <div>
-      <div className="toporder">
-        <img className="photoipfs" src="https://i.imgur.com/xmrplgH.png" />
-        <h1 className="headingdapp">dappDrive</h1>
+      <div className=" items-center mt-9 ">
+        <img
+          className=" w-1/4 opacity-40 mx-auto"
+          src="https://i.imgur.com/xmrplgH.png"
+        />
       </div>
-      <p className="middleliners">
+      <p className=" text-center mt-2 text-sm sm:text-2xl text-wrap">
         Collecting love's snapshots, our hearts treasure each frame of
         togetherness.
       </p>
-      <p className="myAccount">
+      <p className=" text-center text-slate-600 text-xs sm:text-xl text-wrap mt-3">
         Account : {account ? account : "Not Connected"}
       </p>
       <FileUpload account={account} provider={provider} contract={contract} />
       <Display contract={contract} account={account} />
       {!modalOpen && (
-        <button className="share" onClick={() => setModalOpen(true)}>
+        <button
+          className="w-1/5 mx-auto block mt-5 drop-shadow-lg text-xs sm:text-xl"
+          onClick={() => setModalOpen(true)}
+        >
           Share
         </button>
       )}

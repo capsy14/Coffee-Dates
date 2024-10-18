@@ -26,7 +26,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://pinvent-app.vercel.app"],
+    origin: [
+      "https://koffee-ka-chakkar01.vercel.app",
+      "https://koffee-ka-chakkar01-git-main-capsy14.vercel.app",
+      "https://koffee-ka-chakkar01-capsy14.vercel.app",
+      "http://localhost:3000",
+    ],
     credentials: true,
   })
 );

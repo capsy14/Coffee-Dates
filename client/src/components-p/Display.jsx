@@ -16,6 +16,7 @@ const Display = ({ contract, account }) => {
             key={i}
             target="_blank"
             rel="noopener noreferrer"
+            className="image-link"
           >
             <img src={`${item}`} alt="new" className="image-list" />
           </a>
@@ -36,15 +37,19 @@ const Display = ({ contract, account }) => {
 
   return (
     <>
-      <div className="image-list">{data}</div>
+      <div className="image-grid">{data}</div>
       <input
         type="text"
         placeholder="Enter Address"
-        className="address"
+        className=" w-1/3 border-2 block mx-auto h-12 rounded-md sm:p-5 p-2 drop-shadow-lg text-xs sm:text-xl"
         value={addressInput}
         onChange={handleAddressChange}
       ></input>
-      <button className="center button" id="get-data" onClick={getdata}>
+      <button
+        className=" w-1/5 mx-auto block mt-5 drop-shadow-lg text-xs sm:text-xl"
+        id="get-data"
+        onClick={getdata}
+      >
         Get Data
       </button>
     </>

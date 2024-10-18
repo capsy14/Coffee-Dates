@@ -92,7 +92,9 @@ const WalletConnect = () => {
         {connected ? (
           <>
             {" "}
-            <button onClick={success}>Connected to Metamask</button>
+            <button onClick={success} className=" text-xs z-20 sm:text-sm">
+              Connected to Metamask
+            </button>
             <ToastContainer className="mt-14" />
           </>
         ) : (

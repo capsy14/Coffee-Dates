@@ -5,8 +5,12 @@ import { ethers } from "ethers";
 // import './App.css';
 import Buy from "./Buy";
 import Memos from "./Memos";
+import Product from "./data.json";
 import WalletConnect from "./WalletConnect";
+import { useParams } from "react-router-dom";
 const Home = ({ account, setAccount, paid, setPaid }) => {
+  const param = useParams();
+  const idd = param.id;
   const [state, setState] = useState({
     provider: null,
     signer: null,
@@ -43,7 +47,7 @@ const Home = ({ account, setAccount, paid, setPaid }) => {
     <div className="App mt-10">
       <WalletConnect account={account} setAccount={setAccount} />
       {/* <h1 className="lovmatch">Koffee ka Chakkar❤️</h1> */}
-      <Buy state={state} />
+      <Buy state={state} id={idd} />
       <Memos state={state} />
     </div>
   );

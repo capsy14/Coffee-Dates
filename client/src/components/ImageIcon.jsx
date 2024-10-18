@@ -41,7 +41,7 @@ const ImageIcon = (props) => {
   };
 
   return (
-    <label className="w-10 h-fit bottom-5 opacity-80 right-8 absolute hover:opacity-100">
+    <label className="w-10 h-fit  opacity-80  absolute hover:opacity-100 hover:scale-110">
       <input
         type="file"
         name=""

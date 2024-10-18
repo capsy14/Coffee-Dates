@@ -1,7 +1,7 @@
 // App.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -23,8 +23,29 @@ import UserProfile from "./components/UserProfile";
 import axios from "axios";
 import Opposite from "./components/Opposite";
 import Email from "./components/Email";
+import BuyCoffee from "./components/BuyCoffee";
+import { getLoginStatus } from "./services/services";
+import Loader from "./components/Loader";
 axios.defaults.withCredentials = true;
+
 function App() {
+  const funccc = async () => {
+    const res = await getLoginStatus();
+    console.log(res);
+    localStorage.setItem("isLoggedIn", res.data);
+
+    // Use navigate here instead of in useEffect
+    const navigate = useNavigate();
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    if (isLoggedIn !== "true") {
+      navigate("/login");
+    }
+  };
+
+  useEffect(() => {
+    funccc();
+  }, []);
   return (
     <>
       <header className="App-head">
@@ -51,9 +72,11 @@ function App() {
               <Route path="/product" element={<Product />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/wallet" element={<Home />} />
+              <Route path="/product/:id" element={<BuyCoffee />} />
+              <Route path="/wallet/:id" element={<Home />} />
               <Route path="/chatvideo" element={<Home2 />} />
               <Route path="/chat" element={<Chat />} />
+              <Route path="/loader" element={<Loader />} />
               <Route path="/ipfsphotoshare" element={<Ipfssave />} />
               <Route path="/profile" element={<UserProfile />} />
               <Route path="/profile/edit" element={<EditProfile />} />

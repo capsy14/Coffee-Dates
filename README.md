@@ -18,38 +18,38 @@ Koffee-Ka-Chakkar is a unique application that combines the pleasure of discover
 - **Privacy First:** Our decentralized approach ensures that your personal information remains private and secure. You have control over what you share and with whom.
 
 ## Home Page
-![Home Page Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/0e32ed6c-3161-4e7e-bb25-515330bd4129.png)
+![Home Page Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Hero%20Page.jpg)
 
 ## Buy Coffee
-![Buy Coffee Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/69048852-4baf-4bf0-b070-c7051d15b851.png)
+![Buy Coffee Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Menu.jpg)
 After selecting the coffee, you will be redirected to the Registration  Page.
 
 ## Registration Page
-![Payment Page Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/b3b13e92-4003-4212-8c46-dc684e783000.png)
+![Register Page Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Register%20Page.jpg)
 
 ## Login (If Already Registered)
-![Login Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/48e04e3d-f554-4043-a1bd-fd6c6da82830.png)
+![Login Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Login%20Page.jpg)
 
 ## Payment Page
-![Payment Page Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/23145382-5e04-4e72-93b9-12871ca1a82a.png)
+![Payment Page Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Transactions.jpg)
 
 ## Opposite Gender Profiles
-![Opposite Gender Profiles Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/1dd7f468-24e9-4e75-89f2-77bb4d4bb24c.png)
+![Opposite Gender Profiles Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Profiles.jpg)
 You will be redirected to opposite gender profiles.
 
 ## Send Email to Your Crush
-![Send Email Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/64200742-54ab-4727-b6ca-00ceb7088d76.png)
+![Send Email Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Email.jpg)
 Select the time and date. You can send an email to your crush for a coffee date. The project and room ID will also be sent to your email.
 ## Chat Functionality
-![Chat Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/77558495-c88f-48a4-8b35-865fdf4fe912.png)
+![Chat Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Chat%20Page.jpg)
 You can also chat with others.
 
 ## Video Call Feature
-![Video Call Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/3b7f2f48-af9f-4a47-9ce3-0bf05022f52b.png)
+![Video Call Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Video%20Calling.jpg)
 You can do video calls.
 
 ## Share Memories
-![Share Memories Screenshot](https://github.com/capsy14/Koffee-Ka-Chakkar/assets/119877120/bfeee264-c195-456f-a53e-b6164d508f75.png)
+![Share Memories Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Memories.jpg)
 You can upload memories with your crush.
 
 

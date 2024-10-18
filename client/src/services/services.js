@@ -21,6 +21,7 @@ export const registerUser = async (userData) => {
 export const loginUser = async (userData) => {
   // console.log(BACKEND_URL);
   try {
+    console.log("cururl=", `${BACKEND_URL}/login`);
     const response = await axios.post(`${BACKEND_URL}/login`, userData);
     if (response.statusText === "OK") {
       toast.success("Login Successful...");
@@ -100,7 +101,7 @@ export const oppositeGenderProfile = async () => {
   try {
     // console.log(data + " hello ");
     const response = await axios.get(`${BACKEND_URL}/opposite`);
-    if (response.statusText === "OK") {
+    if (response.status == 200) {
       return response.data;
     }
   } catch (error) {
@@ -117,6 +118,8 @@ export const oppositeGenderEmail = async (data) => {
     // console.log(data);
     // console.log(data + " hello ");
     const response = await axios.post(`${BACKEND_URL}/opposite/profile`, data);
+
+    console.log("services " + response);
     return response.data;
   } catch (error) {
     const message =
@@ -125,4 +128,9 @@ export const oppositeGenderEmail = async (data) => {
       error.toString();
     toast.error(message);
   }
+};
+
+export const getLoginStatus = async () => {
+  const res = await axios.get(`${BACKEND_URL}/loggedin`);
+  return res;
 };

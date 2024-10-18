@@ -54,65 +54,69 @@ export default function Register() {
   };
 
   return (
-    <div>
-      <div className=" flex justify-center pt-4 bg-gray-800 h-full flex-wrap gap-5">
-        <div className="bg-white shadow-md  rounded flex-[1]  max-w-lg p-4 sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div className="mb-12 md:mb-0  lg:max-w-md">
+    <div className="bg-[#ECE4CF] min-h-screen">
+      <div className=" flex justify-center pt-4  flex-wrap gap-5 ">
+        <div className="bg-[#f5e8c8] shadow-md  rounded flex-[1]  max-w-2xl p-4 sm:p-6 lg:p-8">
+          <form className="space-y-3" onSubmit={handleSubmit}>
+            <div className="mb-12 md:mb-0  lg:max-w-md  rounded-xl border-4 overflow-hidden  h-1/2 w-1/2 min-w-[200px] sm:h-1/3 sm:w-1/3 mx-auto">
               <img
                 src={
                   photoLink
                     ? photoLink
-                    : "https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                    : "https://img.freepik.com/premium-vector/user-profile-icon-flat-style-member-avatar-vector-illustration-isolated-background-human-permission-sign-business-concept_157943-15752.jpg"
                 }
-                className="w-full h-full"
+                className="w-full h-[200px] object-fill"
                 alt="Phone image"
               />
-              <ImageIcon photoLink={photoLink} setPhotoLink={setPhotoLink} />
+              <div className=" absolute  top-[210px] sm:top-[280px]">
+                <ImageIcon photoLink={photoLink} setPhotoLink={setPhotoLink} />
+              </div>
             </div>
-            <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+            <h3 className="text-xl font-medium mt-6 text-gray-900">
               Register in to our platform
             </h3>
-            <div>
-              <label
-                htmlFor="email"
-                className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
-              >
-                Your Name
-              </label>
-              <input
-                type="name"
-                name="name"
-                value={name}
-                onChange={handleChange}
-                id="name"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                placeholder="Bikram"
-                required=""
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
-              >
-                Your email
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={email}
-                onChange={handleChange}
-                id="email"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                placeholder="name@company.com"
-                required=""
-              />
+            <div className="sm:flex w-full sm:gap-3">
+              <div className=" sm:w-1/2">
+                <label
+                  htmlFor="email"
+                  className="text-sm font-medium text-gray-900 block mb-2 "
+                >
+                  Your Name
+                </label>
+                <input
+                  type="name"
+                  name="name"
+                  value={name}
+                  onChange={handleChange}
+                  id="name"
+                  className="bg-gray-50 drop-shadow-xl border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                  placeholder="Bikram"
+                  required=""
+                />
+              </div>
+              <div className=" sm:w-1/2">
+                <label
+                  htmlFor="email"
+                  className="text-sm font-medium text-gray-900 block mb-2 "
+                >
+                  Your email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={handleChange}
+                  id="email"
+                  className="bg-gray-50 border drop-shadow-xl border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="name@company.com"
+                  required=""
+                />
+              </div>
             </div>
             <div>
               <label
                 htmlFor="gender"
-                className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
+                className="text-sm font-medium text-gray-900 block mb-2 "
               >
                 Gender
               </label>
@@ -121,7 +125,7 @@ export default function Register() {
                 value={gender}
                 onChange={handleChange}
                 id="gender"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border drop-shadow-xl border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 required=""
               >
                 <option value="" disabled>
@@ -131,66 +135,61 @@ export default function Register() {
                 <option value="female">Female</option>
               </select>
             </div>
-
-            <div>
-              <label
-                htmlFor="password"
-                className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
-              >
-                Your password
-              </label>
-              <input
-                type="password"
-                name="password"
-                value={password}
-                onChange={handleChange}
-                id="password"
-                placeholder="••••••••"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                required=""
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="password"
-                className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300"
-              >
-                Confirm password
-              </label>
-              <input
-                type="password"
-                name="confirm_password"
-                value={confirm_password}
-                onChange={handleChange}
-                id="password"
-                placeholder="••••••••"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                required=""
-              />
+            <div className="sm:flex w-full sm:gap-3">
+              <div className=" sm:w-1/2">
+                <label
+                  htmlFor="password"
+                  className="text-sm font-medium text-gray-900 block mb-2 "
+                >
+                  Your password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={handleChange}
+                  id="password"
+                  placeholder="••••••••"
+                  className="bg-gray-50 border drop-shadow-xl border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                  required=""
+                />
+              </div>
+              <div className=" sm:w-1/2">
+                <label
+                  htmlFor="password"
+                  className="text-sm font-medium text-gray-900 block mb-2 "
+                >
+                  Confirm password
+                </label>
+                <input
+                  type="password"
+                  name="confirm_password"
+                  value={confirm_password}
+                  onChange={handleChange}
+                  id="password"
+                  placeholder="••••••••"
+                  className="bg-gray-50 border drop-shadow-xl border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  required=""
+                />
+              </div>
             </div>
             <div className="flex items-start">
-              <div className="flex items-start">
-                <div className="flex items-center h-5"></div>
-              </div>
               <a
                 href="#"
-                className="text-sm text-blue-700 hover:underline ml-auto dark:text-blue-500"
+                className="text-sm text-blue-700 hover:underline ml-auto "
               >
                 Lost Password?
               </a>
             </div>
             <button
               type="submit"
-              className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
               Login to your account
             </button>
-            <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
+            <div className="text-sm font-medium text-gray-500 ">
               Already registered?{" "}
-              <a
-                href="/login"
-                className="text-blue-700 hover:underline dark:text-blue-500"
-              >
+              <a href="/login" className="text-blue-700 hover:underline ">
                 Login
               </a>
             </div>

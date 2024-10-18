@@ -30,16 +30,11 @@
   /* font-size: 20px; */
   border-radius: 6px;
 }
-.hero_text {
-  margin-left: 158px;
-  font-size: 25px;
-  size: 20px;
-}
+
 
 
 .super {
   color: green;
-  font-size: 49px;
 }
 
 .on {
@@ -194,6 +189,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* color: brown; */
   text-align: center;
   background-image: url(../public/assets/banner.jpg);
   width: 100%;
@@ -205,26 +201,26 @@
 }
 
 #banner h4 {
-  color: white;
-  font-size: 1.5rem;
-  margin-top: 2rem;
+  color: brown;
 }
 
-#banner h2 {
-  color: white;
+#banner h3 {
+  color: rgb(148, 82, 3);
   margin-top: 1.5rem;
   margin-right: 23rem;
-  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 @media(max-width:780px){
   #banner h2 {
    
-    font-size: 1.6rem;
     margin-left: 50px;
     margin-right: 7rem;
   }
+  #banner h3 {
+   
+    margin-right: 5rem;
+  }
   #banner h4 {
-    font-size: 1.1rem;
 }
   .hero {
    background-position: left;
@@ -238,7 +234,7 @@
 }
 .super {
 
-  font-size: 49px;
+  /* font-size: 49px; */
 }
 .on {
   font-size: 39px;
@@ -407,9 +403,22 @@ th {
    padding: 7px;
 }
 
-.image-list{
-  width: 80vw;
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
 }
+
+.image-link {
+  display: block;
+  text-align: center;
+}
+
+.image-list {
+  max-width: 300px;
+  height: 400px;
+}
+
 
 
 /* --------------------------------file upload--------------------------------- */
@@ -439,8 +448,9 @@ th {
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 20px;
-  margin: 10px;
-  width: 300px;
+  margin: 15px;
+  height: 95%;
+  width: 325px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
