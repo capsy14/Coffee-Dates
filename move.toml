@@ -10,7 +10,7 @@ CoffeeDates = 'cafe8943b34f849b9a56a49f82cafebabeda3cafe89443e21b1eebac123456789
 dev_coffee = '_0xEeD019c9827aaC1EF194A1D9e1A9655D49B365be'
 
 [dependencies.AptosFramework]
-git = "https://github.com/aptos-labs/aptos-core.git"
+git = "https://github.com/capsy14/Coffee-Dates.git"
 rev = "main"
 subdir = "coffee-move/framework/coffee-framework"
 
