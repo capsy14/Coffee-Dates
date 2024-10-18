@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import abi from "../contracts/coffeekachakkar.json"; // Update the path to your JSON file
+import abi from "../contracts/coffeekachakkar.json";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_ACCOUNT, selectAccount } from "../redux/slice/userSlice";
 

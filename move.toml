@@ -1,0 +1,18 @@
+[package]
+name = "CoffeeDates"
+version = "1.0.0"
+authors = ["Bikram Narayan Dhanraj" , "Kartik Bhatt" , "Jenil Jain"]
+
+[addresses]
+CoffeeDates = 'cafe8943b34f849b9a56a49f82cafebabeda3cafe89443e21b1eebac123456789'
+
+[dev-addresses]
+dev_coffee = '_0xEeD019c9827aaC1EF194A1D9e1A9655D49B365be'
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-core.git"
+rev = "main"
+subdir = "coffee-move/framework/coffee-framework"
+
+[dev-dependencies]
+move-unit-test = "0.1.0"
