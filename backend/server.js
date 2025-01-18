@@ -8,14 +8,15 @@ const userRouter = require("./routes/userRoute");
 const { ErrorHandler } = require("./Middleware/errorMiddleWare");
 var cookieParser = require("cookie-parser");
 const { authMiddleWare } = require("./Middleware/authMiddleWare");
-const app = express();
+const { app, server } = require("./socketIo/server");
+const messageRoute = require("./routes/messageRoute");
 const PORT = process.env.PORT || 5000;
 
 //connect to mongo
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    app.listen(PORT, console.log(`Server running on PORT ${PORT}`));
+    server.listen(PORT, console.log(`Server running on PORT ${PORT}`));
   })
   .catch((error) => console.log(error));
 
@@ -38,5 +39,6 @@ app.use(
 
 //Route Middleware
 app.use("/api/users", userRouter);
+app.use("/api/messages", messageRoute);
 
 app.use(ErrorHandler);

@@ -74,7 +74,9 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/product/:id" element={<BuyCoffee />} />
               <Route path="/wallet/:id" element={<Home />} />
+
               <Route path="/chatvideo" element={<Home2 />} />
+
               <Route path="/chat" element={<Chat />} />
               <Route path="/loader" element={<Loader />} />
               <Route path="/ipfsphotoshare" element={<Ipfssave />} />

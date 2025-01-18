@@ -85,11 +85,11 @@ export default function ProfilePage() {
                   Edit Profile
                 </button>
               </Link>
-              <Link to="/changepass">
+              {/* <Link to="/changepass">
                 <button className="bg-blue-500 text-white px-4 py-2 rounded">
                   Change Password
                 </button>
-              </Link>
+              </Link> */}
               <button
                 className="bg-gray-500 text-white px-4 py-2 rounded"
                 onClick={logOutUser}
