@@ -15,11 +15,14 @@ export const useGetMessages = () => {
 
   useEffect(() => {
     const fetchMessages = async () => {
+      // console.log("backend " + BACKEND_URL);
       if (!receiver) return;
 
       setLoading(true);
       try {
-        const response = await axios.get(`${BACKEND_URL}/get/${receiver}`);
+        const url = `${BACKEND_URL}/get/${receiver}`;
+        console.log("url " + url);
+        const response = await axios.get(url);
         // console.log(response.data);
         dispatch(setMessage(response.data));
       } catch (error) {
