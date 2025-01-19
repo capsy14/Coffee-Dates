@@ -39,6 +39,6 @@ app.use(
 
 //Route Middleware
 app.use("/api/users", userRouter);
-app.use("/api/messages", messageRoute);
+app.use("/api/users/message", messageRoute);
 
 app.use(ErrorHandler);

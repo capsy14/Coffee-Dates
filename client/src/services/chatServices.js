@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setMessage } from "../redux/slice/receiverSlice.js";
-const BACKEND_URL = import.meta.env.VITE_APP_BACKEND + "/messages";
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND + "/message";
 export const useGetMessages = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

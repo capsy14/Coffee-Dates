@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import axios from "axios";
-const BACKEND_URL = import.meta.env.VITE_APP_BACKEND + "/users";
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND;
 export const registerUser = async (userData) => {
   try {
     const response = await axios.post(`${BACKEND_URL}/register`, userData, {
