@@ -31,6 +31,9 @@ export const receiverSlice = createSlice({
     setConversationId: (state, action) => {
       state.conversationId = action.payload;
     },
+    addNewMessage: (state, action) => {
+      state.message.push(action.payload); // Add a new message to the existing list
+    },
   },
 });
 
@@ -41,6 +44,7 @@ export const {
   setReceiverPhoto,
   setReceiverEmail,
   setMessage,
+  addNewMessage,
   setConversationId,
 } = receiverSlice.actions;
 

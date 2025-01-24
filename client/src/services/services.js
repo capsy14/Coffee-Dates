@@ -1,6 +1,8 @@
 import { toast } from "react-toastify";
 import axios from "axios";
+import { socket } from "../App";
 const BACKEND_URL = import.meta.env.VITE_APP_BACKEND;
+
 export const registerUser = async (userData) => {
   try {
     const response = await axios.post(`${BACKEND_URL}/register`, userData, {
@@ -71,6 +73,8 @@ export const getUser = async () => {
     const response = await axios.get(`${BACKEND_URL}/getuser`);
     if (response.statusText === "OK") {
       // toast.success("Profile Updated Successfully...");
+      // console.log("getuser " + JSON.stringify(response.data._id));
+      socket.emit("userConnected", response.data._id);
     }
     return response.data;
   } catch (error) {

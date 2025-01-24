@@ -2,32 +2,60 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setMessage } from "../redux/slice/receiverSlice.js";
+import { addNewMessage, setMessage } from "../redux/slice/receiverSlice.js";
+import { socket } from "../App.jsx";
+import sound from "../../public/notification.wav";
 const BACKEND_URL = import.meta.env.VITE_APP_BACKEND + "message";
 export const useGetMessages = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   const dispatch = useDispatch();
 
   // Get receiver ID from Redux store
   const receiver = useSelector((state) => state.receiver.receiver);
-  const messages = useSelector((state) => state.receiver.message);
+  const messages = useSelector((state) => state.receiver.message || []);
+
+  const checc = (newMessage) => {
+    console.log("naya message aya hai ", newMessage);
+    const notification = new Audio(sound);
+    notification.play();
+
+    // Ensure we're always working with an array
+    dispatch(
+      setMessage(
+        Array.isArray(messages)
+          ? [...messages, newMessage.message]
+          : [newMessage.message]
+      )
+    );
+  };
+
+  useEffect(() => {
+    socket.on("receiveMessage", (newMessage) => {
+      checc(newMessage);
+    });
+
+    return () => {
+      socket.off("receiveMessage");
+    };
+  }, [socket, messages]);
 
   useEffect(() => {
     const fetchMessages = async () => {
-      // console.log("backend " + BACKEND_URL);
       if (!receiver) return;
 
       setLoading(true);
       try {
         const url = `${BACKEND_URL}/get/${receiver}`;
-        console.log("url " + url);
         const response = await axios.get(url);
-        // console.log(response.data);
-        dispatch(setMessage(response.data));
+
+        // Ensure we're setting an array
+        dispatch(setMessage(Array.isArray(response.data) ? response.data : []));
       } catch (error) {
         console.error("Error fetching messages:", error);
         setError(error.message);
+        dispatch(setMessage([])); // Set to empty array on error
       } finally {
         setLoading(false);
       }
@@ -36,7 +64,11 @@ export const useGetMessages = () => {
     fetchMessages();
   }, [receiver, dispatch]);
 
-  return { messages, loading, error };
+  return {
+    messages: Array.isArray(messages) ? messages : [],
+    loading,
+    error,
+  };
 };
 export const useSendMessage = () => {
   const [sending, setSending] = useState(false);
@@ -47,7 +79,9 @@ export const useSendMessage = () => {
   const receiver = useSelector((state) => state.receiver.receiver);
   const messages = useSelector((state) => state.receiver.message);
 
-  const sendMessage = async (messageContent) => {
+  const sendMessage = async (data) => {
+    const { messageContent, sender } = data;
+    console.log("send mess wala" + sender);
     if (!receiver || !messageContent) return;
 
     setSending(true);
@@ -58,6 +92,12 @@ export const useSendMessage = () => {
 
       // Update messages in Redux store
       dispatch(setMessage([...messages, response.data]));
+      console.log("before sendmessage");
+      socket.emit("sendMessage", {
+        senderId: sender,
+        receiverId: receiver,
+        message: response.data,
+      });
       setSending(false);
       return response.data;
     } catch (error) {

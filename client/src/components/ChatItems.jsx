@@ -5,6 +5,7 @@ import { getUser } from "../services/services";
 import { Input } from "react-chat-elements";
 import EmojiPicker from "emoji-picker-react";
 import emoji from "../../public/emoji.png";
+import { socket } from "../App";
 import { useGetMessages, useSendMessage } from "../services/chatServices";
 function ChatItems() {
   const { receiver, receiverName, receiverPhoto, receiverEmail } = useSelector(
@@ -17,10 +18,23 @@ function ChatItems() {
   const endRef = useRef(null);
   const { messages, loading, error } = useGetMessages();
   const { sendMessage, sending } = useSendMessage();
+  const [onlineUser, setOnlineUser] = useState([]);
+
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
-  //yenha dalna hai kis change pe
+
+  useEffect(() => {
+    socket.on("getOnlineUsers", (users) => {
+      setOnlineUser(users);
+    });
+
+    return () => {
+      socket.off("getOnlineUsers");
+    };
+  }, [socket]);
+  const isOnline = Array.isArray(onlineUser) && onlineUser.includes(receiver);
+
   useEffect(() => {
     const fetchSender = async () => {
       const data = await getUser();
@@ -32,7 +46,10 @@ function ChatItems() {
   }, []);
   const handleSend = () => {
     console.log(text);
-    sendMessage(text);
+    sendMessage({
+      messageContent: text,
+      sender: seId,
+    });
     setText("");
   };
   const handleEmoji = (e) => {
@@ -49,7 +66,9 @@ function ChatItems() {
         />
         <div>
           <h1 className="text-lg font-semibold"> {receiverName} </h1>
-          <span className=" text-base text-slate-500">Online </span>
+          <span className=" text-base text-green-400">
+            {isOnline ? "Online" : ""}{" "}
+          </span>
         </div>
       </div>
       <div className="sm:p-4 p-1 lg:h-[66vh]  md:h-[60vh] h-[63vh] overflow-y-scroll overflow-x-hidden">
@@ -61,6 +80,7 @@ function ChatItems() {
               key={e._id}
               title={isSender ? seName : receiverName}
               type="text"
+              date={e.createdAt}
               text={e.message}
             />
           );
@@ -73,6 +93,11 @@ function ChatItems() {
           className=" border-3 border-lime-300 w-2/3 bg-[#ECE4CF] p-2 rounded-md "
           placeholder="Type here..."
           value={text}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && text.trim() !== "") {
+              handleSend();
+            }
+          }}
           onChange={(e) => setText(e.target.value)}
         />
         <img src={emoji} alt="" onClick={() => setEmojiOpen(!isEmojiOpen)} />

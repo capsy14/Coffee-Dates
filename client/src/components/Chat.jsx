@@ -3,6 +3,8 @@ import ChatList from "./ChatList";
 import { useSelector } from "react-redux";
 import ChatItems from "./ChatItems";
 import { ArrowLeft } from "lucide-react";
+import { getUser } from "../services/services";
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND;
 
 function Chat() {
   const { receiver, receiverName, receiverPhoto, receiverEmail } = useSelector(

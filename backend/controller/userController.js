@@ -55,7 +55,7 @@ const registerUser = async (req, res) => {
 };
 
 const loginUser = asyncHandler(async (req, res, next) => {
-  console.log("hit ho gaya");
+  // console.log("hit ho gaya");
   const { email, password } = req.body;
   if (!email || !password) {
     throw new Error("please fill the req fields");
@@ -65,7 +65,7 @@ const loginUser = asyncHandler(async (req, res, next) => {
     throw new Error("This user does not exits");
   }
   const isPasswordCorrect = bcrypt.compareSync(password, user.password); // true
-  console.log(isPasswordCorrect);
+  // console.log(isPasswordCorrect);
   if (isPasswordCorrect) {
     // Send HTTP-only cookie
     const token = generateToken(user._id);
@@ -121,7 +121,7 @@ const getUser = asyncHandler(async (req, res) => {
 
 const getLoginStatus = asyncHandler(async (req, res) => {
   const token = req.cookies.token;
-  console.log(token);
+  // console.log(token);
   if (!token.length) {
     return res.json(false);
   }
@@ -185,14 +185,14 @@ const forgotPassword = asyncHandler(async (req, res) => {
   }
   // Create Reste Token
   let resetToken = crypto.randomBytes(32).toString("hex") + user._id;
-  console.log(resetToken);
+  // console.log(resetToken);
 
   // Hash token before saving to DB
   const hashedToken = crypto
     .createHash("sha256")
     .update(resetToken)
     .digest("hex");
-  console.log(hashedToken);
+  // console.log(hashedToken);
   const newToken = await Token.create({
     userId: user._id,
     token: hashedToken,
@@ -249,15 +249,15 @@ const resetPassword = asyncHandler(async (req, res) => {
 });
 
 const oppositeGender = asyncHandler(async (req, res) => {
-  console.log("hitt");
+  // console.log("hitt");
   const user = await User.findById(req.user.id);
-  console.log(user+" backend ");
+  // console.log(user + " backend ");
   const { gender } = user;
   const oppositeGender =
     gender && gender.toLowerCase() === "male" ? "female" : "male";
-  console.log(oppositeGender);
+  // console.log(oppositeGender);
   const response = await User.find({ gender: oppositeGender }).exec();
-  console.log(response);
+  // console.log(response);
   if (response) {
     res.status(200).send(response);
   } else {

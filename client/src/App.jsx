@@ -26,19 +26,35 @@ import Email from "./components/Email";
 import BuyCoffee from "./components/BuyCoffee";
 import { getLoginStatus } from "./services/services";
 import Loader from "./components/Loader";
+import SocketIO from "socket.io-client";
 axios.defaults.withCredentials = true;
-
+export const socket = SocketIO.connect("http://localhost:5000");
 function App() {
+  // const initializeSocket = () => {
+  //   socket = SocketIO.connect(BACKEND_URL);
+
+  //   socket.on("connect", () => {
+  //     console.log("Socket connected:", socket.id);
+  //   });
+
+  //   socket.on("connect_error", (error) => {
+  //     console.error("Socket connection error:", error);
+  //   });
+  // };
+
   const funccc = async () => {
     const res = await getLoginStatus();
-    console.log(res);
+    console.log("here is the res in app.js " + JSON.stringify(res));
     localStorage.setItem("isLoggedIn", res.data);
 
     // Use navigate here instead of in useEffect
     const navigate = useNavigate();
     const isLoggedIn = localStorage.getItem("isLoggedIn");
 
-    if (isLoggedIn !== "true") {
+    if (isLoggedIn === "true") {
+      // socket.emit("userConnected", res._id);
+      // initializeSocket();
+    } else {
       navigate("/login");
     }
   };

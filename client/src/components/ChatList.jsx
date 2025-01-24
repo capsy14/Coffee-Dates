@@ -9,14 +9,27 @@ import {
   setReceiverPhoto,
   setReceiverName,
 } from "../redux/slice/receiverSlice";
+import { socket } from "../App";
 function ChatLisst() {
   const [oppositeGender, setOppositeGender] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [onlineUser, setOnlineUser] = useState([]);
   const dispatch = useDispatch();
   const defaultMaleImage =
     "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp";
   const defaultFemaleImage =
     "https://icon2.cleanpng.com/lnd/20240714/aft/a81tg9lau.webp";
+
+  useEffect(() => {
+    socket.on("getOnlineUsers", (users) => {
+      setOnlineUser(users);
+    });
+
+    return () => {
+      socket.off("getOnlineUsers");
+    };
+  }, [socket]);
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -67,25 +80,29 @@ function ChatLisst() {
       className=" w-full md:w-[40vw]  lg:w-[30vw] p-3  overflow-scroll overflow-x-hidden"
     >
       {oppositeGender &&
-        oppositeGender.map((p) => (
-          <div className=" ">
-            <ChatList
-              className="chat-list"
-              key={p._id}
-              onClick={() => handleSetReceiver(p)}
-              dataSource={[
-                {
-                  avatar: `${getProfileImage(p)}`,
-                  alt: p.name,
-                  title: p.name,
-                  subtitle: `${p.email}`,
-                  date: new Date(),
-                  unread: 0,
-                },
-              ]}
-            />
-          </div>
-        ))}
+        oppositeGender.map((p) => {
+          const isOnline =
+            Array.isArray(onlineUser) && onlineUser.includes(p._id);
+          return (
+            <div key={p._id}>
+              <ChatList
+                className="chat-list"
+                key={p._id}
+                onClick={() => handleSetReceiver(p)}
+                dataSource={[
+                  {
+                    avatar: `${getProfileImage(p)}`,
+                    alt: p.name,
+                    title: p.name,
+                    subtitle: `${isOnline ? "Online" : p.email}`,
+                    date: new Date(),
+                    unread: 0,
+                  },
+                ]}
+              />
+            </div>
+          );
+        })}
     </div>
   );
 }
