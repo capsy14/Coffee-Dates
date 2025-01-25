@@ -27,8 +27,9 @@ import BuyCoffee from "./components/BuyCoffee";
 import { getLoginStatus } from "./services/services";
 import Loader from "./components/Loader";
 import SocketIO from "socket.io-client";
+const BACKEND_URL = import.meta.env.VITE_APP_BACKEND.replace("/api/users/", "");
 axios.defaults.withCredentials = true;
-export const socket = SocketIO.connect("http://localhost:5000");
+export const socket = SocketIO.connect(BACKEND_URL);
 function App() {
   // const initializeSocket = () => {
   //   socket = SocketIO.connect(BACKEND_URL);
