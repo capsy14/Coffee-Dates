@@ -12,7 +12,7 @@ import WalletConnect from "./components/WalletConnect";
 import Product from "./components/Product";
 import Register from "./components/Register";
 import Home from "./components/Home";
-import Home2 from "./pages/Home/Home-d";
+import Home2 from "./pages/Home/Home-d-safe";
 import Chat from "./components/Chat";
 import Ipfssave from "./components/Ipfssave";
 import { ToastContainer, toast } from "react-toastify";
@@ -26,6 +26,7 @@ import Email from "./components/Email";
 import BuyCoffee from "./components/BuyCoffee";
 import { getLoginStatus } from "./services/services";
 import Loader from "./components/Loader";
+import MLMatchmaker from "./components/ml/MLMatchmaker";
 import SocketIO from "socket.io-client";
 const BACKEND_URL = import.meta.env.VITE_APP_BACKEND.replace("/api/users/", "");
 axios.defaults.withCredentials = true;
@@ -43,13 +44,19 @@ function App() {
   //   });
   // };
 
-  const funccc = async () => {
+  const funccc = async (navigate) => {
+    const currentPath = window.location.pathname;
+    const publicRoutes = ['/login', '/register', '/', '/chatvideo'];
+    
+    // Don't redirect if user is on a public route
+    if (publicRoutes.includes(currentPath)) {
+      return; // Allow access to public routes
+    }
+    
     const res = await getLoginStatus();
     console.log("here is the res in app.js " + JSON.stringify(res));
     localStorage.setItem("isLoggedIn", res.data);
 
-    // Use navigate here instead of in useEffect
-    const navigate = useNavigate();
     const isLoggedIn = localStorage.getItem("isLoggedIn");
 
     if (isLoggedIn === "true") {
@@ -60,16 +67,42 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    funccc();
-  }, []);
+  // Component to handle authentication inside Router context
+  function AuthHandler() {
+    const navigate = useNavigate();
+    
+    useEffect(() => {
+      funccc(navigate);
+    }, [navigate]);
+    
+    return null; // This component doesn't render anything
+  }
   return (
     <>
       <header className="App-head">
         <div className="pt-16">
           <BrowserRouter>
-            <ToastContainer />
+            <AuthHandler />
+            <ToastContainer 
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={true}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss={false}
+              draggable
+              pauseOnHover
+              limit={3}
+              enableMultiContainer={false}
+              containerId="global-toast-container"
+              toastClassName="custom-toast"
+              bodyClassName="custom-toast-body"
+              progressClassName="custom-toast-progress"
+              style={{ zIndex: 9999 }}
+            />
             <Navbar />
+            <WalletConnect />
             <Routes>
               <Route
                 path="/"
@@ -82,7 +115,6 @@ function App() {
                     {/* <OppositeGenderProfiles sex={sex} setSex={setSex} /> */}
                     {/* <UserList /> */}
                     <OurTeam />
-                    <WalletConnect />
                   </div>
                 }
               />
@@ -93,6 +125,7 @@ function App() {
               <Route path="/wallet/:id" element={<Home />} />
 
               <Route path="/chatvideo" element={<Home2 />} />
+              <Route path="/ml-matches" element={<MLMatchmaker />} />
 
               <Route path="/chat" element={<Chat />} />
               <Route path="/loader" element={<Loader />} />

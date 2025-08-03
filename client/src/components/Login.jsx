@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../services/services";
-import { toast } from "react-toastify";
+import { showToast } from "../utils/toastUtils";
 import { useDispatch } from "react-redux";
 import { SET_LOGIN, SET_NAME, SET_USER } from "../redux/slice/userSlice";
 
@@ -21,7 +21,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
-      return toast.error("All fields are required");
+      return showToast.error("All fields are required");
     }
     const userData = {
       email,
@@ -44,84 +44,106 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <div className=" flex justify-center pt-24 bg-[#f0ebdf] h-full flex-wrap p-12 gap-5">
-        <div className="mb-12 md:mb-0  lg:max-w-md hidden sm:block">
-          <img
-            src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-            className="w-full h-full"
-            alt="Phone image"
-          />
-        </div>
-        <div className="bg-white shadow-md  rounded flex-[1]  max-w-lg p-4 sm:p-6 lg:p-8 bg-[#efe5cb]">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <h3 className="text-xl font-medium text-green-400">
-              Sign in to our platform
-            </h3>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="text-sm font-medium text-gray-900 block mb-2"
-              >
-                Your email
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={email}
-                onChange={handleChange}
-                id="email"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder="name@company.com"
-                required=""
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="password"
-                className="text-sm font-medium text-gray-900 block mb-2"
-              >
-                Your password
-              </label>
-              <input
-                type="password"
-                name="password"
-                value={password}
-                onChange={handleChange}
-                id="password"
-                placeholder="••••••••"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                required=""
-              />
-            </div>
-            <div className="flex items-start">
-              <div className="flex items-start">
-                <div className="flex items-center h-5"></div>
+    <div className="min-h-screen bg-[#ECE4CF] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl w-full space-y-8">
+        <div className="flex justify-center items-center flex-wrap gap-8">
+          {/* Illustration */}
+          <div className="hidden lg:block lg:w-1/2">
+            <img
+              src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+              className="w-full h-auto max-w-md mx-auto"
+              alt="Coffee dating illustration"
+            />
+          </div>
+          
+          {/* Login Form */}
+          <div className="w-full lg:w-1/2 max-w-md">
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-[#DEB887]/20">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                  ☕ Welcome Back
+                </h2>
+                <p className="text-gray-600">Sign in to your coffee dating account</p>
               </div>
-              <a
-                href="#"
-                className="text-sm text-blue-700 hover:underline ml-auto dark:text-blue-500"
-              >
-                Lost Password?
-              </a>
+
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={handleChange}
+                    id="email"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#DEB887] focus:border-[#DEB887] transition-colors duration-200 bg-white text-gray-900"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="password"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={handleChange}
+                    id="password"
+                    placeholder="Enter your password"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#DEB887] focus:border-[#DEB887] transition-colors duration-200 bg-white text-gray-900"
+                    required
+                  />
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <input
+                      id="remember-me"
+                      name="remember-me"
+                      type="checkbox"
+                      className="h-4 w-4 text-[#DEB887] focus:ring-[#DEB887] border-gray-300 rounded"
+                    />
+                    <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
+                      Remember me
+                    </label>
+                  </div>
+                  <a
+                    href="#"
+                    className="text-sm text-[#DEB887] hover:text-[#CD853F] font-medium transition-colors duration-200"
+                  >
+                    Forgot password?
+                  </a>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-[#DEB887] hover:bg-[#CD853F] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#DEB887] transition-colors duration-200"
+                >
+                  Sign In
+                </button>
+
+                <div className="text-center">
+                  <span className="text-gray-600">Don't have an account? </span>
+                  <Link
+                    to="/register"
+                    className="font-medium text-[#DEB887] hover:text-[#CD853F] transition-colors duration-200"
+                  >
+                    Create one now
+                  </Link>
+                </div>
+              </form>
             </div>
-            <button
-              type="submit"
-              className="w-full text-slate-600 bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
-            >
-              Login to your account
-            </button>
-            <div className="text-sm font-medium text-gray-500">
-              Not registered?{" "}
-              <Link
-                to="/register"
-                className="text-blue-700 hover:underline dark:text-blue-500"
-              >
-                Create account
-              </Link>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>

@@ -9,3 +9,6 @@ cache
 artifacts
 
 .env.local
+.env
+
+.env.ml

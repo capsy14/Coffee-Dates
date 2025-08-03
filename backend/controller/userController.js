@@ -13,16 +13,19 @@ const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
 };
 
-const registerUser = async (req, res) => {
-  const { name, email, photo, password, gender } = req.body;
+const registerUser = asyncHandler(async (req, res) => {
+  const { name, email, photo, password, gender, age, interests, personality } = req.body;
   if (!name || !email || !password) {
+    res.status(400);
     throw new Error("please fill the req fields");
   }
   if (password.length < 6) {
+    res.status(400);
     throw new Error("Please enter password of lenght 6-23");
   }
   const userExist = await User.findOne({ email: email }).exec();
   if (userExist) {
+    res.status(400);
     throw new Error("This user already exist");
   }
   var salt = bcrypt.genSaltSync(10);
@@ -34,7 +37,16 @@ const registerUser = async (req, res) => {
     password: encrp_password,
     gender: gender,
     photo: photo,
+    age: age,
+    interests: interests,
+    personality: personality,
   });
+  
+  if (!user) {
+    res.status(400);
+    throw new Error("Some error occured");
+  }
+  
   const token = generateToken(user._id);
   // Send HTTP-only cookie
   res.cookie("token", token, {
@@ -48,11 +60,7 @@ const registerUser = async (req, res) => {
     user,
     token,
   });
-  if (!user) {
-    throw new Error("Some error occured");
-  }
-  // res.send("Reister suse");
-};
+});
 
 const loginUser = asyncHandler(async (req, res, next) => {
   // console.log("hit ho gaya");
@@ -103,7 +111,7 @@ const getUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (user) {
-    const { _id, name, email, photo, phone, bio, gender } = user;
+    const { _id, name, email, photo, phone, bio, gender, matches, age, interests, personality, coffeePreferences } = user;
     res.status(200).json({
       _id,
       name,
@@ -112,6 +120,11 @@ const getUser = asyncHandler(async (req, res) => {
       photo,
       phone,
       bio,
+      matches,
+      age,
+      interests,
+      personality,
+      coffeePreferences,
     });
   } else {
     res.status(400);
@@ -133,7 +146,7 @@ const getLoginStatus = asyncHandler(async (req, res) => {
 });
 
 const updateUser = asyncHandler(async (req, res) => {
-  const { name, photo, bio, phone, gender } = req.body;
+  const { name, photo, bio, phone, gender, age, interests, personality, coffeePreferences } = req.body;
   // console.log(photo);
   const id = req.user._id;
   const user = await User.findById(id);
@@ -146,6 +159,10 @@ const updateUser = asyncHandler(async (req, res) => {
   user.gender = gender || user.gender;
   user.bio = bio || user.bio;
   user.phone = phone || user.phone;
+  user.age = age || user.age;
+  user.interests = interests || user.interests;
+  user.personality = personality || user.personality;
+  user.coffeePreferences = coffeePreferences || user.coffeePreferences;
   const updatedUser = await user.save();
   res.status(200).send(updatedUser);
 });
@@ -277,6 +294,66 @@ const oppositeProfile = asyncHandler(async (req, res) => {
   }
 });
 
+// Add a match (when user likes/coffee dates someone)
+const addMatch = asyncHandler(async (req, res) => {
+  const { matchedUserId } = req.body;
+  const currentUserId = req.user._id;
+
+  try {
+    // Add the matched user to current user's matches
+    const currentUser = await User.findById(currentUserId);
+    if (!currentUser.matches.includes(matchedUserId)) {
+      currentUser.matches.push(matchedUserId);
+      await currentUser.save();
+    }
+
+    // Also add current user to the matched user's matches (mutual match)
+    const matchedUser = await User.findById(matchedUserId);
+    if (matchedUser && !matchedUser.matches.includes(currentUserId)) {
+      matchedUser.matches.push(currentUserId);
+      await matchedUser.save();
+    }
+
+    res.status(200).json({ 
+      success: true, 
+      message: "Match added successfully",
+      matches: currentUser.matches 
+    });
+  } catch (error) {
+    res.status(400);
+    throw new Error("Error adding match");
+  }
+});
+
+// Remove a match
+const removeMatch = asyncHandler(async (req, res) => {
+  const { matchedUserId } = req.body;
+  const currentUserId = req.user._id;
+
+  try {
+    // Remove the matched user from current user's matches
+    const currentUser = await User.findById(currentUserId);
+    currentUser.matches = currentUser.matches.filter(id => id !== matchedUserId);
+    await currentUser.save();
+
+    // Also remove current user from the matched user's matches
+    const matchedUser = await User.findById(matchedUserId);
+    if (matchedUser) {
+      matchedUser.matches = matchedUser.matches.filter(id => id !== currentUserId);
+      await matchedUser.save();
+    }
+
+    res.status(200).json({ 
+      success: true, 
+      message: "Match removed successfully",
+      matches: currentUser.matches 
+    });
+  } catch (error) {
+    res.status(400);
+    throw new Error("Error removing match");
+  }
+});
+
 module.exports = {
   registerUser,
   loginUser,
@@ -289,4 +366,6 @@ module.exports = {
   resetPassword,
   oppositeGender,
   oppositeProfile,
+  addMatch,
+  removeMatch,
 };

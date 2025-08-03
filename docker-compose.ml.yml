@@ -1,0 +1,107 @@
+version: '3.8'
+
+services:
+  # MongoDB for ML data storage
+  mongo:
+    image: mongo:5.0
+    container_name: coffee-dates-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: coffee_dates
+    volumes:
+      - mongodb_data:/data/db
+      - ./ml-service/scripts/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    networks:
+      - coffee-dates-network
+
+  # ML API Service
+  ml-api:
+    build: 
+      context: ./ml-service
+      dockerfile: Dockerfile
+    container_name: coffee-dates-ml-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGODB_URL=mongodb://admin:password123@mongo:27017/coffee_dates?authSource=admin
+      - MODEL_PATH=/app/models/trained_matchmaker.joblib
+      - LOG_LEVEL=INFO
+      - PYTHONPATH=/app
+    volumes:
+      - ml_models:/app/models
+      - ml_logs:/app/logs
+    depends_on:
+      - mongo
+    networks:
+      - coffee-dates-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Data loader service (runs once to populate sample data)
+  data-loader:
+    build: 
+      context: ./ml-service
+      dockerfile: Dockerfile
+    container_name: coffee-dates-data-loader
+    environment:
+      - MONGODB_URL=mongodb://admin:password123@mongo:27017/coffee_dates?authSource=admin
+      - PYTHONPATH=/app
+    volumes:
+      - ./ml-service/sample_data:/app/sample_data
+    depends_on:
+      - mongo
+    networks:
+      - coffee-dates-network
+    command: python utils/data_loader.py
+    restart: "no"
+
+  # Redis for caching (optional)
+  redis:
+    image: redis:7-alpine
+    container_name: coffee-dates-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - coffee-dates-network
+
+  # Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    container_name: coffee-dates-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - ml-api
+    networks:
+      - coffee-dates-network
+
+volumes:
+  mongodb_data:
+    driver: local
+  ml_models:
+    driver: local
+  ml_logs:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  coffee-dates-network:
+    driver: bridge

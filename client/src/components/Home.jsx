@@ -44,11 +44,27 @@ const Home = ({ account, setAccount, paid, setPaid }) => {
   }, []);
   console.log(state);
   return (
-    <div className="App mt-10">
-      <WalletConnect account={account} setAccount={setAccount} />
-      {/* <h1 className="lovmatch">Koffee ka Chakkar❤️</h1> */}
-      <Buy state={state} id={idd} />
-      <Memos state={state} />
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 py-8 px-2 sm:px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600 mb-4">
+            Koffee ka Chakkar ❤️
+          </h1>
+          <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto">
+            Send love through coffee payments on the blockchain
+          </p>
+        </div>
+        
+        
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-start">
+          <div className="w-full flex justify-center px-2">
+            <Buy state={state} id={idd} />
+          </div>
+          <div className="w-full flex justify-center px-2">
+            <Memos state={state} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

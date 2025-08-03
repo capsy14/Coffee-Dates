@@ -1,4 +1,4 @@
-import { toast } from "react-toastify";
+import { showToast } from "../utils/toastUtils";
 import axios from "axios";
 import { socket } from "../App";
 const BACKEND_URL = import.meta.env.VITE_APP_BACKEND;
@@ -9,7 +9,7 @@ export const registerUser = async (userData) => {
       withCredentials: true,
     });
     if (response.statusText === "OK") {
-      toast.success("User Registered successfully");
+      showToast.success("User Registered successfully");
     }
     return response.data;
   } catch (error) {
@@ -17,16 +17,18 @@ export const registerUser = async (userData) => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    showToast.error(message);
   }
 };
 export const loginUser = async (userData) => {
   // console.log(BACKEND_URL);
   try {
     console.log("cururl=", `${BACKEND_URL}/login`);
-    const response = await axios.post(`${BACKEND_URL}/login`, userData);
+    const response = await axios.post(`${BACKEND_URL}/login`, userData, {
+      withCredentials: true,
+    });
     if (response.statusText === "OK") {
-      toast.success("Login Successful...");
+      showToast.success("Login Successful...");
     }
     return response.data;
   } catch (error) {
@@ -34,7 +36,7 @@ export const loginUser = async (userData) => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    showToast.error(message);
   }
 };
 
@@ -42,7 +44,7 @@ export const logOut = async () => {
   try {
     const response = await axios.get(`${BACKEND_URL}/logout`);
     if (response.statusText === "OK") {
-      toast.success("Log Out Successful...");
+      showToast.success("Log Out Successful...");
     }
     return response.data;
   } catch (error) {
@@ -50,14 +52,16 @@ export const logOut = async () => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    showToast.error(message);
   }
 };
 export const updateProfile = async (data) => {
   try {
-    const response = await axios.patch(`${BACKEND_URL}/updateuser`, data);
+    const response = await axios.patch(`${BACKEND_URL}/updateuser`, data, {
+      withCredentials: true,
+    });
     if (response.statusText === "OK") {
-      toast.success("Profile Updated Successfully...");
+      showToast.success("Profile Updated Successfully...");
     }
     return response.data;
   } catch (error) {
@@ -65,12 +69,14 @@ export const updateProfile = async (data) => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    showToast.error(message);
   }
 };
 export const getUser = async () => {
   try {
-    const response = await axios.get(`${BACKEND_URL}/getuser`);
+    const response = await axios.get(`${BACKEND_URL}/getuser`, {
+      withCredentials: true,
+    });
     if (response.statusText === "OK") {
       // toast.success("Profile Updated Successfully...");
       // console.log("getuser " + JSON.stringify(response.data._id));
@@ -82,7 +88,7 @@ export const getUser = async () => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    showToast.error(message);
   }
 };
 export const passwordChange = async (data) => {
@@ -90,7 +96,7 @@ export const passwordChange = async (data) => {
     // console.log(data + " hello ");
     const response = await axios.patch(`${BACKEND_URL}/changepass`, data);
     if (response.statusText === "OK") {
-      toast.success("Password Changed Successfully...");
+      showToast.success("Password Changed Successfully...");
     }
     return response.data;
   } catch (error) {
@@ -98,7 +104,7 @@ export const passwordChange = async (data) => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    showToast.error(message);
   }
 };
 export const oppositeGenderProfile = async () => {
@@ -113,7 +119,7 @@ export const oppositeGenderProfile = async () => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    showToast.error(message);
   }
 };
 
@@ -130,13 +136,50 @@ export const oppositeGenderEmail = async (data) => {
       (error.response && error.response.data && error.response.data.message) ||
       error.message ||
       error.toString();
-    toast.error(message);
+    showToast.error(message);
   }
 };
 
 export const getLoginStatus = async () => {
   const res = await axios.get(`${BACKEND_URL}/loggedin`);
   return res;
+};
+
+// Match management functions
+export const addMatch = async (matchedUserId) => {
+  try {
+    const response = await axios.post(`${BACKEND_URL}/addmatch`, { matchedUserId }, {
+      withCredentials: true,
+    });
+    if (response.status === 200) {
+      showToast.success("Coffee match added! ☕💕");
+    }
+    return response.data;
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString();
+    showToast.error(message);
+  }
+};
+
+export const removeMatch = async (matchedUserId) => {
+  try {
+    const response = await axios.post(`${BACKEND_URL}/removematch`, { matchedUserId }, {
+      withCredentials: true,
+    });
+    if (response.status === 200) {
+      showToast.success("Match removed");
+    }
+    return response.data;
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString();
+    showToast.error(message);
+  }
 };
 
 // export const

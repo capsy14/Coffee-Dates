@@ -16,13 +16,36 @@ function ChatItems() {
   const [seId, setseId] = useState("");
   const [text, setText] = useState("");
   const endRef = useRef(null);
+  const messagesContainerRef = useRef(null);
   const { messages, loading, error } = useGetMessages();
   const { sendMessage, sending } = useSendMessage();
   const [onlineUser, setOnlineUser] = useState([]);
 
+  // Smooth scroll to bottom function
+  const scrollToBottom = () => {
+    if (messagesContainerRef.current) {
+      const container = messagesContainerRef.current;
+      container.scrollTop = container.scrollHeight;
+    }
+    // Fallback to endRef scroll
+    if (endRef.current) {
+      endRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    }
+  };
+
+  // Auto-scroll to bottom when messages change
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, []);
+    if (messages.length > 0) {
+      setTimeout(scrollToBottom, 100);
+    }
+  }, [messages]);
+
+  // Auto-scroll when switching to a different chat
+  useEffect(() => {
+    if (receiver) {
+      setTimeout(scrollToBottom, 300); // Small delay to ensure messages are loaded
+    }
+  }, [receiver]);
 
   useEffect(() => {
     socket.on("getOnlineUsers", (users) => {
@@ -44,54 +67,63 @@ function ChatItems() {
     console.log(messages);
     fetchSender();
   }, []);
-  const handleSend = () => {
+  const handleSend = async () => {
+    if (!text.trim()) return;
+    
     console.log(text);
-    sendMessage({
+    await sendMessage({
       messageContent: text,
       sender: seId,
     });
     setText("");
+    
+    // Scroll to bottom after sending message
+    setTimeout(scrollToBottom, 100);
   };
   const handleEmoji = (e) => {
     setText(text + e.emoji);
     setEmojiOpen(!isEmojiOpen);
   };
   return (
-    <div className="w-full">
-      <div className="flex  border-2 items-center gap-5 p-3 pl-14 md:p-3">
-        <img
-          src={receiverPhoto}
-          alt=""
-          className="w-16 h-16 rounded-full border-4"
-        />
-        <div>
-          <h1 className="text-lg font-semibold"> {receiverName} </h1>
-          <span className=" text-base text-green-400">
-            {isOnline ? "Online" : ""}{" "}
-          </span>
-        </div>
-      </div>
-      <div className="sm:p-4 p-1 lg:h-[66vh]  md:h-[60vh] h-[63vh] overflow-y-scroll overflow-x-hidden">
-        {messages.map((e) => {
-          const isSender = e.senderId == receiver ? false : true;
-          return (
-            <MessageBox
-              position={isSender ? "right" : "left"}
-              key={e._id}
-              title={isSender ? seName : receiverName}
-              type="text"
-              date={e.createdAt}
-              text={e.message}
-            />
-          );
-        })}
+    <>
+      {/* Messages Container */}
+      <div className="messages-container" ref={messagesContainerRef}>
+        {loading ? (
+          <div className="loading-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        ) : (
+          messages.map((e) => {
+            const isSender = e.senderId == receiver ? false : true;
+            return (
+              <div
+                key={e._id}
+                className={`message-item ${isSender ? 'sent' : 'received'}`}
+              >
+                <div className={`message-bubble ${isSender ? 'sent' : 'received'}`}>
+                  <p className="message-text">{e.message}</p>
+                  <div className="message-time">
+                    {new Date(e.createdAt).toLocaleTimeString([], {
+                      hour: '2-digit',
+                      minute: '2-digit'
+                    })}
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        )}
         <div ref={endRef}></div>
       </div>
-      <div className=" flex gap-5 p-1 sm:p-3 md:ml-11  sm:pl-5">
+
+      {/* Message Input */}
+      <div className="message-input-container">
         <input
           type="text"
-          className=" border-3 border-lime-300 w-2/3 bg-[#ECE4CF] p-2 rounded-md "
-          placeholder="Type here..."
+          className="message-input"
+          placeholder="Type your message..."
           value={text}
           onKeyDown={(e) => {
             if (e.key === "Enter" && text.trim() !== "") {
@@ -100,15 +132,25 @@ function ChatItems() {
           }}
           onChange={(e) => setText(e.target.value)}
         />
-        <img src={emoji} alt="" onClick={() => setEmojiOpen(!isEmojiOpen)} />
-        <div className="absolute right-2 top-11 md:top-50 lg:top-53  z-10">
+        
+        <button className="emoji-btn" onClick={() => setEmojiOpen(!isEmojiOpen)}>
+          <img src={emoji} alt="emoji" />
+        </button>
+        
+        <div className="emoji-picker-container">
           <EmojiPicker open={isEmojiOpen} onEmojiClick={handleEmoji} />
         </div>
-        <button className="bg-[#DEB887]" onClick={handleSend}>
+        
+        <button 
+          className="send-btn" 
+          onClick={handleSend}
+          disabled={!text.trim() || sending}
+        >
+          <span>☕</span>
           Send
         </button>
       </div>
-    </div>
+    </>
   );
 }
 

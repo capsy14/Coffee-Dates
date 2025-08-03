@@ -1,6 +1,7 @@
 import React from "react";
 import products from "./data.json";
 import { Link } from "react-router-dom";
+import "./Product.css";
 
 const Product = () => {
   const renderStars = (rating) => {
@@ -26,30 +27,56 @@ const Product = () => {
   };
 
   return (
-    <>
-      <div className="catalog sm:bg-cover bg-right-toptop md:bg-left-top"></div>
-      <div className="product1">
+    <div className="products-page">
+      <div className="products-header">
+        <h1>☕ Premium Coffee Collection</h1>
+        <p>Discover our handpicked selection of the finest coffee beans from around the world</p>
+      </div>
+      
+      <div className="products-container">
         {products.map((product, index) => (
-          <Link to={`/wallet/${index}`} key={index}>
-            <div className="pro">
+          <div className="product-card" key={index}>
+            <div className="product-image">
               <img src={product.imgSrc} alt={product.name} />
-              <div className="des">
-                <h5>{product.name}</h5>
-                <p>{product.description}</p>
-                <div className="star">{renderStars(product.rating)}</div>
-                <h4>₹{product.price}</h4>
-                <button>
-                  <Link to={`/wallet/${index}`}>
-                    Buy Now
-                    {/* <ion-icon name="cart"> Buy Now</ion-icon> */}
-                  </Link>
-                </button>
+              <div className="product-overlay">
+                <div className="rating-badge">
+                  <ion-icon name="star"></ion-icon>
+                  <span>{product.rating}</span>
+                </div>
               </div>
             </div>
-          </Link>
+            
+            <div className="product-info">
+              <h3 className="product-name">{product.name}</h3>
+              <p className="product-description">{product.description}</p>
+              
+              {product.paymentMethod && (
+                <div className="payment-badge">
+                  <span className="payment-text">Available on {product.paymentMethod}</span>
+                </div>
+              )}
+              
+              <div className="product-rating">
+                {renderStars(product.rating)}
+                <span className="rating-text">({product.rating}/5)</span>
+              </div>
+              
+              <div className="product-footer">
+                <div className="price-section">
+                  <span className="currency">₹</span>
+                  <span className="price">{product.price}</span>
+                </div>
+                
+                <Link to={`/product/${index}`} className="buy-now-btn">
+                  <ion-icon name="cafe"></ion-icon>
+                  Buy Now
+                </Link>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
