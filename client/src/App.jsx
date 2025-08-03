@@ -43,13 +43,13 @@ function App() {
   //   });
   // };
 
+  const navigate = useNavigate();
+
   const funccc = async () => {
     const res = await getLoginStatus();
     console.log("here is the res in app.js " + JSON.stringify(res));
     localStorage.setItem("isLoggedIn", res.data);
 
-    // Use navigate here instead of in useEffect
-    const navigate = useNavigate();
     const isLoggedIn = localStorage.getItem("isLoggedIn");
 
     if (isLoggedIn === "true") {
