@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getUser, oppositeGenderEmail } from "../services/services";
-import { toast } from "react-toastify";
+import { showToast } from "../utils/toastUtils";
 import { useDispatch } from "react-redux";
 
 const seInitailState = {
@@ -69,13 +69,13 @@ const Email = () => {
       );
 
       if (response.ok) {
-        toast.success("Email Sent Successfully");
+        showToast.success("Email Sent Successfully");
         navigate("/opposite");
       } else {
         console.log("Some error occurred");
         const errorData = await response.json();
         console.log(errorData);
-        toast.error(errorData);
+        showToast.error(errorData);
       }
     } catch (error) {
       console.log("An error occurred while sending the request:", error);

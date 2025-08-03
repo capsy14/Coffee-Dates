@@ -13,6 +13,8 @@ const {
   resetPassword,
   oppositeGender,
   oppositeProfile,
+  addMatch,
+  removeMatch,
 } = require("../controller/userController");
 const { authMiddleWare } = require("../Middleware/authMiddleWare");
 
@@ -27,5 +29,7 @@ router.post("/forgotpass", forgotPassword);
 router.post("/resetpassword/:token", resetPassword);
 router.get("/opposite", authMiddleWare, oppositeGender);
 router.post("/opposite/profile", oppositeProfile);
+router.post("/addmatch", authMiddleWare, addMatch);
+router.post("/removematch", authMiddleWare, removeMatch);
 
 module.exports = router;

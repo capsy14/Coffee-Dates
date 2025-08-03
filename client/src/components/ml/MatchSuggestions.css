@@ -1,0 +1,242 @@
+/* Match Suggestions Container */
+.match-suggestions-container {
+  /* max-width: 600px; */
+  margin: 0 auto;
+  padding: 20px;
+  min-height: auto;
+  height: auto;
+  background: transparent;
+  overflow: visible;
+}
+
+/* Header */
+.matches-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 0 8px;
+}
+
+.matches-header h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.match-counter {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #34495e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.match-counter .current {
+  color: #e74c3c;
+  font-size: 1.1rem;
+}
+
+.match-counter .separator {
+  margin: 0 8px;
+  color: #95a5a6;
+}
+
+.match-counter .total {
+  color: #7f8c8d;
+}
+
+/* Upcoming Matches */
+.upcoming-matches {
+  margin-top: 24px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.upcoming-matches h4 {
+  color: #2c3e50;
+  margin: 0 0 16px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.upcoming-previews {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.upcoming-preview {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  min-width: 200px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.upcoming-preview:hover {
+  transform: translateY(-2px);
+}
+
+.preview-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+  border: 2px solid #ecf0f1;
+}
+
+.preview-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-name {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.preview-score {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+}
+
+/* Footer */
+.suggestions-footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.refresh-suggestions-btn {
+  background: linear-gradient(135deg, #D2B48C 0%, #8B4513 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(210, 180, 140, 0.3);
+}
+
+.refresh-suggestions-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(210, 180, 140, 0.4);
+}
+
+.refresh-icon {
+  font-size: 1.1rem;
+}
+
+/* No Matches State */
+.no-matches {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.no-matches-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.no-matches h3 {
+  color: #2c3e50;
+  margin: 0 0 12px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.no-matches p {
+  color: #7f8c8d;
+  margin-bottom: 24px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.refresh-btn {
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(255, 107, 107, 0.3);
+}
+
+.refresh-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* Error State */
+.error-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.error-state h3 {
+  color: #e74c3c;
+  margin: 0 0 12px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.error-state p {
+  color: #7f8c8d;
+  margin-bottom: 24px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .match-suggestions-container {
+    padding: 100px 16px 16px 16px;
+  }
+  
+  .matches-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  .matches-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .upcoming-previews {
+    justify-content: center;
+  }
+  
+  .upcoming-preview {
+    min-width: 160px;
+  }
+  
+  .no-matches, .error-state {
+    padding: 40px 16px;
+  }
+}

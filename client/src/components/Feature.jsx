@@ -1,32 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import products from "./data.json";
 
-const products = [
-  {
-    name: "Espresso",
-    price: 260,
-    rating: 4.5,
-    imgSrc:
-      "https://tse4.mm.bing.net/th?id=OIP.sjkwtF6Q1tmhvrwu9VK8XwHaHa&pid=Api&P=0&h=180",
-    description: "A strong and bold coffee shot.",
-  },
-  {
-    name: "Cappuccino",
-    price: 290,
-    rating: 4.7,
-    imgSrc:
-      "https://tse4.mm.bing.net/th?id=OIP.3thd4i6u3PRBaSZjOuE-uQHaFJ&pid=Api&P=0&h=180",
-    description: "Rich espresso with frothy milk and a dusting of cocoa.",
-  },
-  {
-    name: "Latte",
-    price: 275,
-    rating: 4.6,
-    imgSrc:
-      "https://tse1.mm.bing.net/th?id=OIP.qjGgQhM3k_O8UYE3rOarKAHaE7&pid=Api&P=0&h=180",
-    description: "Smooth espresso with steamed milk.",
-  },
-];
+// Get featured products (first 3 items from data.json)
+const featuredProducts = products.slice(0, 3);
 
 const Feature = () => {
   const renderStars = (rating) => {
@@ -37,44 +14,88 @@ const Feature = () => {
     const stars = [];
 
     for (let i = 0; i < filledStars; i++) {
-      stars.push(<ion-icon key={i} name="star"></ion-icon>);
+      stars.push(<span key={i} className="star filled">★</span>);
     }
 
     if (halfStar) {
-      stars.push(<ion-icon key="half" name="star-half"></ion-icon>);
+      stars.push(<span key="half" className="star half">★</span>);
     }
 
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(<ion-icon key={`empty-${i}`} name="star-outline"></ion-icon>);
+      stars.push(<span key={`empty-${i}`} className="star empty">☆</span>);
     }
 
     return stars;
   };
 
   return (
-    <>
-      <h2 id="feature">Featured Products</h2>
-      <div className="product1">
-        {products.map((product, index) => (
-          <Link to="/product" key={index}>
-            <div className="pro">
-              <img src={product.imgSrc} alt={product.name} />
-              <div className="des">
-                <h5>{product.name}</h5>
-                <p>{product.description}</p>
-                <div className="star">{renderStars(product.rating)}</div>
-                <h4>₹{product.price}</h4>
-                <button>
-                  <a href="#">
-                    <ion-icon name="cart"></ion-icon>
-                  </a>
-                </button>
+    <section className="featured-section">
+      <div className="featured-container">
+        <div className="featured-header">
+          <div className="featured-badge">
+            <span className="featured-icon">⭐</span>
+            <span className="featured-text">Handpicked</span>
+          </div>
+          <h2 className="featured-title">Featured Coffee Collection</h2>
+          <p className="featured-subtitle">
+            Discover our most popular coffee blends, carefully selected to enhance your dating experience
+          </p>
+        </div>
+        
+        <div className="featured-grid">
+          {featuredProducts.map((product, index) => (
+            <div className="featured-card" key={index}>
+              <div className="featured-image">
+                <img src={product.imgSrc} alt={product.name} />
+                <div className="featured-overlay">
+                  <div className="rating-badge">
+                    <span className="star-icon">★</span>
+                    <span className="rating-number">{product.rating}</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="featured-info">
+                <h3 className="featured-name">{product.name}</h3>
+                <p className="featured-description">{product.description}</p>
+                
+                {product.paymentMethod && (
+                  <div className="featured-payment-badge">
+                    <span className="payment-text">Available on {product.paymentMethod}</span>
+                  </div>
+                )}
+                
+                <div className="featured-rating">
+                  <div className="stars">
+                    {renderStars(product.rating)}
+                  </div>
+                  <span className="rating-text">({product.rating}/5)</span>
+                </div>
+                
+                <div className="featured-footer">
+                  <div className="price-section">
+                    <span className="currency">₹</span>
+                    <span className="price">{product.price}</span>
+                  </div>
+                  
+                  <Link to={`/product/${index}`} className="featured-btn">
+                    <span className="btn-icon">☕</span>
+                    Order Now
+                  </Link>
+                </div>
               </div>
             </div>
+          ))}
+        </div>
+        
+        <div className="featured-cta">
+          <Link to="/product" className="view-all-btn">
+            <span className="btn-text">View All Coffee</span>
+            <span className="btn-arrow">→</span>
           </Link>
-        ))}
+        </div>
       </div>
-    </>
+    </section>
   );
 };
 

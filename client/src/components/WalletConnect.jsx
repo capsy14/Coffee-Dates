@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import { showToast } from "../utils/toastUtils";
 import "react-toastify/dist/ReactToastify.css";
 import abi from "../contracts/coffeekachakkar.json";
 import { useDispatch, useSelector } from "react-redux";
@@ -46,7 +47,7 @@ const WalletConnect = () => {
 
           setState({ provider, signer, contract });
         } else {
-          toast.success("Please install MetaMask to use this app.");
+          showToast.success("Please install MetaMask to use this app.");
         }
       } catch (error) {
         alert(error.message);
@@ -72,9 +73,9 @@ const WalletConnect = () => {
         const account = accounts[0];
         dispatch(SET_ACCOUNT(account));
         localStorage.setItem("account", account);
-        toast.success(`Successfully connected ${account}`);
+        showToast.success(`Successfully connected ${account}`);
       } else {
-        toast.error("Please install MetaMask to use this app.");
+        showToast.error("Please install MetaMask to use this app.");
       }
     } catch (error) {
       alert(error.message);
@@ -83,25 +84,48 @@ const WalletConnect = () => {
 
   const success = () => {
     const account_data = localStorage.getItem("account");
-    toast.info(`Metamask is connected`);
+    showToast.info(`Metamask is connected`);
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <>
+      {/* Fixed position wallet button in bottom right */}
+      <div className="fixed bottom-6 right-6 z-50">
         {connected ? (
-          <>
-            {" "}
-            <button onClick={success} className=" text-xs z-20 sm:text-sm">
-              Connected to Metamask
-            </button>
-            <ToastContainer className="mt-14" />
-          </>
+          <button 
+            onClick={success} 
+            className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-3 rounded-full font-semibold text-sm shadow-xl hover:from-amber-600 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 border-2 border-amber-400 relative overflow-hidden"
+            style={{background: 'linear-gradient(to right, #f59e0b, #DEB887)'}}
+          >
+            <div className="flex items-center space-x-2">
+              <span className="text-lg animate-pulse">🦊</span>
+              <span className="hidden sm:inline">Connected</span>
+              <span className="sm:hidden text-xs">🦊</span>
+            </div>
+            {/* Subtle shine effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 hover:opacity-20 transition-opacity duration-500 transform -skew-x-12 translate-x-full hover:translate-x-[-100%]"></div>
+          </button>
         ) : (
-          <button onClick={requestAccount}>Connect Wallet</button>
+          <button 
+            onClick={requestAccount} 
+            className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-5 py-4 rounded-full font-bold text-sm sm:text-base shadow-xl hover:from-amber-700 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center space-x-2 border-2 border-amber-400 pulse-animation"
+            style={{background: 'linear-gradient(to right, #DEB887, #CD853F)'}}
+          >
+            <span className="text-lg">🦊</span>
+            <span className="hidden sm:inline">Connect Wallet</span>
+            <span className="sm:hidden">Connect</span>
+          </button>
         )}
-      </header>
-    </div>
+      </div>
+      
+      {/* Toast container positioned to not overlap with button */}
+      <ToastContainer 
+        className="mt-14" 
+        style={{ bottom: '100px', right: '24px' }}
+        position="bottom-right"
+      />
+      
+    </>
   );
 };
 

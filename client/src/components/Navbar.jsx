@@ -1,19 +1,8 @@
 import React, { useState, useEffect } from "react";
 // import Button from "./Button";
-import IconSvg from "../../public/assets/user_icon.svg";
 import { Link } from "react-router-dom";
 import { ShowOnLogin, ShowOnLogout } from "../protect/HiddenLink";
-import { logOut } from "../services/services";
 const Nav = () => {
-  let Links = [
-    { name: "HOME", link: "/" },
-    { name: "CHAT", link: "/chat" },
-    { name: "BUY COFFEE", link: "/product" },
-    { name: "WALLET", link: "/wallet" },
-    { name: "REGISTER", link: "/register" },
-    { name: "VIDEOCHAT", link: "/chatvideo" },
-    { name: "IPFSSAVE", link: "/ipfsphotoshare" },
-  ];
   let [open, setOpen] = useState(false);
   let [scrolled, setScrolled] = useState(false);
   const handleScroll = () => {
@@ -29,81 +18,99 @@ const Nav = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const logOutUser = async () => {
-    try {
-      localStorage.setItem("isLoggedIn", false);
-      const res = await logOut();
-      console.log(res);
-      window.location.reload();
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <div
-      className={`w-full fixed top-0 left-0 bg-white transition-all duration-300 ${
-        scrolled ? "shadow-md" : ""
+      className={`w-full fixed top-0 left-0 transition-all duration-300 border-b-2 border-[#8B4513] border-opacity-20 ${
+        scrolled ? "shadow-lg" : "shadow-sm"
       }`}
-      style={{ zIndex: 1000 }} // Increase the z-index value
+      style={{ zIndex: 1000, background: '#ECE4CF' }}
       id="nav1"
     >
       <div className="md:flex items-center justify-between py-4 md:px-10 px-7 ">
-        <div
-          className="font-bold text-3xl cursor-pointer flex items-center font-Poppins text-green-600" // Change the text color to green
-        >
-          <span className="text-white-3xl text-indigo-600 mr-1 pt-2 ">
-            {/* <ion-icon name="cafe-outline"></ion-icon> */}
+        <div className="font-bold text-3xl cursor-pointer flex items-center font-Poppins">
+          <span className="mr-2 text-4xl" style={{ color: '#8B4513' }}>
           </span>
-          <Link to="/">Coffee Dates</Link>
+          <Link 
+            to="/" 
+            style={{ color: '#8B4513' }}
+            className="hover:opacity-80 transition-opacity duration-300"
+          >
+            Coffee Dates
+          </Link>
         </div>
 
+        {/* Hamburger Menu Button */}
         <div
           onClick={() => setOpen(!open)}
-          className="text-3xl block absolute backdrop:opacity-80 right-8 top-6 cursor-pointer md:hidden bg-[#ECE4CF]"
+          className="block md:hidden absolute right-8 top-6 cursor-pointer p-2 rounded-lg transition-all duration-300 hover:bg-[#8B4513] hover:bg-opacity-20"
         >
-          {/* <div name={open ? "close" : "menu"}>hi</div> */}
-          <ion-icon name={open ? "close" : "menu"}></ion-icon>
+          <div className="relative w-6 h-6 flex flex-col justify-center items-center">
+            <span
+              className={`block h-0.5 w-6 bg-[#8B4513] transition-all duration-300 ${
+                open ? 'rotate-45 translate-y-0' : '-translate-y-1.5'
+              }`}
+            ></span>
+            <span
+              className={`block h-0.5 w-6 bg-[#8B4513] transition-all duration-300 ${
+                open ? 'opacity-0' : 'opacity-100'
+              }`}
+            ></span>
+            <span
+              className={`block h-0.5 w-6 bg-[#8B4513] transition-all duration-300 ${
+                open ? '-rotate-45 -translate-y-0' : 'translate-y-1.5'
+              }`}
+            ></span>
+          </div>
         </div>
 
         <ul
-          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static text-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
-            open ? "top-20 " : "top-[-490px]"
+          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-20 left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in md:bg-transparent bg-[#ECE4CF] md:shadow-none shadow-lg ${
+            open ? "top-20 opacity-100 visible" : "top-[-490px] opacity-0 invisible md:opacity-100 md:visible"
           }`}
         >
           {/* starting here */}
           <li
-            className="md:ml-8 text-green md:my-0 my-7"
+            className="md:ml-8 text-[#8B4513] md:my-0 my-7"
             onClick={() => setOpen(false)}
             id="nav"
           >
-            <Link to="/">HOME</Link>
+            <Link to="/" className="block w-full">HOME</Link>
           </li>
           <ShowOnLogin>
-            <li className="md:ml-8 text-green md:my-0 my-7" id="nav">
-              <Link to="/product">COFFEE</Link>
+            <li className="md:ml-8 text-[#8B4513] md:my-0 my-7" onClick={() => setOpen(false)} id="nav">
+              <Link to="/product" className="block w-full">COFFEE</Link>
+            </li>
+          </ShowOnLogin>
+           <ShowOnLogin>
+            <li
+              className="md:ml-8 text-[#8B4513] md:my-0 my-7"
+              onClick={() => setOpen(false)}
+              id="nav"
+            >
+              <Link to="/ml-matches" className="block w-full">AI MATCHES</Link>
             </li>
           </ShowOnLogin>
           <ShowOnLogout>
             <li
-              className="md:ml-8 text-green md:my-0 my-7"
+              className="md:ml-8 text-[#8B4513] md:my-0 my-7"
               onClick={() => setOpen(false)}
               id="nav"
             >
-              <Link to="/register">REGISTER</Link>
+              <Link to="/register" className="block w-full">REGISTER</Link>
             </li>
           </ShowOnLogout>
           <ShowOnLogout>
             <li
-              className="md:ml-8 text-green md:my-0 my-7"
+              className="md:ml-8 text-[#8B4513] md:my-0 my-7"
               onClick={() => setOpen(false)}
               id="nav"
             >
-              <Link to="/login">LOGIN</Link>
+              <Link to="/login" className="block w-full">LOGIN</Link>
             </li>
           </ShowOnLogout>
           {/* <ShowOnLogin>
             <li
-              className="md:ml-8 text-green md:my-0 my-7"
+              className="md:ml-8 text-[#8B4513] md:my-0 my-7"
               onClick={() => setOpen(false)}
               id="nav"
             >
@@ -112,56 +119,46 @@ const Nav = () => {
           </ShowOnLogin> */}
           <ShowOnLogin>
             <li
-              className="md:ml-8 text-green md:my-0 my-7"
+              className="md:ml-8 text-[#8B4513] md:my-0 my-7"
               onClick={() => setOpen(false)}
               id="nav"
             >
-              <Link to="/opposite">PROFILES</Link>
+              <Link to="/chat" className="block w-full">CHAT</Link>
             </li>
           </ShowOnLogin>
           <ShowOnLogin>
             <li
-              className="md:ml-8 text-green md:my-0 my-7"
+              className="md:ml-8 text-[#8B4513] md:my-0 my-7"
               onClick={() => setOpen(false)}
               id="nav"
             >
-              <Link to="/chat">CHAT</Link>
+              <Link to="/chatvideo" className="block w-full">VIDEOCHAT</Link>
             </li>
           </ShowOnLogin>
           <ShowOnLogin>
             <li
-              className="md:ml-8 text-green md:my-0 my-7"
+              className="md:ml-8 text-[#8B4513] md:my-0 my-7"
               onClick={() => setOpen(false)}
               id="nav"
             >
-              <Link to="/chatvideo">VIDEOCHAT</Link>
+              <Link to="/ipfsphotoshare" className="block w-full">MEMORIES</Link>
             </li>
           </ShowOnLogin>
+         
           <ShowOnLogin>
             <li
-              className="md:ml-8 text-green md:my-0 my-7"
+              className="md:ml-8 text-[#8B4513] md:my-0 my-7"
               onClick={() => setOpen(false)}
               id="nav"
             >
-              <Link to="/ipfsphotoshare">MEMORIES</Link>
-            </li>
-          </ShowOnLogin>
-          <ShowOnLogin>
-            <li
-              className="md:ml-8 text-green md:my-0 my-7"
-              onClick={() => setOpen(false)}
-              id="nav"
-            >
-              <Link to="/profile">
-                <img src={IconSvg} alt="" />
-              </Link>
+              <Link to="/profile" className="block w-full">PROFILE</Link>
             </li>
           </ShowOnLogin>
 
           {/* {Links.map((link) => (
             <li
               key={link.name}
-              className="md:ml-8 text-green md:my-0 my-7"
+              className="md:ml-8 text-[#8B4513] md:my-0 my-7"
               id="nav"
             >
               <a

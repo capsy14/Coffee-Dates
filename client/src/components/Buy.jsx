@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { ethers } from "ethers";
 import "../styles/buy.css"; // Import the CSS file
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { showToast } from "../utils/toastUtils";
 import { useParams, useSearchParams } from "react-router-dom";
 import Product from "./data.json";
 const Buy = ({ state }) => {
@@ -11,56 +10,117 @@ const Buy = ({ state }) => {
     const { contract } = state;
     const name = document.querySelector("#name").value;
     const message = document.querySelector("#message").value;
-    console.log(name, message, contract);
-    const amount = { value: ethers.utils.parseEther("0.002") };
+    
+    if (!name || !message) {
+      showToast.error("Please fill in all fields!");
+      return;
+    }
+    
+    try {
+      console.log(name, message, contract);
+      const displayPrice = Product[idd].price;
+      showToast.info(`Processing payment of ₹${displayPrice}...`);
+      
+      const amount = { value: ethers.utils.parseEther("0.002") };
 
-    const transaction = await contract.buyCoffee(name, message, amount);
-    await transaction.wait();
-    console.log("Transaction is done");
-    alert("Transaction is done");
+      const transaction = await contract.buyCoffee(name, message, amount);
+      await transaction.wait();
+      
+      console.log("Transaction is done");
+      showToast.success(`Payment successful! You paid ₹${displayPrice} for ${Product[idd].name}`);
+      
+      // Clear form after successful payment
+      document.querySelector("#name").value = "";
+      document.querySelector("#message").value = "Sending you love with this coffee ☕💕";
+      localStorage.removeItem('coffeeCart');
+      
+    } catch (error) {
+      console.error("Transaction failed:", error);
+      
+      if (error.message.includes("insufficient funds")) {
+        showToast.error("Insufficient funds! Please add more ETH to your wallet to cover gas fees.");
+      } else if (error.message.includes("rejected")) {
+        showToast.warning("Transaction cancelled by user.");
+      } else if (error.message.includes("gas")) {
+        showToast.error("Gas estimation failed. Please try again or increase gas limit.");
+      } else {
+        showToast.error("Payment failed! Please check your wallet and try again.");
+      }
+    }
   };
   const [searchParams, setSearchParams] = useSearchParams();
   const param = useParams();
   const idd = param.id;
 
   return (
-    <div className=" border-2 w-3/4 md:w-1/3 mt-25 align-middle items-center mx-auto p-5 bg-[#ECE4CF] rounded-lg drop-shadow-xl">
-      <div className=" max-w-xs mx-auto justify-center flex items-center rounded-sm overflow-hidden">
-        <img src={Product[idd].imgSrc} alt="" className="rounded-3xl w" />
+    <div className="w-full max-w-sm sm:max-w-md mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+      <div className="bg-gradient-to-r from-amber-100 to-orange-100 p-6">
+        <div className="flex justify-center mb-4">
+          <div className="w-32 h-32 rounded-full overflow-hidden shadow-lg border-4 border-white">
+            <img 
+              src={Product[idd].imgSrc} 
+              alt={Product[idd].name}
+              className="w-full h-full object-cover" 
+            />
+          </div>
+        </div>
+        <h1 className="text-center text-2xl md:text-3xl font-bold text-gray-800 mb-2">
+          {Product[idd].name}
+        </h1>
+        <p className="text-center text-gray-600">Perfect for your loved one</p>
       </div>
-      <h1 className=" text-center text-2xl font-smbold">
-        {Product[idd].name}{" "}
-      </h1>
-      <form className="buy-form" onSubmit={buycofee}>
-        <label className=" ml-2 font-normal text-xl">Name of beloved</label>
-        <input
-          type="text"
-          className="inputbuy text-lg drop-shadow-md"
-          id="name"
-          placeholder="Enter your name"
-        />
-        <label className=" ml-2 font-normal text-xl">Price</label>
-        <input
-          type="text"
-          className="inputbuy text-lg drop-shadow-md"
-          id="message"
-          value={`₹${Product[idd].price}`} 
-          disabled
-        />
+      
+      <div className="p-6">
+        <form className="space-y-6" onSubmit={buycofee}>
+          <div className="space-y-2">
+            <label className="block text-sm font-semibold text-gray-700">
+              Name of beloved ❤️
+            </label>
+            <input
+              type="text"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all duration-200 text-lg"
+              id="name"
+              placeholder="Enter your name"
+            />
+          </div>
 
-        <label className=" ml-2 font-normal text-xl">Message</label>
-        <input
-          type="text"
-          className="inputbuy text-lg drop-shadow-md"
-          id="message"
-          placeholder="Enter a love message"
-        />
-        <p className=" font-light">
-          Hey lover, your bill is ₹{Product[idd].price}.
-          <br /> Thanks a bunch!
-        </p>
-        <button type="submit">PAY</button>
-      </form>
+          <div className="space-y-2">
+            <label className="block text-sm font-semibold text-gray-700">
+              Product Price
+            </label>
+            <input
+              type="text"
+              className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-lg font-medium text-gray-600"
+              id="price"
+              value={`₹${Product[idd].price}`} 
+              disabled
+            />
+          </div>
+          
+          <div className="space-y-2">
+            <label className="block text-sm font-semibold text-gray-700">
+              Love Message 💌
+            </label>
+            <input
+              type="text"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all duration-200 text-lg"
+              id="message"
+              defaultValue="Sending you love with this coffee ☕💕"
+              placeholder="Enter a love message"
+            />
+          </div>
+
+          <button 
+            type="submit"
+            className="w-full bg-gradient-to-r from-amber-600 to-orange-600 text-white py-4 px-6 rounded-xl text-lg font-bold hover:from-amber-700 hover:to-orange-700 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] shadow-lg"
+          >
+            <span className="flex items-center justify-center space-x-2">
+              <span>💳</span>
+              <span>Pay with MetaMask</span>
+            </span>
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../services/services";
-import { toast } from "react-toastify";
+import { showToast } from "../utils/toastUtils";
 import { useDispatch } from "react-redux";
 import { SET_LOGIN, SET_NAME, SET_USER } from "../redux/slice/userSlice";
 
@@ -21,7 +21,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
-      return toast.error("All fields are required");
+      return showToast.error("All fields are required");
     }
     const userData = {
       email,

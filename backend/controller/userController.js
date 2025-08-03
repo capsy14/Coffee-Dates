@@ -103,7 +103,7 @@ const getUser = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (user) {
-    const { _id, name, email, photo, phone, bio, gender } = user;
+    const { _id, name, email, photo, phone, bio, gender, matches } = user;
     res.status(200).json({
       _id,
       name,
@@ -112,6 +112,7 @@ const getUser = asyncHandler(async (req, res) => {
       photo,
       phone,
       bio,
+      matches,
     });
   } else {
     res.status(400);
@@ -277,6 +278,66 @@ const oppositeProfile = asyncHandler(async (req, res) => {
   }
 });
 
+// Add a match (when user likes/coffee dates someone)
+const addMatch = asyncHandler(async (req, res) => {
+  const { matchedUserId } = req.body;
+  const currentUserId = req.user._id;
+
+  try {
+    // Add the matched user to current user's matches
+    const currentUser = await User.findById(currentUserId);
+    if (!currentUser.matches.includes(matchedUserId)) {
+      currentUser.matches.push(matchedUserId);
+      await currentUser.save();
+    }
+
+    // Also add current user to the matched user's matches (mutual match)
+    const matchedUser = await User.findById(matchedUserId);
+    if (matchedUser && !matchedUser.matches.includes(currentUserId)) {
+      matchedUser.matches.push(currentUserId);
+      await matchedUser.save();
+    }
+
+    res.status(200).json({ 
+      success: true, 
+      message: "Match added successfully",
+      matches: currentUser.matches 
+    });
+  } catch (error) {
+    res.status(400);
+    throw new Error("Error adding match");
+  }
+});
+
+// Remove a match
+const removeMatch = asyncHandler(async (req, res) => {
+  const { matchedUserId } = req.body;
+  const currentUserId = req.user._id;
+
+  try {
+    // Remove the matched user from current user's matches
+    const currentUser = await User.findById(currentUserId);
+    currentUser.matches = currentUser.matches.filter(id => id !== matchedUserId);
+    await currentUser.save();
+
+    // Also remove current user from the matched user's matches
+    const matchedUser = await User.findById(matchedUserId);
+    if (matchedUser) {
+      matchedUser.matches = matchedUser.matches.filter(id => id !== currentUserId);
+      await matchedUser.save();
+    }
+
+    res.status(200).json({ 
+      success: true, 
+      message: "Match removed successfully",
+      matches: currentUser.matches 
+    });
+  } catch (error) {
+    res.status(400);
+    throw new Error("Error removing match");
+  }
+});
+
 module.exports = {
   registerUser,
   loginUser,
@@ -289,4 +350,6 @@ module.exports = {
   resetPassword,
   oppositeGender,
   oppositeProfile,
+  addMatch,
+  removeMatch,
 };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../services/services";
-import { toast } from "react-toastify";
+import { showToast } from "../utils/toastUtils";
 import { useDispatch } from "react-redux";
 import { SET_LOGIN, SET_NAME, SET_USER } from "../redux/slice/userSlice";
 import ImageIcon from "./ImageIcon";
@@ -27,14 +27,14 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name || !email || !password) {
-      return toast.error("All fields are required");
+      return showToast.error("All fields are required");
     }
     if (password.length < 6) {
-      return toast.error("Passwords must be up to 6 characters");
+      return showToast.error("Passwords must be up to 6 characters");
     }
 
     if (password !== confirm_password) {
-      return toast.error("Passwords do not match");
+      return showToast.error("Passwords do not match");
     }
     try {
       setFormData((prevFormData) => ({ ...prevFormData, photo: photoLink }));

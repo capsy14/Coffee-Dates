@@ -36,6 +36,28 @@ const UserSchema = new Schema(
       max: [250, "Max length can be 23, got {VALUE}"],
       default: "+91 xxxxx",
     },
+    // New fields for ML matching
+    coffeePreferences: {
+      type: [String],
+      default: ["Espresso", "Americano"],
+    },
+    interests: {
+      type: [String],
+      default: ["Coffee", "Reading", "Movies"],
+    },
+    personality: {
+      type: String,
+      default: "Friendly and outgoing",
+    },
+    age: {
+      type: Number,
+      default: 25,
+    },
+    // Track matches - array of user IDs that this user has "coffee dated"
+    matches: {
+      type: [String],
+      default: [],
+    },
   },
   {
     timestamps: true,
