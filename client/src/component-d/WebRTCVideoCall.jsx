@@ -5,7 +5,7 @@ import { iceServers, mediaConstraints, offerOptions } from '../utils/webrtcConfi
 import './WebRTCVideoCall.css';
 
 // Use production URL if in production, localhost for development
-const SOCKET_SERVER = import.meta.env.PROD 
+const SOCKET_SERVER = process.env.NODE_ENV === 'production' 
   ? 'https://coffee-dates.onrender.com' 
   : 'http://localhost:5000';
 
