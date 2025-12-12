@@ -1,166 +1,280 @@
+# ☕ Coffee Dating DApp: Coffee Dates
 
-# Coffee Dating Dapp: Koffee-Ka-Chakkar
+Welcome to **Coffee Dates**, the innovative dating platform where your love for coffee meets the power of blockchain technology! Our app combines the pleasure of discovering exceptional coffees with the excitement of meaningful connections, all on a secure, decentralized platform.
 
-Welcome to the Coffee Dating DApp, where your love for coffee meets the magic of blockchain technology! The innovative app that brings together the world of coffee and the excitement of online dating on a secure and transparent decentralized platform. Whether you're a coffee connoisseur looking for a delightful brew or someone seeking meaningful connections, Koffee-Ka-Chakkar has something special for you.
+## 🌟 What is Coffee Dates?
 
-## What is Koffee-Ka-Chakkar?
-Koffee-Ka-Chakkar is a unique application that combines the pleasure of discovering a wide variety of coffees with the thrill of connecting with potential partners. Our platform operates on cutting-edge blockchain technology to ensure transparency, security, and privacy for all users. Whether you're a coffee connoisseur or just someone looking for a great cup of coffee and good company, this app has something special for you.
+Coffee Dates is a unique decentralized application (DApp) that blends coffee culture with modern dating. Built on blockchain technology, our platform ensures transparency, security, and privacy while helping coffee enthusiasts connect and share virtual coffee dates. Whether you're a coffee connoisseur or someone seeking genuine connections over a cup of joe, we've got you covered.
 
+## ✨ Key Features
 
-### Features:
+### 🎬 **Native WebRTC Video Calling**
+- **Peer-to-peer video calling** using native browser WebRTC APIs
+- **No third-party dependencies** - complete control and privacy
+- **Real-time signaling** via Socket.IO for seamless connections
+- **Coffee-themed UI** with warm, inviting design
+- **Low latency** connections for high-quality video dates
 
-- **Coffee Wonderland:** Explore an extensive range of coffee options from around the world. From aromatic blends to rare single-origin beans, our curated selection offers something for every coffee enthusiast.
+### ☕ **Coffee Marketplace**
+- Explore an extensive range of coffees from around the world
+- From aromatic blends to rare single-origin beans
+- Curated selection for every coffee enthusiast
+- Blockchain-powered transactions on Sepolia testnet
 
-- **Seamless Dating:** With our platform, you can enjoy seamless video sharing and chatting experiences without relying on centralized servers.
+### 💬 **Real-Time Chat**
+- Decentralized messaging with Gun.js
+- Peer-to-peer chat without centralized servers
+- Secure and private conversations
+- Share your coffee journey with potential matches
 
-- **Virtual Coffee Dates:** Connect with your chosen partner through our decentralized platform. Share virtual coffee dates, engage in meaningful conversations, and build connections that matter.
+### 📸 **Share Memories**
+- Upload and share photos via IPFS (Pinata)
+- Decentralized, encrypted photo storage
+- Create lasting memories of your coffee dates
+- Privacy-focused sharing
 
-- **Privacy First:** Our decentralized approach ensures that your personal information remains private and secure. You have control over what you share and with whom.
+### 📧 **Email Invitations**
+- Send coffee date invitations directly
+- Schedule virtual or in-person meetups
+- Automated email notifications
+- Calendar integration ready
 
-## Home Page
-![Home Page Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Hero%20Page.jpg)
+### 🔒 **Privacy First**
+- Decentralized architecture
+- Your data, your control
+- Blockchain-secured transactions
+- End-to-end encrypted communications
 
-## Buy Coffee
-![Buy Coffee Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Menu.jpg)
-After selecting the coffee, you will be redirected to the Registration  Page.
+## 📸 Screenshots
 
-## Registration Page
-![Register Page Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Register%20Page.jpg)
+### Home Page
+![Home Page](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Hero%20Page.jpg)
 
-## Login (If Already Registered)
-![Login Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Login%20Page.jpg)
+### Buy Coffee
+![Buy Coffee](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Menu.jpg)
 
-## Payment Page
-![Payment Page Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Transactions.jpg)
+### Registration & Login
+![Register](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Register%20Page.jpg)
+![Login](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Login%20Page.jpg)
 
-## Opposite Gender Profiles
-![Opposite Gender Profiles Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Profiles.jpg)
-You will be redirected to opposite gender profiles.
+### Payment & Profiles
+![Payment](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Transactions.jpg)
+![Profiles](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Profiles.jpg)
 
-## Send Email to Your Crush
-![Send Email Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Email.jpg)
-Select the time and date. You can send an email to your crush for a coffee date. The project and room ID will also be sent to your email.
-## Chat Functionality
-![Chat Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Chat%20Page.jpg)
-You can also chat with others.
+### Chat & Video Calling
+![Chat](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Chat%20Page.jpg)
+![Video Call](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Video%20Calling.jpg)
 
-## Video Call Feature
-![Video Call Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Video%20Calling.jpg)
-You can do video calls.
+### Share Memories
+![Memories](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Memories.jpg)
 
-## Share Memories
-![Share Memories Screenshot](https://github.com/capsy14/Coffee-Dates/blob/main/client/public/assets/Memories.jpg)
-You can upload memories with your crush.
+## 🛠️ Tech Stack
 
+### Frontend
+| Technology | Purpose | Documentation |
+|------------|---------|---------------|
+| **Vite + React** | Lightning-fast build tool with React framework | [Vite](https://vitejs.dev/) • [React](https://reactjs.org/docs/) |
+| **Tailwind CSS** | Utility-first CSS framework | [Tailwind](https://tailwindcss.com/docs) |
+| **Canva** | Design assets and branding | [Canva](https://www.canva.com/) |
 
-## About the App
+### Blockchain & Web3
+| Technology | Purpose | Documentation |
+|------------|---------|---------------|
+| **Solidity** | Smart contract development | [Solidity](https://soliditylang.org) |
+| **Hardhat** | Ethereum development environment | [Hardhat](https://hardhat.org/) |
+| **Ethers.js** | Ethereum wallet & contract interaction | [Ethers.js](https://docs.ethers.io/v5/) |
+| **Sepolia Testnet** | Ethereum test network | [Sepolia](https://hardhat.org/hardhat-network/) |
 
+### Real-Time Communication
+| Technology | Purpose | Documentation |
+|------------|---------|---------------|
+| **WebRTC** | Native peer-to-peer video calling | [WebRTC API](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) |
+| **Socket.IO** | Real-time bidirectional signaling | [Socket.IO](https://socket.io/docs/v4/) |
+| **Gun.js** | Decentralized P2P chat database | [Gun.js](https://gun.eco/docs/) |
 
-The Coffee Dating DApp is a unique and exciting platform that combines the pleasures of enjoying a wide variety of coffees with the thrill of meeting new people and potentially finding your perfect match. Whether you're a coffee connoisseur or just someone looking for a great cup of coffee and good company, this app has something special for you.
+### Storage & IPFS
+| Technology | Purpose | Documentation |
+|------------|---------|---------------|
+| **Pinata** | IPFS pinning service for photos | [Pinata](https://pinata.cloud/documentation) |
 
-## TechStack
+### Backend
+| Technology | Purpose | Documentation |
+|------------|---------|---------------|
+| **Node.js** | JavaScript runtime environment | [Node.js](https://nodejs.org/en/docs/) |
+| **Express** | Web application framework | [Express](https://expressjs.com/) |
+| **MongoDB** | NoSQL database | [MongoDB](https://docs.mongodb.com/) |
+| **Mongoose** | MongoDB object modeling | [Mongoose](https://mongoosejs.com/docs/) |
+| **Email.js** | Email service for notifications | [Email.js](https://www.emailjs.com/docs/) |
 
-| Category   | Technology               | Documentation Link                                    |
-|------------|--------------------------|-------------------------------------------------------|
-| Frontend   | Vite + ReactJS           | [Vite Documentation](https://vitejs.dev/)             |
-|            |                          | [React Documentation](https://reactjs.org/docs/)      |
-|            | Tailwind CSS             | [Tailwind CSS Documentation](https://tailwindcss.com/docs) |
-|            | Canva                    | [Canva](https://www.canva.com/)                      |
-| Blockchain | Solidity                 | [Solidity Documentation](https://soliditylang.org) |
-|            | Hardhat                  | [Hardhat Documentation](https://hardhat.org/getting-started/) |
-|            | Sepolia Testnet          | [Sepolia Testnet](https://hardhat.org/hardhat-network/) |
-|            | Ethers.js Library        | [Ethers.js Documentation](https://docs.ethers.io/v5/) |
-|            | Gun.js                   | [Gun.js Documentation](https://gun.eco/docs/)       |
-|            | WebRTC                   | [WebRTC API](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) |
-|            | Socket.IO                | [Socket.IO Documentation](https://socket.io/docs/v4/) |
-|            | Pinata                   | [Pinata Documentation](https://pinata.cloud/documentation) |
-| Backend    | Node.js                  | [Node.js Documentation](https://nodejs.org/en/docs/) |
-|            | Express                  | [Express Documentation](https://expressjs.com/)      |
-|            | Mongoose                 | [Mongoose Documentation](https://mongoosejs.com/docs/) |
-|            | MongoDB                  | [MongoDB Documentation](https://docs.mongodb.com/)   |
-|            | Email.js                 | [Email.js Documentation](https://www.emailjs.com/docs/) |
-|            | REST API                 | [REST API Documentation Example](https://restfulapi.net/) |
+## 🏗️ Architecture
 
+### WebRTC Video Calling Flow
+```
+User A                    Signaling Server (Socket.IO)                User B
+  |                                  |                                  |
+  |------ Connect to Socket -------->|<------- Connect to Socket -------|
+  |                                  |                                  |
+  |--- Create Offer (SDP) ---------->|                                  |
+  |                                  |------- Forward Offer ----------->|
+  |                                  |                                  |
+  |                                  |<------ Create Answer (SDP) ------|
+  |<------ Forward Answer -----------|                                  |
+  |                                  |                                  |
+  |--- ICE Candidates -------------->|<------- ICE Candidates ----------|
+  |<-------------------------------->|<-------------------------------->|
+  |                                  |                                  |
+  |<========== P2P Video/Audio Connection Established ================>|
+```
 
-## Frontend Technologies
+### Blockchain Integration
+- Smart contracts deployed on Sepolia testnet
+- Ethers.js handles wallet connections and transactions
+- Coffee purchases recorded on blockchain
+- Transparent, immutable transaction history
 
-- **Vite + ReactJS:** Our frontend is meticulously crafted using the lightning-fast Vite framework in perfect harmony with ReactJS, promising an exceptional and unparalleled user experience. Vite's innovative build approach and React's component-based architecture synergize to deliver a frontend that is not only visually stunning but also exceptionally performant and responsive.
+## 🚀 Getting Started
 
-- **Tailwind CSS:** We've harnessed the remarkable capabilities of Tailwind CSS to craft an interface that is not only visually captivating but also incredibly user-friendly. Say farewell to the era of hefty and convoluted stylesheets, as Tailwind CSS ushers in a new paradigm of streamlined and efficient styling.
+### Prerequisites
+- Node.js (v14 or higher)
+- MongoDB (local or Atlas)
+- MetaMask wallet extension
+- Modern web browser with WebRTC support
 
-- **Canva:**  Infusing our design aesthetics with the creative prowess of Canva, we ensure a user-centric experience defined by visually captivating interfaces. By harnessing Canva's tools, we craft an environment that resonates with users, elevating engagement and fostering an intuitive journey through our decentralized video sharing and chatting application.
+### Installation
 
-## Blockchain Technologies
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/capsy14/Coffee-Dates.git
+   cd Coffee-Dates
+   ```
 
-- **Solidity:** Our blockchain infrastructure is anchored in Solidity, the definitive language for crafting smart contracts on the Ethereum blockchain. With Solidity's robust capabilities, we establish a secure and trustless framework that underpins the core functionalities of our decentralized video sharing and chatting application, ensuring transparency, immutability, and seamless execution of operations.
+2. **Backend Setup**
+   ```bash
+   cd backend
+   npm install
+   
+   # Create .env file with:
+   # PORT=5000
+   # MONGO_URI=your_mongodb_connection_string
+   # JWT_SECRET=your_secret_key
+   
+   npm start
+   ```
 
-- **Hardhat:** Streamlining our smart contract development, we lean on Hardhat—a dynamic development environment and testing network for Ethereum smart contracts. With Hardhat's agile toolkit, we expedite the creation, debugging, and testing of our blockchain components, ensuring a seamless and efficient journey in bringing our decentralized video sharing and chatting application to life on the Ethereum platform.
+3. **Frontend Setup**
+   ```bash
+   cd client
+   npm install
+   npm run dev
+   ```
 
-- **Sepolia Testnet:** Our smart contracts are deployed and tested on the Sepolia testnet, allowing us to ensure functionality and security before going live.
+4. **Access the Application**
+   - Frontend: `http://localhost:3000`
+   - Backend: `http://localhost:5000`
+   - Video Call Page: `http://localhost:3000/video-call`
 
-- **Ethers.js Library:** As our preferred library for Ethereum interaction, Ethers.js simplifies the process of transmitting transactions and retrieving blockchain data. By harnessing Ethers.js, we seamlessly bridge the gap between our decentralized video sharing and chatting application and the Ethereum network, enabling efficient and reliable data exchange while ensuring a robust user experience.
+### Environment Variables
 
-- **Gun.js - Decentralized Chatting:** GUN is fully decentralized (peer-to-peer or multi-master), meaning that changes are not controlled by a centralized server. A server can be just another peer (node or vertices) in the network, one that may have more reliable resources than a browser.
+**Backend (.env)**
+```env
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/coffee-dates
+JWT_SECRET=your_jwt_secret_here
+EMAIL_SERVICE_ID=your_emailjs_service_id
+EMAIL_TEMPLATE_ID=your_emailjs_template_id
+EMAIL_PUBLIC_KEY=your_emailjs_public_key
+```
 
-- **WebRTC - Native Peer-to-Peer Video Calling:** Our platform implements native WebRTC technology for seamless video calling between users. Using browser-native APIs (getUserMedia, RTCPeerConnection) and Socket.IO for signaling, we enable secure, low-latency peer-to-peer video connections without relying on third-party services. This approach ensures privacy, reduces costs, and gives us complete control over the video calling experience while maintaining the highest standards of security and performance.
+**Frontend (.env)**
+```env
+VITE_PINATA_API_KEY=your_pinata_api_key
+VITE_PINATA_SECRET_KEY=your_pinata_secret_key
+VITE_CONTRACT_ADDRESS=your_deployed_contract_address
+```
 
-- **Pinata - IPFS Service:** Elevating user experiences, our IPFS-powered photo sharing feature is facilitated by Pinata. This integration empowers users to securely share personal photos that are encrypted, decentralized, and exclusively accessible by authorized recipients. By leveraging Pinata's capabilities, we ensure a privacy-focused, decentralized approach to photo sharing, aligning with our commitment to safeguarding user data and fostering trust within our decentralized video sharing and chatting application.
+## 📱 Features Guide
 
-## Backend Technologies
+### Video Calling
+1. Navigate to `/video-call`
+2. Copy your User ID (displayed at top)
+3. Share your User ID with your coffee date
+4. Enter their User ID in the "Recipient's User ID" field
+5. Click "Start Video Call"
+6. They accept the call
+7. Enjoy your coffee date! ☕📹
 
-- **Node.js:** The backbone of our backend infrastructure is fortified with the dynamic prowess of Node.js, a versatile runtime environment. Its scalability and event-driven architecture provide a solid foundation for executing server-side operations efficiently, accommodating the demands of our growing user base and ensuring a responsive user experience.
+### Chat
+- Real-time messaging powered by Gun.js
+- Fully decentralized P2P communication
+- No message history stored on central servers
 
-- **Express:** A robust framework, Express, takes center stage in crafting our APIs. With its intuitive design and flexibility, it becomes the conduit for seamless communication between our frontend and backend components. Express empowers us to build APIs that are not only reliable but also adaptable, facilitating the exchange of data and actions between different parts of our application.
+### Buy Coffee
+- Browse coffee selection
+- Connect MetaMask wallet
+- Purchase using Sepolia ETH
+- Transaction recorded on blockchain
 
-- **Mongoose:** Navigating the MongoDB landscape is made smoother with Mongoose, a sophisticated Object Data Modeling (ODM) library. Mongoose streamlines the interaction between our Node.js application and MongoDB, abstracting away complexities and providing an elegant structure for managing data models and queries. Its presence enhances the overall maintainability and efficiency of our backend operations.
+## 🤝 Contributing
 
-- **MongoDB:** Anchoring our data management is MongoDB, a NoSQL database solution. Chosen for its flexibility and scalability, MongoDB ensures efficient storage and retrieval of user data. Its document-based structure harmonizes well with our decentralized approach, enabling us to store and manage data in a way that aligns with our platform's principles.
+We welcome contributions from the community! Here's how you can help:
 
-- **Email.js:** Communication is paramount in our user-centric ecosystem. Enter Email.js, a reliable tool that seamlessly facilitates the dispatch of transactional emails and notifications. This integration enhances user engagement, ensuring that users remain informed and connected, ultimately contributing to an enriched overall experience.
+1. **Fork the Repository**
+2. **Create a Feature Branch**
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+3. **Commit Your Changes**
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
+4. **Push to the Branch**
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+5. **Open a Pull Request**
 
-- **REST API:** The connective tissue of our application, the RESTful API architecture, empowers efficient interaction between different components. Its well-defined endpoints and structured approach enable smooth data exchange and function invocation. By adhering to REST principles, we ensure a consistent and intuitive interaction model for our users, promoting user satisfaction and ease of use.
+### Development Guidelines
+- Follow existing code style and conventions
+- Add comments for complex logic
+- Test your changes thoroughly
+- Update documentation as needed
 
+## 👥 Team
 
+| Name | Role | GitHub | Contributions |
+|------|------|--------|---------------|
+| **Bikram Dhanraj** | Frontend Lead | [@BikramNarayan](https://github.com/BikramNarayan) | Vite, Tailwind CSS, UI/UX, Email.js integration |
+| **Jenil Jain** | Backend Lead | [@jeniljain2811](https://github.com/jeniljain2811) | Node.js, Express, MongoDB, REST API |
+| **Kartik Bhatt** | Web3 & WebRTC Lead | [@capsy14](https://github.com/capsy14) | Solidity, Hardhat, WebRTC, Socket.IO, Gun.js, IPFS |
 
-## Get Involved
+## 📄 License
 
-Are you excited about coffee, technology, and fostering meaningful connections? Join our community:
+This project is open source and available under the [MIT License](LICENSE).
 
-- **Developers:** We welcome contributors who want to help improve our platform. Feel free to fork our repository and submit pull requests.
+## 🔗 Links
 
-- **Feedback:** We value your ideas and suggestions. Share your thoughts by opening an issue on our GitHub repository.
+- **Live Demo**: [coffee-dates.vercel.app](https://koffee-ka-chakkar01.vercel.app)
+- **GitHub**: [github.com/capsy14/Coffee-Dates](https://github.com/capsy14/Coffee-Dates)
+- **Report Issues**: [GitHub Issues](https://github.com/capsy14/Coffee-Dates/issues)
 
-- **Spread the Word:** Help us spread the word about the Coffee Dating DApp. Share with friends and on social media to brew love together!
+## 📞 Support
 
-## Stay Connected
+Need help? Have questions?
+- Open an issue on GitHub
+- Contact the team through our repository
 
-Stay updated with the latest news, features, and coffee trends:
+## 🎯 Roadmap
 
-
-Download the Coffee Dating DApp today and experience the fusion of coffee and blockchain technology, creating connections that are both delicious and meaningful. ☕❤️📅
+- [ ] Mobile app (React Native)
+- [ ] Group video calls
+- [ ] AI-powered coffee recommendations
+- [ ] NFT-based coffee collection cards
+- [ ] Multi-language support
+- [ ] Mainnet deployment
 
 ---
 
-### Running the Project
+**Made with ☕ and ❤️ by the Coffee Dates Team**
 
-To run the Koffee Ka Chakkar project, follow these steps:
-
-1. **Open a Terminal Window:** Open your preferred terminal or command prompt.
-
-2. **Navigate to the Project Directory:**
-   ```sh
-   git clone https://github.com/capsy14/Koffee-Ka-Chakkar.git
-   cd Koffee-Ka-Chakkar
-   node index.js    #To start Backend server
-   cd client
-   npm i 
-   npm run start
-
-## Contributors
-
-| Name          | Username              | Work                                                      |
-|---------------|-----------------------|-----------------------------------------------------------|
-| Bikram Dhanraj| @BikramNarayan        | Vite, Tailwind CSS, Canva (Frontend), Email.js, Node.js,Mongoose |
-| Jenil Jain    | @jeniljain2811        | Node.js, Express, Mongoose, MongoDB, , REST API   |
-| Kartik Bhatt  | @capsy14              | Solidity, Hardhat, Ethers.js, Gun.js, WebRTC, Socket.IO, Pinata IPFS   |
+*Brew Love, One Cup at a Time* 🌟
 
