@@ -13,6 +13,7 @@ import Product from "./components/Product";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import Home2 from "./pages/Home/Home-d-safe";
+import HomeWebRTC from "./pages/Home/HomeWebRTC";
 import Chat from "./components/Chat";
 import Ipfssave from "./components/Ipfssave";
 import { ToastContainer, toast } from "react-toastify";
@@ -125,6 +126,7 @@ function App() {
               <Route path="/wallet/:id" element={<Home />} />
 
               <Route path="/chatvideo" element={<Home2 />} />
+              <Route path="/video-call" element={<HomeWebRTC />} />
               <Route path="/ml-matches" element={<MLMatchmaker />} />
 
               <Route path="/chat" element={<Chat />} />

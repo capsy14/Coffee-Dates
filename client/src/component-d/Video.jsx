@@ -1,43 +1,53 @@
 import React, { useEffect, useRef } from "react";
-import { useHuddle01Web } from "@huddle01/react/hooks";
-import Button from "./Button"; // Import the Button component from the same directory
+import "./Video.css";
 
-const Video = ({ peerId, track }) => {
-  const { state } = useHuddle01Web();
-
-  const getStream = (_track) => {
-    const stream = new MediaStream();
-    stream.addTrack(_track);
-    return stream;
-  };
-
+/**
+ * Video component for rendering remote peer video in WebRTC
+ * This component displays a single video stream from a remote peer
+ */
+const Video = ({ peerId, stream, displayName = "User" }) => {
   const videoRef = useRef(null);
-  useEffect(() => {
-    console.log({ consumers: state.context.consumers });
-    const videoObj = videoRef.current;
 
-    if (videoObj) {
-      videoObj.srcObject = getStream(track);
-      videoObj.onloadedmetadata = async () => {
-        console.warn("videoCard() | Metadata loaded...");
+  useEffect(() => {
+    const videoElement = videoRef.current;
+
+    if (videoElement && stream) {
+      videoElement.srcObject = stream;
+      
+      videoElement.onloadedmetadata = async () => {
+        console.log(`✅ Video metadata loaded for peer: ${peerId}`);
         try {
-          await videoObj.play();
+          await videoElement.play();
         } catch (error) {
-          console.error(error);
+          console.error("Error playing video:", error);
         }
       };
-      videoObj.onerror = () => {
-        console.error("videoCard() | Error is happening...");
+
+      videoElement.onerror = (error) => {
+        console.error("Video element error:", error);
       };
     }
-  }, [state.context.consumers]);
 
-  console.log({ consumers: state.context });
+    // Cleanup
+    return () => {
+      if (videoElement) {
+        videoElement.srcObject = null;
+      }
+    };
+  }, [stream, peerId]);
 
   return (
-    <div>
-      {peerId}
-      <video ref={videoRef} autoPlay></video>
+    <div className="video-peer-container">
+      <video 
+        ref={videoRef} 
+        autoPlay 
+        playsInline
+        className="peer-video-element"
+      />
+      <div className="peer-video-label">
+        <span className="peer-name">{displayName}</span>
+        <span className="peer-id">ID: {peerId?.slice(0, 8)}...</span>
+      </div>
     </div>
   );
 };

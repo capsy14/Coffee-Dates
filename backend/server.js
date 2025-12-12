@@ -150,6 +150,41 @@ io.on("connection", (socket) => {
     }
   });
 
+  // WebRTC Video Call Signaling Events
+  socket.on('video-call:offer', ({ receiverId, senderId, offer }) => {
+    console.log('📞 Forwarding call offer from', senderId, 'to', receiverId);
+    const receiverSocket = users[receiverId];
+    if (receiverSocket) {
+      io.to(receiverSocket).emit('video-call:offer', { offer, senderId });
+    } else {
+      console.log('❌ Receiver not found:', receiverId);
+    }
+  });
+
+  socket.on('video-call:answer', ({ receiverId, senderId, answer }) => {
+    console.log('📞 Forwarding call answer from', senderId, 'to', receiverId);
+    const receiverSocket = users[receiverId];
+    if (receiverSocket) {
+      io.to(receiverSocket).emit('video-call:answer', { answer, senderId });
+    }
+  });
+
+  socket.on('video-call:ice-candidate', ({ receiverId, senderId, candidate }) => {
+    console.log('🧊 Forwarding ICE candidate from', senderId, 'to', receiverId);
+    const receiverSocket = users[receiverId];
+    if (receiverSocket) {
+      io.to(receiverSocket).emit('video-call:ice-candidate', { candidate, senderId });
+    }
+  });
+
+  socket.on('video-call:end', ({ receiverId, senderId }) => {
+    console.log('📵 Call ended between', senderId, 'and', receiverId);
+    const receiverSocket = users[receiverId];
+    if (receiverSocket) {
+      io.to(receiverSocket).emit('video-call:end', { senderId });
+    }
+  });
+
   // When a user disconnects
   socket.on("disconnect", () => {
     // Find and remove the disconnected user

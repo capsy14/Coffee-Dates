@@ -4,8 +4,8 @@ export default () => {
       avatar:
         "http://res.cloudinary.com/dgcmq62on/image/upload/v1706523074/gp7mvjaggjqdmetp1h0o.jpg",
       name: "Kartik Bhatt",
-      title: "Blockchain Developer",
-      desc: "Blockchain Innovator, Tech Enthusiast, Distributed Ledger Expert",
+      title: "Backend Developer",
+      // desc: "Backend, Tech Enthusiast, Distributed Ledger Expert",
       company: "PayPal",
       linkedin: "https://www.linkedin.com/in/kartik-bhatt-2b9b2b256/"
     },
@@ -14,7 +14,7 @@ export default () => {
         "http://res.cloudinary.com/dgcmq62on/image/upload/v1706522680/wxg7j7ql8bdwlbdjpnqx.jpg",
       name: "Bikram Narayan Dhanraj",
       title: "Frontend and Backend Developer",
-      desc: "Creative Designer, Maestro of Frontend and Backend Development",
+      // desc: "Creative Designer, Maestro of Frontend and Backend Development",
       company: "PayPal",
       linkedin: "https://www.linkedin.com/in/bikram-narayan/"
     },
@@ -23,7 +23,7 @@ export default () => {
         "http://res.cloudinary.com/dgcmq62on/image/upload/v1706523103/ilobzhcojeqrke0quvk8.jpg",
       name: "Jenil Jain",
       title: "Frontend Developer",
-      desc: "Frontend Architect, Frontend Development Prodigy",
+      // desc: "Frontend Architect, Frontend Development Prodigy",
       company: "Amazon",
       linkedin: "https://www.linkedin.com/in/jenil-jain-484095267/"
     },

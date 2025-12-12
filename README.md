@@ -71,7 +71,8 @@ The Coffee Dating DApp is a unique and exciting platform that combines the pleas
 |            | Sepolia Testnet          | [Sepolia Testnet](https://hardhat.org/hardhat-network/) |
 |            | Ethers.js Library        | [Ethers.js Documentation](https://docs.ethers.io/v5/) |
 |            | Gun.js                   | [Gun.js Documentation](https://gun.eco/docs/)       |
-|            | Huddle01                 | [Huddle01](https://huddle01.com/)                   |
+|            | WebRTC                   | [WebRTC API](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) |
+|            | Socket.IO                | [Socket.IO Documentation](https://socket.io/docs/v4/) |
 |            | Pinata                   | [Pinata Documentation](https://pinata.cloud/documentation) |
 | Backend    | Node.js                  | [Node.js Documentation](https://nodejs.org/en/docs/) |
 |            | Express                  | [Express Documentation](https://expressjs.com/)      |
@@ -101,7 +102,7 @@ The Coffee Dating DApp is a unique and exciting platform that combines the pleas
 
 - **Gun.js - Decentralized Chatting:** GUN is fully decentralized (peer-to-peer or multi-master), meaning that changes are not controlled by a centralized server. A server can be just another peer (node or vertices) in the network, one that may have more reliable resources than a browser.
 
-- **Huddle01 - Decentralized Video Chatting:** Enriching our platform with cutting-edge capabilities, the integration of Huddle01 empowers users to engage in face-to-face video conversations seamlessly within the app. Leveraging decentralized technology, Huddle01 ensures privacy and security, allowing users to connect authentically while adhering to our platform's core principles of decentralization and user-centricity.
+- **WebRTC - Native Peer-to-Peer Video Calling:** Our platform implements native WebRTC technology for seamless video calling between users. Using browser-native APIs (getUserMedia, RTCPeerConnection) and Socket.IO for signaling, we enable secure, low-latency peer-to-peer video connections without relying on third-party services. This approach ensures privacy, reduces costs, and gives us complete control over the video calling experience while maintaining the highest standards of security and performance.
 
 - **Pinata - IPFS Service:** Elevating user experiences, our IPFS-powered photo sharing feature is facilitated by Pinata. This integration empowers users to securely share personal photos that are encrypted, decentralized, and exclusively accessible by authorized recipients. By leveraging Pinata's capabilities, we ensure a privacy-focused, decentralized approach to photo sharing, aligning with our commitment to safeguarding user data and fostering trust within our decentralized video sharing and chatting application.
 
@@ -161,5 +162,5 @@ To run the Koffee Ka Chakkar project, follow these steps:
 |---------------|-----------------------|-----------------------------------------------------------|
 | Bikram Dhanraj| @BikramNarayan        | Vite, Tailwind CSS, Canva (Frontend), Email.js, Node.js,Mongoose |
 | Jenil Jain    | @jeniljain2811        | Node.js, Express, Mongoose, MongoDB, , REST API   |
-| Kartik Bhatt  | @capsy14              | Solidity, Hardhat, Ethers.js, Gun.js, Huddle01, Pinata IPFS   |
+| Kartik Bhatt  | @capsy14              | Solidity, Hardhat, Ethers.js, Gun.js, WebRTC, Socket.IO, Pinata IPFS   |
 

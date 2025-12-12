@@ -1,13 +1,17 @@
 import React from "react";
-import { useHuddle01Web } from "@huddle01/react/hooks";
-import Button from "./Button"; // Import the Button component from the same directory
+import Button from "./Button";
 
-const SendButton = ({ event, disabled }) => {
-  const { send } = useHuddle01Web();
-
+/**
+ * SendButton - Generic button component for WebRTC actions
+ * Replaced Huddle dependency with standard button implementation
+ */
+const SendButton = ({ event, disabled, onClick }) => {
   return (
     <div>
-      <Button disabled={disabled} onClick={() => send(event)}>
+      <Button 
+        disabled={disabled} 
+        onClick={onClick || (() => console.log(`Event: ${event}`))}
+      >
         {event}
       </Button>
     </div>
